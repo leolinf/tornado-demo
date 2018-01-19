@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html ng-app="Datatao">
+{% include "import.html"%}
+<head>
+	<title>数据淘</title>
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="description" content="数据淘专注数据垂直搜索，是全国首个大数据垂直搜索平台，是大数据时代首选的数据搜索平台，数据来自独家分布式数据采集系统、第三方企业/平台/个人、政府机构等，涵盖社交、电商、金融、医疗、教育、科研等领域近50000个数据集、约20亿+条数据。">
+	<meta name="keywords" content="数据淘，淘数据，数据共享， 社交数据，电商数据，金融数据，医疗健康数据，生活日常数据，交通数据，旅游数据，教育数据，科研数据，5万数据集，20亿条数据，海量数据，大数据，垂直搜索">
+	<meta name="author" content="卧龙大数据">
+	<script type="text/css">
+        var isIE = function(ver){
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+            return b.getElementsByTagName('i').length === 1
+        }
+        if(isIE(6) || isIE(7) || isIE(8)){
+            alert('您的浏览器太古老，请下载新的浏览器获得更好的使用体验');
+            window.location = "http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html";
+        }
+       
+    </script>
+	<script type="text/javascript" src="/vendor/svgeverybody.js" ></script>
+	<script type="text/javascript" >svg4everybody();</script>
+	<link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/icon_svgs/sprite.css" rel="stylesheet" type="text/css" />
+	<base href="/"></head>
+<body>
+	<header autoscroll="true">
+		<div class="navbar">
+			<div class="header-navbar">				
+				<!-- 头部列表部分 -->
+				<div class="b-b-gray">
+					<div class="container">
+						<div class="row">
+							<div class="welcome">欢迎来到&nbsp;&nbsp;数据淘！</div>
+							<div class="f-r">
+								<ul class="navbar-nav nav">
+									<li><a href="/">数据淘首页</a></li>
+									<li><a href="/signup">注册</a></li>
+									<li><a href="/signin">登录</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-searchs">				
+				<div class="container p-b-xlg clearfix">					
+					<!-- logo区域 -->	
+	        		<div class="logo"><a href="/" style="display:block;width:100%;height:100%;"></a></div>
+
+					<div class="search">
+					    <!-- 搜索数据 -->
+					    <input type="text" placeholder="搜索您想要的数据">
+					    <button type="button" class="btn-search">搜全网</button>			    
+					</div>	
+
+					<!-- 二维码部分 -->
+					<div class="qr-cod">
+						<img src="/assets/images/erweimatop.png" alt="">
+						<div class="qr-cod-detail hide">
+							<div class="triangle"></div>
+							<div class="triangle-white"></div>
+							<div class="cod-detail-title">官方微信</div>
+							<img src="/assets/images/wx_code.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				
+				<div class="container main-nav" ng-if="!$state.includes( 'userCenter' )">
+					<div class="row">
+						<div class="navbar">
+							<ul class="nav-list">
+				                <li class="active"><a href="/">首页</a></li>
+								<li><a href="/search/list">数据市场</a></li>
+								<li><a href="/quality_data">精品数据</a></li>
+								<li><a href="/demand/list">数据定制</a></li>
+								<li><a href="/platformFeature">平台特色</a></li>
+								<li><a href="/help_center/1">帮助中心</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>		
+			</div>			
+		</div>
+	</header>
+
+
+	<!-- 首页中间内容部分 -->	
+	<!-- 查看详细信息 -->
+	<!-- <div class="wrap p-t-lg bg-blue-shallow"> -->
+	<div class="wrap">
+		<div class="prompt-info bg-blue-translucent">
+
+		</div>
+		<div class="container m-t-sm">
+			<div class="row details">			
+				<div class="main-content">
+					<div class="row">
+						<!-- 当前所在位置 -->
+						<div class="position">
+							<ul>
+								<li><a href="/">首页</a></li>
+								<li><a href="/search/list?category={{res.get('category')}}">{{category}}</a></li>
+								<li>{{res.get('title')}}</li>
+							</ul>
+						</div> 
+					</div>
+
+					<!-- 详情信息部分 -->
+					<div class="row detail-content m-t-sm">
+						<div class="row">
+							<div class="detail-title">{{res.get('title')}}</div>
+						</div>
+						<div class="row detail-baseInfo m-t-sm">
+							<div class="col-9 baseInfo">
+								<div class="row text-gray">
+									<span class="special-data">{% if res.get('comeFrom') == 0 %}
+																	独家
+																{% end %}
+																{% if res.get('comeFrom') == 1 %}
+																	爬取
+																{% end %}
+
+															{% if res.get('comeFrom') == 2 %}
+																　独家
+															 {% end %}
+									</span>
+									{% if res.get('hasAttachment') == 1 %}
+										<span class="can-download">
+											可下载
+										</span>
+									{% end %}
+	                                <span>分类：{{category}}</span><span>|</span>
+	                                <span>格式：{{dataType}}</span><span>|</span>
+	                                <span>浏览：{{res.get('hits')}}</span><span>|</span>
+	                                <span>发布：</span>
+	                                <span>数据大小：{{res.get('dataSize')}}k</span>
+								</div>
+								<div class="row m-t-sm">
+									<span>价格：</span>
+	                                <span class="price">{{res.get('cost')}}</span>
+								</div>
+								<div class="row m-t-sm hide">
+									<span>联&nbsp;系&nbsp;人：</span>
+	                                <span class="contact-person">{{res.get('linkman')}}</span>
+								</div>
+								<div class="row m-t-sm hide">
+									<span>联系方式：</span><span class="contact-way">{{res.get('contact')}}</span>
+								</div>
+
+								<div class="row m-t-sm">
+									<span>数据来源：</span>
+	                                <span class="contact-person">{% if res.get('comeFrom') == 0 %}
+																	独家
+																{% end %}
+																{% if res.get('comeFrom') == 1 %}
+																	爬取
+																{% end %}
+
+															{% if res.get('comeFrom') == 2 %}
+																　独家
+															 {% end %}
+									</span>
+								</div>
+								<div class="row m-t-sm"  ng-if="vm.detail.comeFrom === vm.dataComefromObj.thirdParty.value">
+									<span>数据链接：</span>
+									<span class="contact-way">
+										<a href='http://www.dataduoduo.com/DataPackage/Detail/7a0178c0-3373-43c0-b853-d248c1c94462' target="_blank">http://www.dataduoduo.com/DataPackage/Detail/7a0178c0-3373-43c0-b853-d248c1c94462</a>
+									</span>
+								</div>
+							</div>
+							<!-- 右边按钮组 -->
+							<div class="col-3 buttons">
+								<div class="row" ng-if="!vm.isFromMyData">
+									<button type="button" class="btn btn-orange">收藏数据</button>								
+									<button type="button" class="btn btn-orange hide">取消收藏</button>								
+								</div>						
+								<div class="row hide">
+									<button type="button" class="btn btn-orange">收藏数据</button>								
+								</div>						
+								</p>
+								<div class="row m-t-sm">
+									<button type="button" class="btn btn-green" ng-if="vm.detail.hasAttachment" ng-click="vm.downloadData()">下载数据</button>								
+								</div>
+	                            <p><span ng-if="vm.detail.attachmentDown > 0">（已下载 {{res.get('attachmentDown')}} 次）</span></p>
+							</div>
+						</div>
+						<!-- 数据简介 -->
+						<div class="row m-t-lg"><h3>数据简介</h3></div>
+						<div class="row m-t-sm data-info" ng-bind="vm.detail.intro">
+							{{res.get('intro')}}
+						</div>
+						<!-- 分割线 -->
+						<div class="row m-t-lg split-circle">
+							<span class="left-circle"></span><hr><span class="right-circle"></span>
+						</div>
+
+						<div class="row m-t-sm">
+							<div class="info-block">
+								<div class="info-block-head">
+									<div class="tabs">
+                                        {% if res['dataFormat'] == 4 %}
+										<div class="tab active">接口信息</div>
+										<div class="tab">数据样例</div>
+                                        {% else %}
+										<div class="tab">数据详情</div>
+                                        {% end %}
+									</div>
+								</div>
+
+								<div class="info-block-body">
+									<p>{% raw res.get('sample') %}</p>
+								</div>
+								{% if res.get('dataFormat') == 4%}
+								<div class="info-block-body">
+                                    {% raw res.get('interface') %}
+								</div>
+								{% end %}
+
+							</div>
+						</div>	
+						<div class="row text-center m-t-xlg m-b-xs">
+							<button class="btn btn-green btn-lg m-r-lg">编辑</button>
+							<button class="btn btn-red btn-lg">删除</button>
+						</div>			
+					</div>	
+
+					<!-- 说明 -->
+					<div class="row explain m-t-sm hide">
+							本数据由用户上传或公开渠道发布，版权归发布者所有，如无意中侵犯了您的版权，请发送邮件至service@datatao.com，并提供相应证明，本站将在5个工作日内进行评估和解决。
+					</div>			
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- 页面底部 -->
+    {% include 'footer.html'%}
+</body>
+</html>

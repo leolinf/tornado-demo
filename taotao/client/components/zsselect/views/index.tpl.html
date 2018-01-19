@@ -1,0 +1,13 @@
+<div class="zs-select-unit zs-select-user zs-select " ng-click="toggleSelectList();"  ng-attr-id="{{ randomId }}" ng-class="{ 'zs-select-unit-active': listVisible }">
+    <div class="zs-select-unit-div " unselectable="on" ng-class="{'select-shadow':listVisible}">
+        {{ options[selectedItemIndex].name }}
+        <span class="caret"></span>
+    </div>
+    <div class="zs-select-unit-option zs-select-user-option" ng-class="{ 'zs-select-options-show select-shadow' : listVisible}">
+        <div class="zs-select-unit-option-div " ng-repeat="option in options" ng-bind="option.name" ng-click="setSelectedItem( $index )">条</div>
+    </div>
+    <!--
+    <select ng-model="selectedValue" ng-options="option as options.name for option in options track by option.value">
+    </select>
+    -->
+</div>

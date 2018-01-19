@@ -1,0 +1,289 @@
+@import "../base/variables";
+@import "../base/font";
+@import "../base/theme";
+@import "../base/padding";
+@import "../base/margin";
+@import "../normalize";
+@import "../base/theme";
+
+
+/* 个人中心 */
+.personal-center{
+	padding-top: 40px;
+	.aside{
+		width: 220px;
+		display: table-cell;
+		h2{
+			height: 72px;
+			line-height: 72px;
+			text-align: center;
+			.bg-white;
+		}
+		ul{
+			.bg-white;
+			li{
+				height: 50px;
+				line-height: 50px;
+				border-top: 1px solid rgb(240, 240, 240);
+				a{
+					display: block;
+					color: @black;
+					font-family: @microyahei;
+					text-align: center;
+				}
+			}
+		}
+	}
+	.info-content{
+		.p-l-sm;
+		width: 980px;
+		.number{
+			font-family: @microyahei;
+			font-size: 20px;
+			padding: 0 10px;
+			.bold;
+		}
+		.info-block{
+			.p-md;
+			.bg-white;	
+			width: 100%;
+			.clearfix;
+			h3{
+				height: 16px;
+				line-height: 16px;
+				font-family: @songti;
+				.bold;
+				.p-l-xs;
+				// border-left: 2px @blue-deep solid;
+			}
+			.careful{
+				min-height: 48px;
+				padding: 12px 20px;
+				width: 100%;
+				font-size: 14px;
+				line-height: 24px;
+				.p-l-sm;
+				.m-t-md;
+				// background-color: rgb(240, 240, 240);
+				.bg-gradient;
+				font-family: @songti;
+				color: @black;
+				// width: 900px;
+				// .ellipsis;
+			}
+		}
+		.account-info{
+			font-family: @songti;
+			font-size: 14px;
+			background-image: url("/assets/images/account_management_bg.png");
+			background-position: right top;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			div{
+				height: 20px;
+				line-height: 20px;
+			}
+			span{
+				display: inline-block;
+				font-family: @songti;
+			}
+			.name{
+				float: left;
+				width: 130px;
+				text-align: left;
+			}
+		}
+		.my-download{
+			background-image: url("/assets/images/my_download_bg.png");
+			background-position: right top;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		.my-collection{
+			background-image: url("/assets/images/my_collection_bg.png");
+			background-position: right top;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		.my-data{
+			background-image: url("/assets/images/my_data_bg.png");
+			background-position: right top;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		.my-customization{
+			background-image: url("/assets/images/my_customization_bg.png");
+			background-position: right top;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		.message{
+			background-image: url("/assets/images/message_bg.png");
+			background-position: right top;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		.account-info-set{
+			height: 610px;
+		}
+		/* 统计 */
+		.statistics{
+			color: @gray;			
+		}
+		.add-data{
+			text-align: right;
+			button{
+				width: 144px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+		}
+		.label{
+			width: 120px;
+		}
+	}
+	.feedback{
+		textarea{
+			width: 780px;
+			min-height: 260px;
+			font-family: @songti;
+			font-size: 14px;
+			resize:none;
+		}
+	}
+	.base-info-set{
+		// margin-top: 20px;
+		h3{
+			border-left: 2px @blue-deep solid;
+		}
+		.operate-status{
+			label{
+				margin-right: 80px;
+			}
+		}
+		.form-group{
+			line-height: 40px;
+			font-size: 14px;
+			.clearfix;
+			// overflow: hidden;
+			input[type='text']{
+				border: none;
+				border-bottom: 1px solid rgb(200,200,200);
+				padding: 12px 10px;
+				width: 100%;
+				&:focus{
+					outline:none;
+					border-bottom: 1px solid @blue;	
+				}
+			}
+			textarea{
+				display: block;
+				width: 100%;
+				min-width: 200px;
+			}
+			select{
+				padding: 10px 10px;
+				line-height: 16px;
+				width: 100%;
+				border: 0;
+				border-bottom: 1px solid rgb(200,200,200);
+			}
+		}
+		.btn-save{
+			width: 180px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			font-family: @songti;
+		}
+	}
+	
+
+
+	.table{
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		tr{			
+			font-family: @microyahei;
+			font-size: 14px;			
+			th{				
+				color: @white;
+				height: 48px;
+				line-height: 48px;
+				text-align: left;
+				font-family: @songti;
+				font-weight: 500;
+				&:nth-child(1){
+					padding-left: 30px;
+				}
+				&:nth-last-child(1){
+					padding-right: 30px;
+					text-align: right;
+				}
+				border: 0;
+			}
+			td{
+				height: 48px;
+				line-height: 48px;
+				text-align: left;
+				border-bottom: 1px solid rgb(240, 240, 240);
+				&:nth-child(1){
+					padding-left: 30px;
+				}
+				&:nth-last-child(1){
+					padding-right: 30px;
+					text-align: right;
+				}
+			}			
+            &.not-clickable:hover{
+                cursor:normal;
+            }
+		}
+
+		.usercenter-list-empty{
+			height:552px;
+			text-align: center !important;
+			vertical-align: top;
+			padding-top: 100px;
+			span{
+				margin: 0 auto;
+				margin-top: 100px;
+				font-family: @microyahei;
+				font-size: 20px;
+				line-height: 36px;
+				color: #969696;
+				a{
+					color: @blue;
+					text-decoration: underline;
+				}				
+			}
+			&:hover{
+				background-color: @white !important;
+			}
+		}
+	}
+
+	.bg-gray-block{
+		display: block;
+		background-color: @gray-deep;
+		border: 1px solid #c8c8c8;
+		background-color: #f0f0f0;
+		width: 78px;
+		height: 28px;
+		margin-top: 5px;
+		line-height: 30px;
+	}
+}
+
+//我的收藏表格
+.my-collection-table{
+	td{
+		&:nth-child(1){
+			div{
+				width:600px;
+			}
+		}
+	}
+}

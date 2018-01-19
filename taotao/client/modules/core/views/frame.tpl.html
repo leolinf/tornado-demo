@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="Datatao">
+<head>
+<title>数据淘</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="description" content="数据淘专注数据垂直搜索，是全国首个大数据垂直搜索平台，是大数据时代首选的数据搜索平台，数据来自独家分布式数据采集系统、第三方企业/平台/个人、政府机构等，涵盖社交、电商、金融、医疗、教育、科研等领域近50000个数据集、约20亿+条数据。">
+    <meta name="keywords" content="数据淘，淘数据，数据共享， 社交数据，电商数据，金融数据，医疗健康数据，生活日常数据，交通数据，旅游数据，教育数据，科研数据，5万数据集，20亿条数据，海量数据，大数据，垂直搜索">
+    <meta name="author" content="卧龙大数据">
+    <script type="text/css">
+        var isIE = function(ver){
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+            return b.getElementsByTagName('i').length === 1
+        }
+        if(isIE(6) || isIE(7) || isIE(8)){
+            alert('您的浏览器太古老，请下载新的浏览器获得更好的使用体验');
+            window.location = "http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html";
+        }
+       
+    </script>
+    <script type="text/javascript" src="/vendor/svgeverybody.js" ></script>
+    <script type="text/javascript" >svg4everybody();</script>
+    <link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/icon_svgs/sprite.css" rel="stylesheet" type="text/css" />
+    <base href="/">
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?dd067bf014c6b756acf0b9925bf02a0d";
+        var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body ng-class="{ 'bg-blue-shallow': $state.includes( 'userCenter' ), 'bg-grid' : !$state.includes( 'userCenter' )}">
+    <div style="min-height:100%;padding-bottom:236px;position:relative;">
+        <header autoscroll="true">
+            <div class="navbar">			
+                <!-- 头部列表部分 -->
+                <div class="header-navbar" header-topnav ng-if="$state.current.name !== 'signIn' && $state.current.name !== 'signup'"></div>
+
+                <!-- 头部-搜索部分 -->
+                <!-- <div class="header-searchs" header-search></div> -->
+                <div ng-include="'/components/header/header_main.tpl.html'" class="header-searchs"></div>
+            </div>
+        </header>
+        <div ui-view class="wrap views-height"></div>
+        <!-- 页面底部 -->
+        <footer style="position:absolute;bottom:0;width:100%;">
+            <div class="footer bg-default" footer-directive ng-if="$state.is( 'signIn' ) || $state.is( 'signup' ) || $state.is( 'forgetpassword')"></div>
+            <div class="footer bg-reverse" footer-directive ng-if="!( $state.is( 'signIn' ) || $state.is( 'signup' ) || $state.is( 'forgetpassword') )"></div>
+        </footer>
+    </div>
+    <div class="gh-home-qq">
+        <!-- <a style="color: #85a7bb" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2957662965&site=qq&menu=yes">Q<br>Q<br>客<br>服</a> -->
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3348467558&site=qq&menu=yes">
+            <svg>
+                <use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#service-icon" width="24" height="24"></use>
+            </svg>
+            <br/>联<br/>系<br/>客<br/>服
+        </a>
+    </div>
+
+    <script type="text/javascript" src="/vendor/jquery/jquery.min.js" ></script>
+    <script type="text/javascript" src="/vendor/angular/angular.min.js" ></script>
+    <script type="text/javascript" src="/vendor/ueditor/ueditor.config.js" ></script>
+    <script type="text/javascript" src="/vendor/ueditor/ueditor.all.js" ></script>
+
+    <!-- <script type="text/javascript" src="/vendor/angular-locale_zh-cn.js" ></script> -->
+
+    <script type="text/javascript" src="/vendor/underscore.js" ></script>
+    <script type="text/javascript" src="/vendor/ui-bootstrap-angular/ui-bootstrap-tpls.min.js" ></script>
+    <script type="text/javascript" src="/vendor/angular-plugin.js" ></script>
+    <script type="text/javascript" src="/vendor/qiniu.js"></script>
+    <script type="text/javascript" src="/vendor/plupload.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/config.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/validator.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zsselect.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zscheckbox.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zsradio.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zsverifycode.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zstag.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zscatstring.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/zsuploadqiniu.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/header.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/footer.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/signin.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/detail.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/poplayer.js" ></script>
+    <script type="text/javascript" src="/assets/js/components/pagination.js" ></script>
+    <script type="text/javascript" src="/assets/js/modules/core.js" ></script>
+    <script type="text/javascript" src="/assets/js/modules/bootstrap.js" ></script>
+    <script type="text/javascript" src="/assets/js/modules/account.js" ></script>
+    <script type="text/javascript" src="/assets/js/modules/data.js" ></script>
+    <script type="text/javascript" src="/assets/js/modules/demand.js" ></script>
+    <script type="text/javascript" src="/assets/js/modules/user_center.js" ></script>
+
+    <!-- <script type="text/javascript" src="/assets/js/modules/components_example.js" ></script> -->
+
+    <script type="text/javascript" src="/assets/js/modules/quality_data.js"></script>
+
+    <script type="text/javascript" src="/assets/js/modules/others.js"></script>
+    <script type="text/javascript" src="/assets/js/modules/platform_feature.js"></script>
+    <script type="text/javascript" src="/assets/js/components/helper.js"></script>
+</body>
+</html>

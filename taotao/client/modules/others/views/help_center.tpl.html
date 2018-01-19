@@ -1,0 +1,81 @@
+<!-- 帮助中心 -->
+<!-- 查看详细信息 -->
+<div class="wrap bg-grid p-t-md">	
+	<div class="container">
+		<div class="row details">			
+			<div class="main-content">
+				<!-- 详情信息部分 -->
+				<div class="row detail-content m-t-xs">
+					<div class="row detail-title">
+						<h2>前言</h2>
+					</div>
+					<div class="article m-t-md indent">
+						感谢您使用数据淘，如果您在使用以下三个功能（注册/登录、数据发布、需求定制）时遇见问题，我们为您提供了相关的操作指引。点击下方的相关按钮即可查看操作说明，如果操作指引无法解决您的相关问题，请点击右上角“帮助”菜单下的“联系我们”获取联系方式，我们竭诚为您服务。
+					</div>
+
+					<div class="row m-t-xlg">
+						<div class="info-block">
+							<div class="info-block-head">
+								<div class="tabs">
+									<div class="tab" ng-click="vm.changTab(vm.helpCenter.step1.value)" ng-class="{'active':vm.tabActive === vm.helpCenter.step1.value}">注册/登录</div>
+									<div class="tab" ng-click="vm.changTab(vm.helpCenter.step2.value)" ng-class="{'active':vm.tabActive === vm.helpCenter.step2.value}">发布数据</div>
+									<div class="tab" ng-click="vm.changTab(vm.helpCenter.step3.value)" ng-class="{'active':vm.tabActive === vm.helpCenter.step3.value}">数据定制</div>
+								</div>
+							</div>
+							<div class="info-block-body">
+								<div class="row" ng-if="vm.helpCenter.step1.value === vm.tabActive">
+									<p><h3 class="b-l-navy songti">第一步<span class="m-l-md">注册</span></h3></p>
+									<div class="article m-t-sm">
+										<div class="row">点击页面顶部右上角的“登录”，进入登录页，在登录框的点击“立即注册”，即可进行账号注册。</div>
+										<div class="step-image m-t-xs">
+											<img src="/assets/images/step_1.png" alt="">
+										</div>
+									</div>
+									<div class="m-t-md">
+										<p><h3 class="b-l-navy songti">第二步<span class="m-l-md">登录</span></h3></p>
+										<div class="article m-t-sm m-b-xs">
+											账号注册成功后，即可使用注册时使用的邮箱/手机号进行登录。登录后，用户可进入个人中心进行相关设置和操作（发布数据、定制数据等）。
+										</div>
+									</div>
+								</div>
+
+								<div class="row"  ng-if="vm.helpCenter.step2.value === vm.tabActive">
+									<p><h3 class="b-l-navy songti">第一步<span class="m-l-md">登录数据淘</span></h3></p>
+									<div class="article m-t-sm">
+										<div class="row">若您已经注册登录了数据淘，可以点击页面右上角的“发布数据”，或进入个人中心，在“我的数据”列表上方点击“发布数据”按钮，即可发布数据。</div>
+										<div class="step-image m-t-xs">
+											<img src="/assets/images/step_2.png" alt="">
+										</div>
+									</div>
+									<div class="m-t-md">
+										<p><h3 class="b-l-navy songti">第二步<span class="m-l-md">发布数据</span></h3></p>
+										<div class="article m-t-sm m-b-xs">
+											进入发布数据页面后，根据页面提示填写数据的相关信息后，点击页面下方的“提交按钮”，即可。管理员会的7个工作日内对数据进行审核，审核通过后，即可发布到数据淘官网中以供用户搜索。为了确保您的数据顺利通过审核，请填写真实的相关信息。
+										</div>
+									</div>
+								</div>
+
+								<div class="row"  ng-if="vm.helpCenter.step3.value === vm.tabActive">
+									<p><h3 class="b-l-navy songti">第一步<span class="m-l-md">登录数据淘</span></h3></p>
+									<div class="article m-t-sm">
+										<div class="row">若您已经注册登录了数据淘，可以点击页面右上角的“发布数据”，或进入个人中心，在“我的定制”列表上方点击“数据定制”按钮，即可定制数据。</div>
+										<div class="step-image m-t-xs">
+											<img src="/assets/images/step_3.png" alt="">
+										</div>
+									</div>
+									<div class="m-t-md">
+										<p><h3 class="b-l-navy songti">第二步<span class="m-l-md">发布数据</span></h3></p>
+										<div class="article m-t-sm m-b-xs">
+											进入发布数据页面后，根据页面提示填写数据的相关信息后，点击页面下方的“提交按钮”，即可。管理员会的7个工作日内对数据进行审核，审核通过后，即可发布到数据淘官网中以供用户搜索。为了确保您的数据顺利通过审核，请填写真实的相关信息。
+										</div>
+									</div>
+								</div>								
+			
+							</div>
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

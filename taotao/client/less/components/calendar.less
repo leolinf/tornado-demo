@@ -1,0 +1,184 @@
+@import "../base/variables";
+@import "../normalize";
+.calendar{
+	.input-group{
+		position: relative;
+		width: 100%;
+		border: none;
+		// border-bottom: 1px @gray solid;
+	}
+
+	input{
+		width:99% !important;
+	}
+	.btn-group{
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 40px;
+		width: 40px;
+		.button{
+			width: 40px;
+		    height: 40px;
+		    line-height: 40px;
+		    text-align: center;
+		    border-radius: 4px;
+		    font-size: 16px;
+		    color: #2e3748;
+		    outline: none!important;
+		    cursor: pointer;
+		    background-color: #f0f0f0 !important;
+		    border: 0;
+		    outline: none;
+		}		
+		button{
+			background-color: #f0f0f0 !important;
+		}
+	}
+	.btn{
+		width: 32px;
+		height: 32px;
+		min-width: 32px;
+	}	
+
+	.dropdown-menu{
+		position: absolute;
+		// float: left;
+		width: 300px;
+		border: none;
+		outline: none;
+		margin-top: 10px;
+		box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.3);
+		li:nth-child(2){
+			display: none !important;
+		}
+	}
+	.datepickerMode{
+		border: none;
+		outline: none;
+		border: 1px @gray solid;
+	}
+	table{
+		border-collapse: 0;
+		border-spacing: 0;
+		border: none;
+		width: 300px;
+		background-color: @white;		
+		thead{
+			tr{
+				&:nth-child(1){
+					button{
+						background-color: rgb(67, 214, 137) !important;
+					}
+					th{
+						font-family: @microyahei;
+						color: @black;
+						font-size: 14px;
+						background-color: rgb(67, 214, 137) !important;						
+						button{
+							float: left;
+							color: @white;
+							&:nth-child(1){
+								content: "<";
+								padding-left: 30px;
+							}
+							&:nth-last-child(1){
+								content: ">";
+								padding-right: 30px;
+							}
+						}
+						&:nth-child(1){
+							width: 48px;
+							height: 48px;
+							color: @white;
+							font-size: 16px;							
+						}
+						&:nth-child(2){
+							font-family: @songti;
+							font-size: 14px;							
+						}
+					}			
+				}
+				&:nth-child(2){
+					color: rgb(119, 126, 139);
+					font-size: 14px;
+					small{
+						font-size: 14px !important;
+					}
+					th{
+						&:nth-child(1){
+							padding-left: 30px;
+						}
+						&:nth-last-child(1){
+							padding-right: 30px;
+						}						
+					}
+				}
+			}
+			button{
+				background-color: rgb(67, 214, 137);
+			}
+		}
+		tr{
+			th{
+				height: 48px;
+				line-height: 48px;
+				// color: @white;
+			}
+		}
+		tbody{
+			padding: 20px 30px;
+			font-size: 14px;
+			font-family: @microyahei;
+			color: @black;
+			.text-muted{
+				color: #999;
+			}
+			span{
+				font-size: 14px;
+			}
+			.btn{
+				display: inline-block;
+				background-color: #ffffff !important;
+				color: #000 !important;
+				&.active{
+					background-color: @green !important;
+					color: @white !important;
+					border-radius: 50%;
+				}
+			}
+			
+
+			button{
+				width: 32px !important;
+				height: 32px !important;
+				margin: 0;
+				padding: 0;
+			}
+			.text-center{
+				width: 32px;
+				height: 32px;
+			}
+			tr{
+				td{
+					border:0;
+					padding:0;
+					margin:0;
+					width:32px;
+					height:32px;
+					&:nth-child(1){
+						padding-left: 30px;
+					}
+					&:nth-last-child(1){
+						padding-right: 30px;
+					}
+				}
+				&:nth-last-child(1){
+					td{
+						padding-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
+}

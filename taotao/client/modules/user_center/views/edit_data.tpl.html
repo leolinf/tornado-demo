@@ -1,0 +1,186 @@
+<!-- 右边基本信息部分 -->
+<div class="info-content">    
+    <!-- 基本信息 -->
+    <div class="info-block base-info-set">
+        <div class="row"><h3>编辑数据</h3></div>
+        <div class="row careful text-red-shallow" ng-if="vm.detail.reviewContent" ng-bind="vm.detail.reviewContent">
+            由于您上传的附件内容违反了《数据淘用户协议》的第三条规定，该条数据暂未发布，请修改后重新提交审核，非常抱歉。
+        </div>
+        <div class="row m-t-sm">
+            <form action="">               
+                <div class="form-group m-t-xs">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>数据标题</label>
+                    <div class="col-8">                    	
+                    	<input type="text" class="form-control" placeholder="请输入一个响亮的标题" ng-model="vm.detail.title">                        
+                        <div class="row error"><span ng-if="vm.error.title.flag" ng-bind="vm.error.title.msg">数据标题不能为空且长度不能超过30个字</span></div>
+                    </div>
+                    <!-- <div class="col-10">
+                        <p class="error">数据标题不能为空</p>                        
+                    </div>           --> 
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>数据分类</label>
+                    <div class="col-3">                    	
+                        <!--
+                    	<select name="" id="">
+                    		<option value="">社交网络</option>
+                    	</select>
+                        -->
+                        <div zs-select options="vm.detail.dataCategoryArr" selectedvalue="vm.detail.category" class="theme-select-purple" ng-if="vm.detail.category !== undefined " style="position:relative;z-index:23;"></div>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-sm">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>数据标签</label>
+                    <div class="col-8 theme-tags-purple">                    	
+                        <!--
+                    	<textarea name="" id="" rows="3" placeholder="添加标签，最多选择5个"></textarea>
+                        -->
+                        <zs-tag options="vm.detail.dataCategoryReverseObj[vm.detail.category].defaultTags" hastagsoptions="vm.detail.tags" maxtaglen="vm.tagnumLimit" tagwordlen="vm.tagwordLimit" ng-if="vm.detail.tags !== undefined "></zs-tag>
+                        <div class="row error"><span ng-if="vm.error.tags.flag" ng-bind="vm.error.tags.msg">数据标签不能为空</span></div>
+                    </div>
+                </div>
+
+               
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>数据大小</label>
+                    <div class="col-8">  
+                    	<div class="col-2">                    		
+                            <!--
+	                    	<select name="" id="">
+	                    		<option value="">MB</option>
+	                    	</select>
+                            -->
+                            <div zs-select options="vm.detail.dataSizeFormatArr" selectedvalue="vm.detail.dataSizeFormat" class="theme-select-purple" ng-if="vm.detail.dataSizeFormat !== undefined " style="position:relative;z-index:22;"></div>
+                    	</div>
+                    	<div class="col-6 m-l-sm">
+                    		<input type="text" class="form-control" placeholder="请输入具体数值" ng-model="vm.detail.dataSize">
+                            <div class="row error"><span ng-if="vm.error.dataSizeRows.flag" ng-bind="vm.error.dataSizeRows.msg">数据大小不能为空</span></div>
+                    	</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">&nbsp;</span>数据条数</label>
+                    <div class="col-3">
+                    	<input type="text" class="form-control" placeholder="请输入具体的条数" ng-model="vm.detail.dataRows">                        
+                        <div class="row error"><span ng-if="vm.error.dataSizeRows.flag" ng-bind="vm.error.dataSizeRows.msg">数据条数不能为空</span></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>数据格式</label>
+                    <div class="col-3">                    	
+                        <!--
+                    	<select name="" id="">
+                    		<option value="">文本</option>
+                    	</select>
+                        -->
+                        <div zs-select options="vm.detail.dataFormatArr" selectedvalue="vm.detail.dataFormat" class="theme-select-purple" ng-if="vm.detail.dataFormat !== undefined " style="position:relative;z-index:21;"></div>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-sm">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>标价方式</label>
+                    <div class="col-8">                    	
+                    	<div class="col-2">
+                            <!--
+                    		<select name="" id="">
+                    			<option value="">收费</option>
+                    		</select>
+                            -->
+                            <div zs-select options="vm.detail.priceTypeArr" selectedvalue="vm.detail.priceType" class="theme-select-purple" ng-if="vm.detail.priceType !== undefined " style="position:relative;z-index:20;"></div>
+                    	</div>
+                    	<div class="col-2 m-l-sm" ng-if="vm.detail.priceType === vm.detail.priceTypeObj.charge.value">
+                    		<input type="text" class="form-control" placeholder="具体价格" ng-model="vm.detail.cost">
+                            <div class="row error"><span ng-if="vm.error.cost.flag" ng-bind="vm.error.cost.msg">请填写具体数值</span></div>
+                    	</div>
+                    	<div class="col-2 m-l-sm" ng-if="vm.detail.priceType === vm.detail.priceTypeObj.charge.value" >
+                            <!--
+                    		<select name="" id="">
+                    			<option value="">元</option>
+                    		</select>
+                            -->
+                            <div zs-select options="vm.detail.priceFormatArr" selectedvalue="vm.detail.priceFormat" class="theme-select-purple" ng-if="vm.detail.priceFormat !== undefined " style="position:relative;z-index:20;"></div>
+                    	</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>数据简介</label>
+                    <div class="col-8">                    	
+                    	<textarea name="" id="" class="no-resize" rows="3" placeholder="请对数据进行描述，包括数据来源、用途、字段" ng-model="vm.detail.intro"></textarea>
+                        <div class="row error"><span ng-if="vm.error.intro.flag" ng-bind="vm.error.intro.msg">字数不得超过300个字/数据简介不能为空</span></div>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-if="vm.detail.dataFormat === vm.detail.dataFormatObj.api.value">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>接口信息</label>
+                    <div class="col-8">                    	
+                        <!-- <textarea name="" id="" rows="6" placeholder="返回样例，富文本数据" ng-model="vm.detail.interface"></textarea> -->
+                        <div ng-model="vm.detail.interface" type="text" class="ueditor" placeholder="请输入接口信息"></div>
+                        <div class="row error"><span ng-if="vm.error.interface.flag" ng-if="vm.error.sample.flag" ng-bind="vm.error.interface.msg">字数不得超过300字</span></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2" ng-if="vm.detail.dataFormat !== vm.detail.dataFormatObj.api.value"><span class="text-red m-r-sm">*</span>数据样例</label>
+                    <label for="" class="control-label col-2" ng-if="vm.detail.dataFormat === vm.detail.dataFormatObj.api.value"><span class="text-red m-r-sm">*</span>返回样例</label>
+                    <div class="col-8">                    	
+                        <!-- <textarea name="" id="" rows="6" placeholder="样例我这里就不具体写了。" ng-model="vm.detail.sample"></textarea> -->
+                        <div ng-model="vm.detail.sample" type="text" class="ueditor" placeholder="请选择10条左右数据样例进行展示"></div>
+                        <div class="row error"><span ng-if="vm.error.sample.flag" ng-bind="vm.error.sample.msg">字数不得超过300字</span></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">&nbsp;</span>附件</label>
+	                <div class="col-8">     
+                        <div class="row" ng-if="vm.detail.attachment && vm.detail.attachment !== ''">
+                            <!-- <span ng-bind="vm.detail.attachmentName">全国3000万企业数据.xls</span> -->
+                            <span ng-bind="vm.detail.attachment">全国3000万企业数据.xls</span>
+		                	<a href="#" class="text-red m-l-md" ng-click="vm.deleteAttachment();">删除</a>
+                        </div>
+	                	<div class="row" ng-if="!vm.detail.attachment || vm.detail.attachment === ''">
+                            <!-- <button type="button" class="btn btn-purple btn-upload">上传</button> -->
+                            <zs-upload-qiniu sourcelink="vm.detail.attachment" attachmentname="vm.detail.attachmentName" attachmentsize="vm.detail.attachmentSize"></zs-upload-qiniu>
+		                	<span class="text-gray m-l-sm">附件大小不得超过100mb</span>
+	                	</div>    
+	                	<div class="row" ng-if="vm.detail.attaachment && vm.detail.attachment !== ''">	                    		
+		                	<span class="text-black">附件是否为样本数据</span>
+                            <div zs-radio options="vm.detail.isSampleAttachmentArr" selectedvalue="vm.detail.isSample"></div>
+                            <!--
+		                	<label for="" class="m-l-lg"><input type="radio" name="data">是</label>
+		                	<label for="" class="m-l-lg"><input type="radio" name="data" checked="">否</label>
+                            -->
+	                	</div>           	
+	                </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>联系人</label>
+                    <div class="col-5">                    	
+                    	<input type="text" class="form-control" placeholder="请输入联系人，可为个人或单位名称" ng-model="vm.detail.linkman">
+                        <div class="row error"><span ng-if="vm.error.linkman.flag" ng-bind="vm.error.linkman.msg">联系人不能为空</span></div>                 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>联系方式</label>
+                    <div class="col-5">                    	
+                    	<input type="text" class="form-control" placeholder="请输入联系人，如有两种以上请用‘/’隔开" ng-model="vm.detail.contact">
+                        <div class="row error"><span ng-if="vm.error.contact.flag" ng-bind="vm.error.contact.msg">联系方式不正确/联系方式不能为空</span></div>                    
+                    </div>
+                </div>
+
+                <div class="form-group m-t-lg m-b-xs">
+                    <label for="" class="control-label col-2">&nbsp;</label>
+                    <div class="col-5">
+                        <button type="button" class="btn btn-save btn-purple" ng-click="vm.saveData();">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

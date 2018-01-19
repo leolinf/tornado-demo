@@ -1,0 +1,23 @@
+<!--
+<div style="position:relative;display:inline-block;margin-left:0;cursor:pointer;vertical-align:middle;" class="revise-button">
+    <div id="{{ uploadQiniuConfig.container }}"></div>
+    <div id="pickfiles" ng-class="{'not-visible':isUploading}">上传</div>
+    <div style="background-color:#969696;" ng-if="isUploading">上传中...</div>
+</div>
+-->
+<div style="display:inline-block;">
+    <div id="{{ uploadQiniuConfig.container }}"></div>
+    <div id="pickfiles" class="btn btn-purple btn-upload" ng-class="{'not-visible':isUploading}">上传</div>
+    <div ng-if="isUploading" class="btn btn-purple btn-upload">上传中...</div>
+</div>
+<!--
+    <div id="{{ uploadQiniuConfig.container }}"></div>
+    <div id="pickfiles" ng-if="!isUploading" class="btn btn-purple btn-upload">上传</div>
+    <button ng-if="isUploading" class="btn btn-purple btn-upload">上传中...</button>
+    <a ng-href="#" class="text-red m-l-md" ng-click="delFile();" ng-if="sourceLink !== ''">删除</a>
+-->
+<style type="text/css">
+.not-visible{
+    display:none;
+}
+</style>

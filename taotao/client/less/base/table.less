@@ -1,0 +1,49 @@
+/**
+ * 表格
+ */
+@import "../normalize";
+.table{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	tr{			
+		font-family: @microyahei;
+		font-size: 14px;
+		&:hover{
+			background-color: rgba(23, 130, 237,0.4);
+		}
+		&:nth-last-child(1){
+			td{
+				border-bottom: none !important;
+			}
+		}	
+		th{				
+			color: @white;
+			height: 48px;
+			line-height: 48px;
+			text-align: left;
+			background-color: @blue-deep;
+			&:nth-child(1){
+				padding-left: 30px;
+			}
+			&:nth-last-child(1){
+				padding-right: 30px;
+				text-align: right;
+			}
+			border: 0;
+		}
+		td{
+			height: 48px;
+			line-height: 48px;
+			text-align: left;
+			border-bottom: 1px solid rgb(240, 240, 240);
+			&:nth-child(1){
+				padding-left: 30px;
+			}
+			&:nth-last-child(1){
+				padding-right: 30px;
+				text-align: right;
+			}
+		}		
+	}
+}

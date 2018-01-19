@@ -1,0 +1,77 @@
+/**
+ * 对部分标签进行重置
+ * 重置的标签有：*、div、html、body、a、ul、li、p、h1～h6、button、input、textarea
+ */
+@import "variables";
+@import "theme";
+
+*{
+	box-sizing:border-box;
+	font-family: @microyahei,@songti,'Hiragino Sans GB','sans-serif';
+}
+div{
+	display: block;
+}
+html,
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+    height:100%;
+}
+body{
+    overflow-y:scroll;
+}
+a{
+	display: inline-block;
+	text-decoration: none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+ul li{
+	list-style: none;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	margin: 0;
+	padding: 0;
+}
+
+
+
+h2{
+	font-size: 20px;
+}
+
+h3{
+	font-size: 16px;
+}
+h4{
+	font-family: @songti,@microyahei;
+	font-size: 14px;
+	color: @black;
+	font-weight: 600;
+}
+button,
+textarea,
+input[type='text'],
+input[type='password']{
+	outline: none;
+}
+textarea{
+	padding: 16px 20px;
+}

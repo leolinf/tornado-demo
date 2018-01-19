@@ -1,0 +1,47 @@
+/*可以在这里添加你自己的css*/
+/*ueditor_iframeé‡Œé¢çš„æ ·å¼*/
+
+/*global*/
+
+/*ohæ˜¯ä¸ºäº†åŽ»æŽ‰htmlçš„æ»šåŠ¨ï¼Œå¦å¤–htmlåŠ overflowå±žæ€§å¯è®©æ‰‹æœºæµè§ˆå™¨æ”¯æŒç¼–è¾‘åŒºåŸŸæ»šåŠ¨*/
+html{
+    overflow-y: auto;
+    height: 484px !important;/*åŽŸæ¥çš„åŽŸæ¥æ˜¯424pxï¼ŒåŽŸæ¥æ˜¯584px*/
+}
+
+/*å®šæ­»é«˜åº¦ï¼Œæ»šåŠ¨*/
+body{
+    margin: 0;
+    padding: 8px;
+}
+
+.view{
+    word-break: break-all;
+    word-wrap: break-word;
+    cursor:text;
+}
+p{clear:both;}
+img{*zoom:1;max-width:100%;*max-width:96%;height:auto !important;}
+iframe{width:301px !important;border:0;background-color:none;}
+
+
+
+/*vote*/
+.vote_area{display:block;}
+.vote_iframe{height:100%;width:100% !important;*width:96% !important;}
+
+
+/*qqmusic*/
+.qqmusic_iframe{width:100%!important;height:75px;}
+
+
+/*audio*/
+.audio_iframe{width:100%!important;height:75px;}
+
+/*video*/
+.video_iframe{background-color:#000000;width:100% !important;*width:96% !important;position:static;}
+
+
+
+blockquote{margin:0;padding-left:10px;border-left:3px solid #DBDBDB;}
+

@@ -1,0 +1,323 @@
+/**
+ * 管理员中心内容部分
+ */
+@import "../base/variables";
+@import "../base/grid";
+@import "../normalize";
+@import "../base/theme";
+
+.admin-header{
+	height: 30px;
+	line-height: 30px;
+	color: @black-shallow;
+	background-color: @white;
+	font-size: 12px;
+	a{
+		color: @black-shallow;
+	}	
+}
+
+.admin-tabs{
+	.clearfix;
+	margin-left: -14px;
+	.tab{
+		float: left;
+		width: 120px;	
+		padding-bottom: 20px;
+		font-size: 16px;	
+		text-align: center;
+	}
+	.active{
+		border-bottom: 4px @blue solid;
+	}
+}
+
+.admin-center{
+	.header{
+		background-color: @white;
+	}
+	.operate-status{
+		label{
+			margin-right: 80px;
+		}
+	}
+	.navbar{
+		background-color: @white;
+		ul{
+			margin-top: 30px;
+			li{
+				float: left;
+				width: 180px;
+				height: 48px;
+				line-height: 48px;
+				text-align: center;
+				font-size: 14px;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.info-content{
+		.info-block{
+			.p-md;
+			.bg-white;	
+			width: 100%;
+			.clearfix;
+			h3{
+				height: 16px;
+				line-height: 16px;
+				font-family: @songti;
+				.bold;
+				.p-l-xs;
+				// border-left: 2px @blue-deep solid;
+			}
+			.careful{
+				height: 48px;
+				line-height: 48px;
+				width: 100%;
+				font-size: 14px;
+				.p-l-sm;
+				.m-t-md;
+				// background-color: rgb(240, 240, 240);
+				.bg-gradient;
+				font-family: @songti;
+				color: @black;
+			}
+		}
+
+		.account-info{
+			font-family: @songti;
+			font-size: 14px;
+			div{
+				height: 20px;
+				line-height: 20px;
+			}
+			span{
+				display: inline-block;
+				font-family: @songti;
+			}
+			.name{
+				width: 130px;
+				text-align: left;
+			}
+		}
+		/* 统计 */
+		.statistics{
+			color: @gray;
+			h3{
+				border-left: 2px @blue-deep solid;
+			}
+			.number{
+				font-family: @microyahei;
+				font-size: 20px;
+				padding: 0 10px;
+				.bold;
+				color: @blue-deep;
+			}
+			.add-data{
+				text-align: right;
+				button{
+					width: 144px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+				}
+			}
+		}		
+	}
+}
+
+/* 此部分与普通的content重复 */
+/* 详细内容区域 */
+.detail-content{
+	padding: 29px 30px 30px 30px;
+	background-color: @white;
+	overflow: hidden;
+	margin-bottom: 100px;
+	// box-shadow:0 0 3px rgba(150, 150, 150, 0.5);
+	h3{
+		height: 16px;
+		line-height: 16px;
+		font-family: @songti;
+		padding-left: 10px;
+		border-left: 2px @navy solid;
+	}
+	.detail-title{
+		.microyahei;
+		font-size: 20px;
+		color: @black;
+		h1{
+			font-size: 24px;
+		}
+	}
+	.mark{
+	  	.microyahei;
+	  	font-size: 20px;
+	  	color: @orange !important;
+	  	font-weight: 600;
+	}
+	.contact-ways{
+		color: @black;
+		.songti;
+		font-size: 14px;
+		div.row{
+			margin-top: 16px;
+		}
+		h4{
+			padding-left: 10px;
+			border-left: 2px @orange solid;
+		}
+	}
+	/* 详情中间部分的有左右小圆圈的部分 */
+	.split-circle{
+		position: relative;
+		height: 36px;
+		line-height: 36px;
+		display: inline-block;
+		.left-circle{
+			position: absolute;
+			left: -50px;
+			width: 36px;
+			height: 36px;
+			background-color: @bg-blue-shallow;
+			border-radius: 50%;
+			top: -10px;
+			box-shadow:0 0 3px rgba(150, 150, 150, 0.5) inset; 
+		}
+		hr{
+			position: relative;
+			border: none;
+			border-top: 1px solid @orange;
+			width: 1100px;
+		}
+		.right-circle{
+			position: absolute;
+			right: -50px;
+			width: 36px;
+			height: 36px;
+			background-color: @bg-blue-shallow;
+			border-radius: 50%;
+			top: -10px;
+			box-shadow:0 0 3px rgba(150, 150, 150, 0.5) inset; 
+		}
+	}
+
+	/* 基本信息 */
+	.detail-baseInfo{
+		.baseInfo{
+			line-height: 24px;
+			font-size: 14px;
+			float: left;
+			.songti;
+			.special-data{
+				background-color: @orange;
+				color: @white;
+				width: 72px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				font-family: @songti;
+			}
+			.can-download{
+				background-color: @blue;
+				color: @white;
+				width: 72px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				font-family: @songti;
+			}
+			span{				
+				float: left;
+				margin-right: 10px;
+				font-family: @songti;
+			}
+			.tags{
+				span{
+					background-color: @bg-blue;
+					padding: 2px 5px;
+					border-radius: @default-radius;
+					color: @black;
+				}
+			}
+			.price{
+				color: @black;
+			}
+			.contact-person{
+				color: @orange;
+				font-weight: 600;
+			}
+			.contact-way{
+				.arialmt;
+				color: @blue;
+				font-weight: 600;
+			}
+			.gradient{
+				.bg-gradient;
+			    div.row{
+			  	    margin-top: 16px;
+			    }			  
+			}
+
+
+		}
+		.buttons{
+			overflow: hidden;
+			text-align: right;
+			button{
+				width: 180px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+			span{
+				.songti;
+				font-size: 14px;
+				color: @gray;
+			}
+			p{
+				margin-top: 9px;
+				span{
+					margin-right: 35px;
+				}
+			}
+
+		}
+	}
+	.data-info{
+		text-indent: 2em;
+		font-size: 14px;
+		line-height: 24px;
+		.songti;
+		color: @gray-deep;
+	}
+	.info-block{
+		border: 1px solid @gray;
+		border-radius: @default-radius;
+		.info-block-head{
+			height: 40px;
+			line-height: 40px;
+			.microyahei;
+			font-size: 16px;
+			color: @blue-deep;
+			border-bottom: 2px solid @blue-deep;
+			.tabs{
+				.tab{
+					float: left;
+					width: 120px;
+					text-align: center;
+				}
+			}
+		}
+		.active{
+			background-color: @blue-deep;
+			color: @white;
+		}
+		.info-block-body{
+			.songti;
+			/* color: @gray-deep; */
+			/* padding: 20px; */
+			padding: 30px;
+		}
+	}	
+}

@@ -1,0 +1,25 @@
+;(function(){
+    'use strict';
+
+    angular
+        .module( 'Datatao.header' )
+        .directive( 'headerNavbar', headerNavbar );
+
+    headerNavbar.$inject = [];
+
+    function headerNavbar(){
+        var directive = {
+            restrict : 'EA',
+            scope : {
+            },
+            replace : true,
+            templateUrl : '/components/header/header_navbar.tpl.html',
+            link : link
+        };
+
+        return directive;
+
+        function link( scope, element, attrs ){
+        }
+    }
+})();

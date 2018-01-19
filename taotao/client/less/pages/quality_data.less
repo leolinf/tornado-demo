@@ -1,0 +1,670 @@
+@import "../base/variables";
+@import "../base/font";
+@import "../base/theme";
+@import "../base/padding";
+@import "../base/margin";
+@import "../normalize";
+@import "../base/theme";
+
+.quality-data{	
+	.nav-images{
+		position: relative;
+		width: 100%;
+		height: 312px;
+		background-image: url("/assets/images/banner_bg.png");
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		.clearfix();
+		z-index: 2;
+	}
+	.content-all{
+		position: relative;
+		z-index: 1;
+		background-image: url("/assets/images/quality_data_bg.png");
+		// background-repeat: no-repeat;
+	}
+	.nav-blocks{
+		position: absolute;
+		width: 100%;
+		height: 168px;
+		margin: 0 auto;
+		text-align: center;
+		bottom: -79px;
+		.clearfix();
+
+		.name-block{
+			position: absolute;
+			text-align: center;
+			bottom: 55px;
+			width: 100%;
+		}
+		/* 天猫数据 */
+		.tianmao-data{
+			position: relative;
+			width: 158px;
+			height: 168px;
+			margin-right: 100px;
+			display: inline-block;
+			color: @orange;
+			cursor: pointer;
+			background-image: url("/assets/images/orange2.png");
+			.icon-tianmao{
+				position:absolute;
+				left:55px;
+				top:37px;
+				width:48px;
+				height:48px;
+				fill:#fd822c;
+			}
+			&:hover{
+				color: @white;
+				background-image: url("/assets/images/orange1.png"),
+								  url("/assets/images/orange2.png");
+                transition: 0.8s;
+                .icon-tianmao{
+                	fill:#ffffff;
+                    transition:0.8s;
+                }
+			}
+		}
+		.tianmao-data-active{
+			color: @white;
+			background-image: url("/assets/images/orange1.png"),
+							  url("/assets/images/orange2.png");
+			.icon-tianmao{
+            	fill:#ffffff;
+            }
+		}
+
+		/* 企业数据 */
+		.enterprise-data{
+			position: relative;
+			width: 158px;
+			height: 168px;
+			margin-right: 100px;
+			display: inline-block;
+			color: @green;
+			cursor: pointer;
+			background-image: url("/assets/images/green2.png");
+			.icon-enterprise{
+				position:absolute;
+				left:55px;
+				top:37px;
+				width:48px;
+				height:48px;
+				fill:#00BF5B;
+			}
+			&:hover{
+				color: @white;
+				background-image: url("/assets/images/green1.png"),
+							  	  url("/assets/images/green2.png");
+                transition: 0.8s;
+                .icon-enterprise{
+                	fill:#ffffff;
+                    transition:0.8s;
+                }
+			}
+		}
+		.enterprise-data-active{
+			color: @white;
+			background-image: url("/assets/images/green1.png"),
+						  	  url("/assets/images/green2.png");
+			.icon-enterprise{
+            	fill:#ffffff;
+            }
+		}
+
+		/* 微博数据 */
+		.microblog-data{
+			position: relative;
+			width: 158px;
+			height: 168px;
+			margin-right: 100px;
+			display: inline-block;
+			color: @blue;
+			cursor: pointer;
+			background-image: url("/assets/images/blue2.png");
+			.icon-microblog-data{
+				position:absolute;
+				left:55px;
+				top:37px;
+				width:48px;
+				height:48px;
+				fill:#1782ED;
+			}
+			&:hover{
+				color: @white;
+				background-image: url("/assets/images/blue1.png"),
+							      url("/assets/images/blue2.png");
+                transition: 0.8s;
+                .icon-microblog-data{
+                	fill:#ffffff;
+                    transition:0.8s;
+                }
+			}
+		}
+		.microblog-data-active{
+			color: @white;
+			background-image: url("/assets/images/blue1.png"),
+						      url("/assets/images/blue2.png");
+			.icon-microblog-data{
+            	fill:#ffffff;
+            }
+		}
+
+		/* 本地生活 */
+		.local-data{
+			position: relative;
+			width: 158px;
+			height: 168px;
+			display: inline-block;
+			color: @purple;
+			cursor: pointer;
+			background-image: url("/assets/images/purple2.png");
+			.icon-local-data{
+				position:absolute;
+				left:55px;
+				top:37px;
+				width:48px;
+				height:48px;
+				fill:#8F52F9;
+			}
+			&:hover{
+				color: @white;
+				background-image: url("/assets/images/purple1.png"),
+							      url("/assets/images/purple2.png");
+                transition: 0.8s;
+                .icon-local-data{
+                	fill:#ffffff;
+                    transition:0.8s;
+                }
+			}
+		}
+		.local-data-active{
+			color: @white;
+			background-image: url("/assets/images/purple1.png"),
+						      url("/assets/images/purple2.png");
+			.icon-local-data{
+            	fill:#ffffff;
+            }
+		}
+	}
+
+	/* 数据介绍 */
+	.data-introduce,.data-list{
+		text-align: center;
+		line-height: 32px;		
+		.words{
+			display: inline-block;
+			font-family: @microyahei;
+			font-size: 32px;
+			color: @black;
+			font-weight: 600;
+		}
+	}
+	.data-introduce{
+		margin-top: 159px;
+	}
+	.data-list{
+		margin-top: 120px;
+	}
+
+	.data-introduce-subTitle{
+		font-size: 16px;
+		color: @black;
+		text-align: center;
+		margin-top: 20px;
+		.clearfix();
+	}
+
+	/* 天猫数据的数据介绍及数据列表 */
+	.tianmao-data{
+		.data-introduce,.data-list{
+			.line{
+				display: inline-block;
+				width: 460px;
+				height: 15px;
+				border-bottom: 2px @orange solid;
+				.circle{
+					display: inline-block;
+					width: 15px;
+					height: 15px;
+					margin-top: -5px;
+					border-radius: 50%;
+					background-color: @white;
+					border: 2px solid @orange;
+				}
+			}
+		}
+
+		.data-intro-block{
+			margin-top: 60px;
+			text-align: center;
+			font-family: @microyahei;
+			color: @white;
+			.data-content,
+			.data-column,
+			.data-value,
+			.data-demand{
+				display: inline-block;
+				width: 586px;
+				height: 169px;
+				padding: 30px 100px;			
+			}		
+			.title{
+				font-size: 24px;
+				font-weight: 600;
+				text-align: left;				
+				.num{
+					font-size: 32px;
+				}
+				span{
+					margin-left: 24px;
+				}
+			}
+			.content{
+				font-size: 16px;
+				text-align: left;
+				margin-top: 30px;
+	
+			}
+			/* 数据涵盖 */
+			.data-content{
+				background-image: url("/assets/images/parallelogram_orange.png");
+			}
+			/* 数据字段 */
+			.data-column{
+				background-image: url("/assets/images/parallelogram_green.png");
+				margin-left: -30px;
+			}
+			/* 数据价值 */
+			.data-value{
+				background-image: url("/assets/images/parallelogram_blue.png");
+			}
+			/* 专属定制 */
+			.data-demand{
+				background-image: url("/assets/images/parallelogram_purple.png");
+				margin-left: -30px;
+			}
+		}	
+	}
+	/* 企业数据的数据介绍及数据列表 */
+	.enterprise-data{
+		.data-introduce,.data-list{
+			.line{
+				display: inline-block;
+				height: 14px;
+				.line1{
+					background-color: @green;
+					height: 2px;
+					width: 460px;
+				}
+				.line2{
+					background-color: @green;
+					height: 2px;
+					width: 230px;
+					margin-top: 3px;
+				}
+			}
+		}
+
+		.data-intro-block{
+			margin-top: 60px;
+			text-align: center;
+			font-family: @microyahei;
+			color: @white;
+			.data-content,
+			.data-column,
+			.data-value,
+			.data-demand{
+				display: inline-block;
+				width: 273px;
+				height: 284px;
+				padding: 40px 30px;
+				vertical-align: top;
+				margin-right: 10px;	
+			}		
+			.title{
+				font-size: 30px;
+				font-weight: 600;
+				text-align: left;	
+				padding-bottom: 30px;	
+				border-bottom: 2px solid @white;	
+			}
+			.line{
+				width: 213px;
+				background-color: @white;
+				height: 1px;
+				margin-top: 30px;
+			}
+			.content{
+				font-size: 16px;
+				text-align: left;
+				margin-top: 30px;
+				word-break:break-all;
+	
+			}
+			/* 数据涵盖 */
+			.data-content{
+				background-color: rgb(131, 220, 172);
+			}
+			/* 数据字段 */
+			.data-column{
+				background-color: rgb(119, 193, 250);
+			}
+			/* 数据价值 */
+			.data-value{
+				background-color: rgb(167, 170, 225);
+			}
+			/* 专属定制 */
+			.data-demand{
+				background-color: rgb(255, 182, 67);
+				margin-right: 0;
+			}
+		}
+	}
+
+
+
+	/* ===============================微博数据的数据介绍及数据列表========================== */
+	.microblog-data{
+		.data-introduce,.data-list{
+			.line{
+				display: inline-block;
+				width: 460px;
+				height: 14px;
+				border-top: 3px @blue dotted;				
+			}
+		}
+
+		.data-intro-block{
+			margin-top: 60px;
+			text-align: center;
+			font-family: @microyahei;
+			color: @white;
+			.data-content-out,
+			.data-column-out,
+			.data-value-out,
+			.data-demand-out{
+				display: inline-block;
+				width: 180px;
+				height: 180px;
+				vertical-align: top;
+				margin-right: 105px;
+				border-radius: 50%;
+				line-height: 160px;
+				text-align: center;
+			}
+			.data-content-out{
+				background-color: rgba(97, 188, 255, 0.3);
+			}
+			.data-column-out{
+				background-color: rgba(167, 170, 225, 0.3);
+			}
+			.data-value-out{
+				background-color: rgba(255, 182, 67, 0.3);
+			}
+			.data-demand-out{
+				margin-right: 0;
+				background-color: rgba(131, 220, 172, 0.3);
+			}
+			.data-content,
+			.data-column,
+			.data-value,
+			.data-demand{
+				display: inline-block;
+				width: 160px;
+				vertical-align: top;
+				margin-right: 105px;
+				border-radius: 50%;
+				text-align: center;
+			}		
+			.title{
+				display: inline-block;
+				width: 160px;
+				height: 160px;
+				vertical-align: top;
+				margin-right: 105px;
+				border-radius: 50%;
+				line-height: 160px;
+				text-align: center;
+				margin-top: 10px;
+				margin-left: 10px;
+				font-size: 30px;
+				font-weight: 600;
+			}
+			.line{
+				width: 213px;
+				background-color: @white;
+				height: 1px;
+				margin-top: 30px;
+			}
+			.content{
+				font-size: 16px;
+				margin-top: 30px;
+				color: @black;
+				text-align: left;
+				text-indent: 2em;
+				line-height: 24px;
+				word-break:break-all;
+	
+			}
+			/* 数据涵盖 */
+			.data-content{
+				.title{
+					background-color: rgb(97, 188, 255);				
+				}
+			}
+			/* 数据字段 */
+			.data-column{
+				.title{
+					background-color: rgb(167,170,225);				
+				}
+			}
+			/* 数据价值 */
+			.data-value{
+				.title{
+					background-color: rgb(255,182,67);				
+				}
+			}
+			/* 专属定制 */
+			.data-demand{
+				.title{
+					background-color: rgb(131,220,172);
+				}
+			}
+		}
+	}
+
+
+
+	/* ===============================本地数据的数据介绍及数据列表========================== */
+	.local-data{
+		.data-introduce,.data-list{
+			.line-left{
+				display: inline-block;
+				width: 460px;
+				height: 14px;
+				background-image: url("/assets/images/quality-line-left.png");
+				background-repeat: no-repeat;
+				background-position: right top;
+			}
+			.line-right{
+				display: inline-block;
+				width: 460px;
+				height: 14px;
+				background-image: url("/assets/images/quality-line-right.png");
+				background-repeat: no-repeat;
+			}
+		}
+
+		.data-intro-block{
+			margin-top: 60px;
+			text-align: center;
+			font-family: @microyahei;
+			color: @white;
+			.data-content,
+			.data-column,
+			.data-value,
+			.data-demand{
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				width: 285px;
+			}
+			.triangle{
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				width:0; 
+    			height:0; 
+			    border-left:142px solid transparent;
+			    border-right:142px solid transparent;
+			    -webkit-box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.2));
+			    box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.2));	    
+			    z-index: 1;
+			}
+			.title{
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+			    font-family: @microyahei;
+			    font-size: 30px;
+			    width: 120px;
+			    text-align: center;
+			    margin-top: -90px;
+			    font-weight: 700;
+			    color: @white;
+			    z-index: 2;
+			}
+			.data-content{
+				.triangle{
+					border-bottom:142px solid rgb(167, 170, 225);
+				}
+			}
+			.data-column{
+				.triangle{
+					border-bottom:142px solid rgb(255, 182, 67);
+				}
+			}
+			.data-value{
+				.triangle{
+					border-bottom:142px solid rgb(131, 220, 172);
+				}
+			}
+			.data-demand{
+				.triangle{
+					border-bottom:142px solid rgb(97,188,255);
+				}
+			}
+			.line{
+				width: 213px;
+				background-color: @white;
+				height: 1px;
+				margin-top: 30px;
+			}
+			.content{
+				display: inline-block;
+				font-size: 16px;
+				color: @black;
+				text-align: left;
+				text-indent: 2em;
+				line-height: 24px;	
+				width: 180px;
+			}
+
+		}
+	}
+
+
+	
+}
+
+.quality-data-content{
+	margin-top: 60px;
+	text-align: center;
+	
+	/* 精品数据内容区域左边导航部分，当页面的分辨率小与1200px时，不显示这个部分 */
+	@media screen and (min-width: 1452px){
+		.quality-data-leftbar{
+			display: inline-block;
+			width: 126px;
+			background-color: @white;
+			vertical-align: top;
+			padding: 20px 0;
+			ul{
+				li{
+					float: left;
+					margin-top: 16px;
+					padding: 0 16px;					
+					width: 100%;
+					&:nth-child(1){
+						margin-top: 0;
+					}
+					a{
+						font-size: 12px;
+						color: @gray;
+						&:hover{
+							// color: @orange;
+							// svg{
+							// 	fill:@orange;
+							// }
+						}
+						svg{
+							fill:@gray;
+							margin-right: 10px;
+							width: 18px;
+							height: 18px;
+							display: inline-block;
+							vertical-align: middle;
+						}						
+					}
+				}
+				.active-tianmao{
+					.quality-leftbar-active(@orange);
+				}
+				.active-enterprise{
+					.quality-leftbar-active(@green);
+				}
+				.active-blog{
+					.quality-leftbar-active(@blue);
+				}
+				.active-local{
+					.quality-leftbar-active(@purple);
+				}
+			}
+		}
+	}
+	.quality-leftbar-active(@color){
+		color: @color;
+		border-left: 2px solid @color;
+		a{
+			color: @color;
+			svg{
+				fill:@color;
+			}
+		}
+	}
+
+	@media screen and(max-width:1451px){
+		.quality-data-leftbar,
+		.quality-data-rightbar{
+			display: none;
+		}
+	}
+	
+	/* 精品数据主内容区域 */
+	.quality-data-container{
+		display: inline-block;
+		width: 1200px;
+		padding: 0 30px;
+	}
+	/* 精品数据内容部分右边占位部分 */
+	.quality-data-rightbar{
+		display: inline-block;
+		width: 126px;
+		vertical-align: top;
+	}
+
+}

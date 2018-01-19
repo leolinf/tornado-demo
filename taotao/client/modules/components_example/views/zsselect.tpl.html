@@ -1,0 +1,16 @@
+<div class="container m-t-sm">
+    <div class="main-content">
+        <div class="position">
+            <div><a href="/components/index">返回组件测试首页</a></div>
+        </div>
+        <div class="detail-content m-t-sm">
+            测试下拉菜单
+            <zs-select options="[{ 'name': '条','value':0},{ 'name' : 'M', 'value':1},{ 'name' : 'G', 'value':2},{ 'name' : 'T', 'value':3}]" selectedvalue="vm.dropdown1"></zs-select>
+            <div>选中的菜单对应的值为<span class="red">{{ vm.dropdown2 }}</span></div>
+            <div zs-select options="[{ 'name': '条','value':0},{ 'name' : 'M', 'value':1},{ 'name' : 'G', 'value':2},{ 'name' : 'T', 'value':3}]" selectedvalue="vm.dropdown2"></div>
+            <pre>
+            &lt;zs-select options="[{ 'name': '条','value':0},{ 'name' : 'M', 'value':1},{ 'name' : 'G', 'value':2},{ 'name' : 'T', 'value':3}]" selectedvalue="vm.dropdown1"&gt;&lt;/zs-select&gt;
+            &lt;div zs-select options="[{ 'name': '条','value':0},{ 'name' : 'M', 'value':1},{ 'name' : 'G', 'value':2},{ 'name' : 'T', 'value':3}]" selectedvalue="vm.dropdown2"&gt;&lt;/div&gt;
+        </div>
+    </div>
+</div>

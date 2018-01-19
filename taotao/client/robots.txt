@@ -1,0 +1,11 @@
+User-agent:*
+Allow:/search/list
+Allow:/search/detail/
+Disallow:/search/
+Disallow:/search/list/
+Disallow:/search/detail
+Disallow:/operateGuide
+Disallow:/contactUs
+
+User-agent:MJ12bot
+Disallow:/

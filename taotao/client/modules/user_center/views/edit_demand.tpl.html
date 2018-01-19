@@ -1,0 +1,128 @@
+<!-- 右边基本信息部分 -->
+<div class="info-content">    
+    <!-- 基本信息 -->
+    <div class="info-block base-info-set">
+        <div class="row"><h3>编辑数据</h3></div>
+        <div class="row careful text-red-shallow" ng-if="vm.detail.reviewContent" ng-bind="vm.detail.reviewContent">
+            <!-- 由于您上传的附件内容违反了《数据淘用户协议》的第三条规定，该条数据暂未发布，请修改后重新提交审核，非常抱歉。由于您上传的附件内容违反了《数据淘用户协议》的第三条规定，该条数据暂未发布，请修改后重新提交审核，非常抱歉。 -->
+            嗨，数据必须通过管理员审核后才能发布，为了确保您的数据顺利通过审核，请准确填写下面的信息（带×号的必填）；
+        </div>
+        <div class="row m-t-sm">
+            <form action="">               
+                <div class="form-group m-t-xs">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>定制标题</label>
+                    <div class="col-8">                    	
+                    	<input type="text" class="form-control" placeholder="请输入一个响亮的标题" ng-model="vm.detail.title">                        
+                        <div class="row error"><span ng-if="vm.error.title.flag" ng-bind="vm.error.title.msg">数据标题不能为空<span></div>
+                    </div>
+                    <!-- <div class="col-10">
+                        <p class="error">数据标题不能为空</p>                        
+                    </div>           --> 
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>定制分类</label>
+                    <div class="col-3">                    	
+                        <!--
+                    	<select name="" id="">
+                    		<option value="">社交网络</option>
+                    	</select>
+                        -->
+                        <div zs-select options="vm.detail.dataCategoryArr" selectedvalue="vm.detail.category" class="theme-select-cyan" ng-if="vm.detail.category !== undefined"></div>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-sm">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>定制标签</label>
+                    <div class="col-8 theme-tags-blue">                    	
+                        <!-- <textarea name="" id="" rows="3" placeholder="添加标签，最多选择5个"></textarea> -->
+                        <zs-tag options="vm.detail.dataCategoryReverseObj[vm.detail.category].defaultTags" hastagsoptions="vm.detail.tags" maxtaglen="vm.tagnumLimit" tagwordlen="vm.tagwordLimit" ng-if="vm.detail.tags !== undefined "></zs-tag>
+                        <div class="row error"><span ng-if="vm.error.tags.flag" ng-bind="vm.error.tags.msg">数据标签不能为空</span></div>
+                    </div>
+                </div>
+
+               
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>悬赏定价</label>
+                    <div class="col-8">  
+                    	<div class="col-2">                    		
+                            <!--
+	                    	<select name="" id="">
+	                    		<option value="">价格</option>
+	                    	</select>                  	
+                            -->
+                            <div zs-select options="vm.detail.demandPriceTypeArr" selectedvalue="vm.detail.demandPriceType" class="theme-select-cyan" ng-if="vm.detail.demandPriceType !== undefined"></div>
+                            <div class="row error"></div>
+                    	</div>
+                    	<div class="col-5 m-l-sm" ng-if="vm.detail.demandPriceType === vm.detail.demandPriceTypeObj.charge.value">
+                    		<input type="text" class="form-control" placeholder="请输入具体价格" ng-model="vm.detail.cost">
+                            <div class="row error"><span ng-if="vm.error.demandPrice.flag" ng-bind="vm.error.demandPrice.msg"></span></div>
+                    	</div>
+                        <div class="col-2 m-l-xs text-md" ng-if="vm.detail.demandPriceType === vm.detail.demandPriceTypeObj.charge.value">元起</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">&nbsp;</span>截止日期</label>
+                    <div class="col-8">
+                        <div class="col-5">
+                            <div zs-radio options="vm.detail.demandDeadlineArr" selectedvalue="vm.detail.demandDeadline"></div>
+                            <!--
+                        	<label for="">
+                            <input type="radio" class="m-r-xs">长期有效</label>
+                            <label for="" class="m-l-xlg">
+                            <input type="radio" class="m-r-xs">截止日期</label>
+                            -->
+                        </div>
+                        <div class="col-4" ng-if="vm.detail.demandDeadline === vm.detail.demandDeadlineObj.deadTime.value">
+                            <!-- <input type="text"> -->
+                            <div class="calendar row" style="width: 100%;background-color: #ffffff">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-b calander-input" placeholder="请选择截止日期" uib-datepicker-popup ng-model="vm.detail.demandDeadlineTime" is-open="vm.calendarConfig.popup.opened" datepicker-options="vm.calendarConfig.dateOptions" ng-required="true" close-text="Close" disabled>
+                                    <span class="btn-group">
+                                        <button type="button" class="button btn-default" ng-click="vm.calendarConfig.open()" style="height:38px;">
+                                            <!-- <i class="glyphicon glyphicon-calendar"></i> -->
+                                            <svg fill="#17AEED" style="width:16px;height:16px;"><use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#date"></use></svg>
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="row error"><span ng-if="vm.error.deadline.flag" ng-bind="vm.error.deadline.msg"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-sm">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>定制详述</label>
+                    <div class="col-8">                    	
+                    	<textarea class="no-resize" rows="3" placeholder="数据包括了全国的90%企业的行业数据，其中包括了..." ng-model="vm.detail.intro"></textarea>
+                        <div class="row error"><span ng-if="vm.error.intro.flag" ng-bind="vm.error.intro.msg"></span></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>联系人</label>
+                    <div class="col-5">                    	
+                    	<input type="text" class="form-control" placeholder="请输入联系人" ng-model="vm.detail.linkman">
+                        <div class="row error"><span ng-if="vm.error.linkman.flag" ng-bind="vm.error.linkman.msg"></span></div>                 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label col-2"><span class="text-red m-r-sm">*</span>联系方式</label>
+                    <div class="col-5">                    	
+                    	<input type="text" class="form-control" placeholder="请输入联系方式" ng-model="vm.detail.contact">
+                        <div class="row error"><span ng-if="vm.error.contact.flag" ng-bind="vm.error.contact.msg"></span></div>                    
+                    </div>
+                </div>
+
+                <div class="form-group m-t-lg m-b-xs">
+                    <label for="" class="control-label col-2">&nbsp;</label>
+                    <div class="col-5">
+                        <button type="button" class="btn btn-save" ng-click="vm.saveDemand();">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

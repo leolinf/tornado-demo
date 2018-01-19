@@ -1,0 +1,38 @@
+<div class="b-b-gray">
+    <div class="container">
+        <div class="row">
+            <div class="welcome" ng-if="!$root.isLogin">欢迎来到&nbsp;&nbsp;数据淘！</div>
+            <div class="welcome" ng-if="$root.isLogin">欢迎使用数据淘</div>
+            <div class="f-r">
+                <ul class="navbar-nav nav">
+                    <li ng-if="$root.$state.includes( 'userCenter' )">
+                        <a href="/">数据淘首页</a>
+                    </li>
+                    <li>
+                        <a href="#" ng-if="!$root.isLogin" ng-click="promptLogin( 'data' );">发布数据</a>
+                        <a href="/user_center/edit_data" ng-if="$root.isLogin">发布数据</a>
+                    </li>
+                    <li>
+                        <a href="#" ng-if="!$root.isLogin" ng-click="promptLogin( 'demand' );">数据定制</a>
+                        <a href="/user_center/edit_demand" ng-if="$root.isLogin">数据定制</a>
+                    </li>
+                    <li ng-if="$root.$state.includes( 'userCenter' )">
+                        <a href="/user_center/feedback">意见反馈</a>
+                    </li>
+                    <li ng-if="$root.isLogin && !$root.$state.includes( 'userCenter' )">
+                        <a href="/user_center/account_set">个人中心</a>
+                    </li>
+                    <li ng-if="!$root.isLogin">
+                        <a href="/signup">注册</a>
+                    </li>
+                    <li ng-if="!$root.isLogin">
+                        <a href="/signin">登录</a>
+                    </li>
+                    <li ng-if="$root.isLogin">
+                        <a ng-href="#" ng-click="logout();">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

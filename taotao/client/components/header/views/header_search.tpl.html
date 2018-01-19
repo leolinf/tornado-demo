@@ -1,0 +1,9 @@
+<div class="search">
+    <!-- 搜索数据 -->
+    <input type="text" placeholder="搜索您想要的数据" ng-model="SearchParams.content" ng-if="!isSearchDemand" ng-keypress="searchData( $event );" />
+    <button type="button" class="btn-search" ng-click="searchDataByContent()" ng-if="!isSearchDemand">搜全网</button>
+
+    <!-- 搜索需求 -->
+    <input type="text" placeholder="看看都有哪些定制" ng-model="demandContent" ng-if="isSearchDemand" ng-keypress="searchDemand( $event );" />
+    <button type="button" class="btn-search" ng-click="searchDemandByContent()" ng-if="isSearchDemand" >搜定制</button>
+</div>	

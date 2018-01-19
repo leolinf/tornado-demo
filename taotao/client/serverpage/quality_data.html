@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html ng-app="Datatao">
+<head>
+	<title>数据淘</title>
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="description" content="数据淘专注数据垂直搜索，是全国首个大数据垂直搜索平台，是大数据时代首选的数据搜索平台，数据来自独家分布式数据采集系统、第三方企业/平台/个人、政府机构等，涵盖社交、电商、金融、医疗、教育、科研等领域近50000个数据集、约20亿+条数据。">
+	<meta name="keywords" content="数据淘，淘数据，数据共享， 社交数据，电商数据，金融数据，医疗健康数据，生活日常数据，交通数据，旅游数据，教育数据，科研数据，5万数据集，20亿条数据，海量数据，大数据，垂直搜索">
+	<meta name="author" content="卧龙大数据">
+	<script type="text/css">
+        var isIE = function(ver){
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+            return b.getElementsByTagName('i').length === 1
+        }
+        if(isIE(6) || isIE(7) || isIE(8)){
+            alert('您的浏览器太古老，请下载新的浏览器获得更好的使用体验');
+            window.location = "http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html";
+        }
+       
+    </script>
+	<script type="text/javascript" src="/vendor/svgeverybody.js" ></script>
+	<script type="text/javascript" >svg4everybody();</script>
+	<link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/icon_svgs/sprite.css" rel="stylesheet" type="text/css" />
+	<base href="/"></head>
+<body>
+	<header autoscroll="true">
+		<div class="navbar">
+			<div class="header-navbar">				
+				<!-- 头部列表部分 -->
+				<div class="b-b-gray">
+					<div class="container">
+						<div class="row">
+							<div class="welcome">欢迎来到&nbsp;&nbsp;数据淘！</div>
+							<div class="f-r">
+								<ul class="navbar-nav nav">
+									<li><a href="/">数据淘首页</a></li>
+									<li><a href="/signup">注册</a></li>
+									<li><a href="/signin">登录</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-searchs">				
+				<div class="container p-b-xlg clearfix">					
+					<!-- logo区域 -->	
+	        		<div class="logo"><a href="/" style="display:block;width:100%;height:100%;"></a></div>
+
+					<div class="search">
+					    <!-- 搜索数据 -->
+					    <input type="text" placeholder="搜索您想要的数据">
+					    <button type="button" class="btn-search">搜全网</button>			    
+					</div>	
+
+					<!-- 二维码部分 -->
+					<div class="qr-cod">
+						<img src="/assets/images/erweimatop.png" alt="">
+						<div class="qr-cod-detail hide">
+							<div class="triangle"></div>
+							<div class="triangle-white"></div>
+							<div class="cod-detail-title">官方微信</div>
+							<img src="/assets/images/wx_code.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				
+				<div class="container main-nav" ng-if="!$state.includes( 'userCenter' )">
+					<div class="row">
+						<div class="navbar">
+							<ul class="nav-list">
+				                <li class="active"><a href="/">首页</a></li>
+								<li><a href="/search/list">数据市场</a></li>
+								<li><a href="/quality_data">精品数据</a></li>
+								<li><a href="/demand/list">数据定制</a></li>
+								<li><a href="/platformFeature">平台特色</a></li>
+								<li><a href="/help_center/1">帮助中心</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>		
+			</div>			
+		</div>
+	</header>
+
+
+	<!-- 首页中间内容部分 -->	
+<!-- 顶部导航图片 -->
+<div class="wrap quality-data">
+	<div class="nav-images">
+		<div class="row nav-blocks">
+			<div class="text-center">				
+				<div class="tianmao-data tianmao-data-active">
+					<svg class="icon-tianmao">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#shopping"></use>
+					</svg>
+					<div class="name-block">天猫数据</div>
+				</div>
+				<div class="enterprise-data">
+					<svg class="icon-enterprise">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#briefcase"></use>
+					</svg>
+					<div class="name-block">企业数据</div>
+				</div>
+				<div class="microblog-data">
+					<svg class="icon-microblog-data">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#weibo"></use>
+					</svg>
+					<div class="name-block">微博数据</div>
+				</div>
+				<div class="local-data">
+					<svg class="icon-local-data">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#building"></use>
+					</svg>
+					<div class="name-block">本地生活</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrap content-all">
+		<div class="container tianmao-data">			
+			<div class="row data-introduce">
+				<div class="line m-r-md  text-right"><span class="circle"></span></div>
+				<div class="words">数据介绍</div>
+				<div class="line m-l-md text-left"><span class="circle"></span></div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				天猫各行业商品价格、销量、评估、店铺、品牌等数据
+			</div>
+
+			<div class="row data-intro-block">
+				<div class="data-content">
+					<div class="title"><span class="num">01</span><span>数据涵盖</span></div>
+					<div class="content">
+						涵盖天猫<span>35</span>个大类，<span>1321</span>个二级分类的<span>10</span>万个品牌，<span>100</span>万个店铺，<span>3000</span>万件商品的各类数据。
+					</div>
+				</div>
+				<div class="data-column">
+					<div class="title"><span class="num">02</span><span>数据字段</span></div>
+					<div class="content">
+						数据包括商品的基本信息、价格走势、每日销量、评价分析等数据。每日TB级数据更新。
+					</div>
+				</div>
+				<div class="data-value m-t-sm">
+					<div class="title"><span class="num">03</span><span>数据价值</span></div>
+					<div class="content">
+						数据可用于商品价格分析、销量统计、竞品分析、口碑检测、渠道管理等。
+					</div>
+				</div>
+				<div class="data-demand m-t-sm">
+					<div class="title"><span class="num">04</span><span>专属定制</span></div>
+					<div class="content">
+						可按照地区（如全国）、行业（如母婴）、时间（如近1个月）进行数据定制。
+					</div>
+				</div>
+			</div>
+
+			<div class="row data-list">
+				<div class="line m-r-md  text-right"><span class="circle"></span></div>
+				<div class="words">数据列表</div>
+				<div class="line m-l-md text-left"><span class="circle"></span></div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				数据列表仅包含部分数据，若需专属定制，请联系客服
+			</div>
+		</div>
+
+
+
+
+		<div class="container enterprise-data hide">	
+			<div class="row data-introduce">
+				<div class="line m-r-md text-right">
+					<div class="line1"></div>
+					<div class="line2 f-r"></div>
+				</div>
+				<div class="words">数据介绍</div>
+				<div class="line m-l-md text-left">
+					<div class="line1"></div>
+					<div class="line2"></div>
+				</div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				全国各行业企业信息数据
+			</div>
+
+			<div class="row data-intro-block">
+				<div class="data-content">
+					<div class="title"><span>数据涵盖</span></div>
+					<div class="content">
+						涵盖全国<span>34</span>个省市直辖市的<span>12.4万</span>个企业的近3874万条数据。
+					</div>
+				</div>
+				<div class="data-column">
+					<div class="title"><span>数据字段</span></div>
+					<div class="content">
+						包括企业的基本信息（法人、联系方式、注册资本的等）、企业证书、法律诉讼、法院报告、著作权专利、对外投资、商标、失信信息等。
+					</div>
+				</div>
+				<div class="data-value">
+					<div class="title"><span>数据价值</span></div>
+					<div class="content">
+						数据可用于企业征信、风险评估、舆论检测、市场分析等。
+					</div>
+				</div>
+				<div class="data-demand">
+					<div class="title"><span>专属定制</span></div>
+					<div class="content">
+						可按照企业注册地区（如全国）、所属行业（如母婴）、注册时间（如近1各月）进行数据定制。
+					</div>
+				</div>
+			</div>
+
+			<div class="row data-list">
+				<div class="line m-r-md text-right">
+					<div class="line1"></div>
+					<div class="line2 f-r"></div>
+				</div>
+				<div class="words">数据列表</div>
+				<div class="line m-l-md text-left">
+					<div class="line1"></div>
+					<div class="line2"></div>
+				</div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				数据列表仅包含部分数据，若需专属定制，请联系客服
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div class="container microblog-data hide">	
+			<div class="row data-introduce">
+				<div class="line m-r-md"></div>
+				<div class="words">数据介绍</div>
+				<div class="line m-l-md"></div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				全国各行业企业信息数据
+			</div>
+
+			<div class="row data-intro-block">
+				<div class="data-content">
+					<div class="data-content-out">					
+						<div class="title"><span>数据涵盖</span></div>
+					</div>
+					<div class="content">
+						新浪微博5.5亿用户近3400亿条数据。
+					</div>
+				</div>
+
+				<div class="data-column">
+					<div class="data-column-out">					
+						<div class="title"><span>数据字段</span></div>
+					</div>
+					<div class="content">
+						包括用户基本信息、微博内容、关注关系等数据。
+					</div>
+				</div>
+
+				<div class="data-value">
+					<div class="data-value-out">					
+						<div class="title"><span>数据价值</span></div>
+					</div>
+					<div class="content">
+						可用于科研开发、精准营销、市场跟踪、品牌宣传等。
+					</div>
+				</div>
+
+				<div class="data-demand">
+					<div class="data-demand-out">					
+						<div class="title"><span>专属定制</span></div>
+					</div>
+					<div class="content">
+						可按照用户类型（如蓝V用户）、地区（可精确到区县）、关注关系等进行数据定制。
+					</div>
+				</div>
+			</div>
+
+			<div class="row data-list">
+				<div class="line m-r-md text-right">
+					<div class="line1"></div>
+					<div class="line2 f-r"></div>
+				</div>
+				<div class="words">数据列表</div>
+				<div class="line m-l-md text-left">
+					<div class="line1"></div>
+					<div class="line2"></div>
+				</div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				数据列表仅包含部分数据，若需专属定制，请联系客服
+			</div>
+		</div>
+
+
+
+
+
+
+		<div class="container local-data hide">
+			<div class="row data-introduce">
+				<div class="line-left m-r-md"></div>
+				<div class="words">数据介绍</div>
+				<div class="line-right m-l-md"></div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				全国各行业企业信息数据
+			</div>
+
+			<div class="row data-intro-block">
+				<div class="data-content">
+					<div class="triangle"></div>
+					<div class="title">01<br><span>数据涵盖</span></div>
+					<div class="content">
+						全国个省市本地生活3000万家商家，包括店铺基本信息（地址、电话、主营内容等）、评价等相关数据。
+					</div>
+				</div>
+
+				<div class="data-column">
+					<div class="triangle"></div>
+					<div class="title">02<br><span>数据字段</span></div>
+					<div class="content">
+						涵盖没事、电影、酒店、运动健身、景点、购物、生活服务、教育培训、爱车、医疗健康等15个领域。
+					</div>
+				</div>
+
+				<div class="data-value">
+					<div class="triangle"></div>
+					<div class="title">03<br><span>数据价值</span></div>
+					<div class="content">
+						数据可用于选址开店、口碑检测、商业规划、只会城市建设等。
+					</div>
+				</div>
+
+				<div class="data-demand">
+					<div class="triangle"></div>
+					<div class="title">04<br><span>专属定制</span></div>
+					<div class="content">
+						可按照地区（精确到区县）、分类（如美食）进行数据定制。
+					</div>
+				</div>
+			</div>
+
+			<div class="row data-list">
+				<div class="line-left m-r-md"></div>
+				<div class="words">数据列表</div>
+				<div class="line-right m-l-md"></div>
+			</div>
+
+			<div class="row data-introduce-subTitle">
+				数据列表仅包含部分数据，若需专属定制，请联系客服
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div class="wrap quality-data-content">
+			<!-- 精品数据左边导航部分 -->
+			<div class="quality-data-leftbar m-b-100">
+				<ul>
+					<!-- <li class="active"><a href="/suQualityData?tag=1">天猫数据</a></li> -->
+					<li class="active"><a href="/suQualityData">天猫数据</a></li>
+					<li><a href="/suQualityData">企业数据</a></li>
+					<li><a href="/suQualityData">微博数据</a></li>
+					<li><a href="/suQualityData">本地生活</a></li>
+				</ul>
+			</div>
+			
+			<!-- 精品数据右边内容部分 -->
+			<div class="quality-data-container">
+				<div class="row data-type-block m-b-md">
+					<div class="type-key">标签:</div>
+					<ul class="type-values">
+		                <li class="active">全部</li>
+		                <li>标签一</li>
+		                <li>标签二</li>
+		                <li>标签三</li>
+		                <li>标签四</li>
+		                <li>标签五</li>
+		                <li>标签六</li>
+		                <li>标签七</li>
+		                <li>标签八</li>
+		                <li>标签九</li>
+		                <li>标签十</li>
+		                <li>标签十一</li>
+		                <li>标签十二</li>
+					</ul>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span>免费</span>
+						<span class="hide">收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span class="hide">免费</span>
+						<span>收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download hide">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span class="hide">免费</span>
+						<span class="hide">收费</span>
+						<span>面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span>免费</span>
+						<span class="hide">收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span class="hide">免费</span>
+						<span>收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download hide">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span class="hide">免费</span>
+						<span class="hide">收费</span>
+						<span>面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span>免费</span>
+						<span class="hide">收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span class="hide">免费</span>
+						<span>收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download hide">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span class="hide">免费</span>
+						<span class="hide">收费</span>
+						<span>面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm">
+					<div class="row data-title">
+						<div class="title">这里是我们的数据标签</div>
+						<span>免费</span>
+						<span class="hide">收费</span>
+						<span class="hide">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data">独家数据</div>
+						<div class="can-download">可下载</div>
+						<div class="read-num f-l">
+							浏览量<span>123</span>
+						</div>
+						<div class="pub-data f-l">
+							发布时间<span>2016-01-01</span>
+						</div>
+						<a href="/search/detail/" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>				
+
+				<div class="paginations m-t-sm pagination-lg m-b-100">
+					<div class="pagination">
+						<ul>
+							<li><a href="#">&lt;&lt; 上一页</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#" class="active">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>...</li>
+							<li><a href="#">999</a></li>
+							<li><a href="#">下一页 &gt;&gt;</a></li>
+						</ul>
+					</div>					
+				</div>
+
+			</div>
+			<!-- 右边占位符 -->
+			<div class="quality-data-rightbar"></div>
+
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+	<!-- 页面底部 -->
+	<footer>
+		<div class="footer bg-default">
+			<div class="content">
+				<div class="aboutus">
+					<h1>关于我们</h1>
+					<ul>
+						<li><a href="/about_us">数据淘简介</a></li>
+						<li><a href="/about_us#company">公司简介</a></li>
+					</ul>
+
+				</div>
+				<div class="operate-guide">
+					<h1>操作指引</h1>
+					<ul>
+						<li><a href="help_center/1">注册/登录</a></li>
+						<li><a href="help_center/2">发布数据</a></li>
+						<li><a href="help_center/3">数据定制</a></li>
+					</ul>
+				</div>
+				<div class="connect-us">
+					<h1>联系我们</h1>
+					<ul>
+						<li><a href="#">电话：028-61556366</a></li>
+						<li><a href="#">邮箱：service@datataotao.com</a></li>
+					</ul>
+				</div>
+				<div class="empty">&nbsp;</div>
+				<div class="microblog">
+					<h1>官方微博</h1>
+					<div class="pic">
+						<img src="/assets/images/wb_code.png" alt="">
+					</div>
+				</div>
+				<div class="wechat">
+					<h1>微信公众号</h1>
+					<div class="pic">
+						<img src="/assets/images/wx_code.jpg" alt="">
+					</div>
+				</div>
+				<div class="copyRight">
+                    <p>成都知数科技有限公司版权所有&nbsp;&nbsp;14028253号-4</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

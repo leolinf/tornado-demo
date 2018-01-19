@@ -1,0 +1,320 @@
+/**
+ * 此部分包括
+ * 1. 导航
+ * 2. 当前位置
+ * 3. 首页的导航
+ */
+@import 'variables';
+@import '../normalize';
+
+.navbar{
+	background-color: @white;
+	min-width: 1200px;
+	.clearfix;
+	.nav-list{
+		a{
+			font-weight: 600;
+		}
+	}
+	a{
+		display: block;
+		width: 100%;
+		height: 100%;
+		color: @black;
+		text-decoration: none;
+		font-family: @songti;
+		// font-weight: 600;
+	}
+	.header-navbar{
+		height: 30px;
+		line-height: 30px;
+		.songti;
+		font-size: 12px;	
+		color: @black-shallow;
+		// border-bottom: 1px @gray solid;
+		.welcome{
+			.f-l;
+		}	
+		.navbar-nav{
+			.f-r;
+			li{
+				float: left;
+				margin-left: @sm;
+				a{
+					display: block;
+					text-decoration: none;
+					color: @black-shallow;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	.header-searchs{
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+		// height: 150px;
+		// overflow: hidden;
+		position: relative;
+		z-index: 999;
+		.logo{
+			float: left;
+			margin-top: 50px;
+			height: 48px;
+			width: 157px;
+			background-image: url("/assets/images/logo.png");
+			background-repeat: no-repeat;
+			// background-size: 100% 100%;
+			background-position: -11px;
+		}
+		.search{
+			position: relative;
+			float: left;
+			margin-left: 175px;
+			margin-top: 50px;
+			width: 654px;
+			height: 48px;
+			// border:1px solid #f00;
+			input[type="text"]{
+				float: left;
+				display: block;
+				width: 558px;
+				height: 48px;
+				line-height: 48px;
+				.songti;
+				padding-left: 20px;
+				font-size: 16px;
+				// color: rgb(150, 150, 150);
+				border:2px @blue-deep solid;
+			}
+			.btn-search{
+				float: left;
+				display: block;
+				height: 48px;
+				border:none;
+				line-height: 48px;
+				text-align: center;
+				background-color: @blue-deep;
+				color: @white;
+				width: 96px;
+				.microyahei;
+				font-size: 20px;
+				cursor: pointer;
+			}
+		}
+		.qr-cod{
+			position: relative;
+			float: right;
+			top: 0;
+			width: 48px;
+			height: 48px;
+			line-height: 48px;
+			margin-top: 50px;
+			text-align: center;
+		}
+		.qr-cod-detail{
+			position: absolute;
+			right: -165px;
+			top: 0;
+			// height: 313px;
+			width: 147px;
+			padding: 20px;
+			border: 1px @gray solid;
+			background-color: @white;
+			.cod-detail-title{
+				font-family: 宋体;
+			    font-size: 18px;
+			    font-weight: 600;
+			    height: 18px;
+			    line-height: 18px;
+			    width: 100%;
+			    text-align: center;
+			    float: left;
+			}
+			img{
+				float: left;
+				width: 100%;
+				margin-top: 10px;
+			}
+			.triangle{
+				width:0; 
+			    height:0; 
+			    border-top:10px solid transparent;
+			    border-bottom:10px solid transparent; 
+			    border-right:10px solid @gray; 
+			    position: absolute;
+			    left: -10px;
+			    top: 20px;
+			}
+			.triangle-white{
+				width:0; 
+			    height:0; 
+			    border-top:8px solid transparent;
+			    border-bottom:8px solid transparent; 
+			    border-right:8px solid @white; 
+			    position: absolute;
+			    left: -8px;
+			    top: 22px;
+			}
+		}
+	}
+	.main-nav{
+		height: 48px;	
+		.clearfix;	
+		ul{
+			li{
+				float: left;
+				width: 180px;
+				height: 48px;
+				line-height: 48px;
+				text-align: center;
+				.songti;
+				font-size: 14px;
+				font-weight: 600;
+				color: @black;
+				a{
+					font-family: @songti;
+				}
+			}
+			.active{
+				background-color: rgb(67, 214, 137);
+				a{
+					color: @white !important;
+				}
+			}
+		}
+	}	
+}
+
+
+.header-new{
+	width: 100%;
+	height: 72px;
+	padding: 18px 0;
+	background-color: rgba(23, 130, 237, 0.9);
+	.logo{
+		position: relative;
+		float: left;
+		width: 118px;
+		height: 36px;
+		margin-top: 0 !important;
+	}
+	.search-new-block{
+		float: right;
+		font-family: @songti;
+		input[type='text']{
+			float: left;
+			width: 558px;
+			height: 36px;
+			font-size: 14px;
+			padding-left: 16px;
+			border: none;
+		}
+		button{
+			float: left;
+			width: 96px;
+			height: 36px;
+			line-height: 36px;
+			text-align: center;
+			font-weight: 600;
+			color: @white;
+			background-color: rgb(0, 99, 197);
+			outline: none;
+			border: none;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+
+
+//所在位置
+.position{
+	width: 1200px;
+	height: 64px;
+	line-height: 64px;
+	padding: 0 30px;
+	background-color: @white;
+	ul{
+		li{
+			float: left;
+			margin: 0 4px;
+			font-size: 14px;
+			.songti;
+			color: @gray;
+			a{
+				font-family: @songti;
+				text-decoration: none;
+				color: @blue-deep;
+				&:after{
+					content: " /";
+				}
+			}
+		}
+	}
+}
+
+/* 首页导航 */
+.normal-nav{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 180px;
+	background-color: @white;
+	>ul{
+		li{
+			line-height: 49px;	
+			padding: 0 10px;
+			>a{
+				padding: 0 10px;
+				font-size: 14px;
+				display: block;
+				width: 100%;
+				height: 100%;
+				color: @black;
+				text-decoration: none;
+				font-family: @songti;
+				border-bottom: 1px rgb(200, 200, 200) dotted;
+			}
+			&:nth-last-child(1){
+				border-bottom: 1px rgb(255, 255, 255) solid;
+			}
+		}
+	}
+	.hot-word-content{
+		position: absolute;
+		padding: 30px;
+		width: 350px;
+		height: 400px;
+		.bg-white;
+		left: 180px;
+		top: 0;
+		border-left: 1px rgb(220, 220, 220) solid;
+		ul{
+			li{
+				float: left;
+				height: 14px;
+				line-height: 14px;
+				margin: 8px 0;
+				color: @gray;
+				&:after{
+					content: "|";
+				}
+			}
+		}
+		a{
+			font-family: @songti;
+			font-size: 14px;			
+			color: @gray;
+			margin: 0 6px;
+			text-decoration: none;
+			&:hover{
+				color: @blue;
+				text-decoration: underline;
+			}
+			
+		}
+	}
+}

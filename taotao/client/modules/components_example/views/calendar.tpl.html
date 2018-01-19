@@ -1,0 +1,32 @@
+<style>
+  .full button span {
+    background-color: #00f;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+  .calendar{
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
+  }
+
+</style>
+
+<div class="container">
+  <div class="calendar row" style="width: 100%;height: 600px;background-color: #ffffff;">
+    <div class="input-group m-t-xlg">
+      <div class="relative col-4">
+        <input type="text" class="form-control input-b calander-input" placeholder="请输入截止日期" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+        <span class="btn-group">
+          <button type="button" class="button btn-default" ng-click="open2()"> <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

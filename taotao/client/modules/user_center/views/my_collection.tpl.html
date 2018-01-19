@@ -1,0 +1,51 @@
+<!-- 右边基本信息部分 -->
+<div class="info-content">
+    <!-- 账号信息 -->
+    <div class="info-block my-collection">
+        <h3>收藏统计</h3>
+        <div class="m-t-md statistics">
+            您已收藏
+            <span class="number" ng-bind="vm.total"></span>
+            条数据
+        </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="info-block m-t-sm p-none">
+        <table class="table my-collection-table" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th class="col-10">数据标题</th>
+                    <th class="col-2 p-r-md">移除</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+                <tr ng-if="vm.total === 0">
+                    <td colspan="3" class="usercenter-list-empty">
+                        <span>
+                            您还没有收藏数据<br>
+                            现在<a href="/search/list">数据市场</a>看看吧，说不定能捡到宝哦！
+                        </span>
+                    </td>
+                </tr>
+
+                <tr id="tr" ng-repeat="eachList in vm.myCollectionList" ng-mouseover="vm.showDelete($index)" ng-mouseleave="vm.hideDelete()">
+                    <td class="col-10">
+                        <div class="col-10 ellipsis" ng-bind="eachList.title" ng-click="vm.viewMyCollectionDetail(eachList.id)"></div>
+                    </td>
+                    <td class="col-2">
+                        <span ng-if="vm.showDeleteStatus === $index" ng-click="vm.removeCollection(eachList.id, $index )">删除</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div class="row m-t-sm pagination-md" ng-include="'/components/pagination/pagination.html'" scope="" onload="">
+    -->
+    <div class="row m-t-sm pagination-md" ng-if="vm.pageTotal > 1">
+        <div class="pagination" pagination-directive page-index="vm.getMyCollectionParams.page" page-total="vm.pageTotal"></div>
+    </div>
+
+</div>

@@ -1,0 +1,128 @@
+@import "base/variables";
+@import "normalize";
+.fade.in{
+    opacity:1
+}
+.modal-backdrop.in{
+    opacity:0.5;
+}
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+.modal {
+    display: none;
+    overflow: auto;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.modal.in .modal-dialog{
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+}
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -moz-transition: -moz-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+}
+.modal-dialog{
+    width: 400px;
+    margin: 150px auto;
+    position:relative;
+}
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    // border-radius: 6px;
+    background-clip: padding-box;
+    outline: 0;
+}
+
+.popver{
+    .poplayertitle{
+        height: 48px;
+        line-height: 48px;
+        .title{
+            float: left;
+            font-family: @songti;
+            font-size: 16px;
+            font-weight: 600;
+            margin-left: 30px;
+        }
+        .cancle{
+            float: right;
+            color: rgb(200, 200, 200);
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+        }
+    }
+    .pop-content{
+        text-align: center;
+        width: 100%;
+        .vercode-img-change{            
+            .vercode-img{
+                display: inline-block;
+                width: 140px;
+                height: 40px;
+            }
+            .vercode-change{
+                display: inline-block;
+                font-family: @microyahei;
+                font-size: 16px;
+                color: rgb(61, 152, 227);
+            }
+        }
+    }
+    .vercode-input-group{
+        border: 1px solid @blue;
+        text-align: center;
+        border-radius: 4px;
+        display: inline-block;
+        height: 40px;
+        overflow: hidden;
+        span{
+            float: left;
+            height: 40px;
+            width: 40px;
+            background-color: @blue;     
+            border: none;       
+        }
+        input{
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            width: 200px;
+            padding-left: 5px;
+            border: none;
+        }
+    }
+}
+

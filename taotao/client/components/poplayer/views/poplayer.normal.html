@@ -1,0 +1,28 @@
+<style>
+/*
+	.modal-content{
+		width: 360px;
+		height: 188px;
+		border-radius: 8px;
+	}
+*/
+</style>
+
+<div class="poplayer-box">
+	<div class="poplayer-header" ng-if="vm.showHead">
+		<div class="poplayer-title" ng-bind="vm.headTitle"></div>
+		<div class="cancle" ng-click="vm.close()">x</div>
+	</div>
+
+	<div class="poplayer-body">
+		<div class="poplayer-msg" ng-bind-html="vm.popMsg">
+			嗨，您还没有登录哟！<br>
+			快去登录吧。
+		</div>
+		<div class="poplayer-btn-group">
+            <button type="button" class="btn btn-{{ vm.okBtnTheme }}" ng-click ="vm.ok();" ng-if="vm.showOk" ng-bind="vm.okBtn" ng-class="{ 'w50 blo-radius btn-md' : vm.showCancel, 'b-radius btn-lg' : !vm.showCancel }"></button>
+            <button type="button" class="btn btn-{{ vm.cancelBtnTheme }}" ng-click ="vm.cancel();" ng-if="vm.showCancel" ng-bind="vm.cancelBtn" ng-class="{'w50 bro-radius btn-md' : vm.showOk, 'b-radius btn-lg' : !vm.showCancel }"></button>
+			<!-- <button type="button" class="btn btn-red btn-lg" ng-click ="vm.cancel();" ng-if="vm.showCancel" ng-bind="vm.cancelBtn" ng-class="{'w50 bro-radius' : vm.showOk, 'b-radius' : !vm.showCancel }"></button> -->
+		</div>
+	</div>
+</div>

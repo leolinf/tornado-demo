@@ -1,0 +1,59 @@
+<!--
+<div class="pagination">
+	<ul>
+		<li><a href="#">&lt;&lt; 上一页</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#" class="active">4</a></li>
+		<li><a href="#">5</a></li>
+		<li>...</li>
+		<li><a href="#">999</a></li>
+		<li><a href="#">下一页 &gt;&gt;</a></li>
+	</ul>
+</div>
+-->
+<ul ng-if="zsPagination.pageTotal < 8 && zsPagination.pageTotal > 1 ">
+    <li ng-if="zsPagination.pageIndex > 1"><a href="#" ng-click="zsPagination.prevPage();">&lt;&lt; 上一页</a></li>
+    <!--
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#" class="active">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>...</li>
+    <li><a href="#">999</a></li>
+    -->
+    <li ng-repeat="n in zsPagination.range( 1, zsPagination.pageTotal ) track by $index"><a href="#" ng-click="zsPagination.getPage( $index+1 );" ng-class="{ 'active':zsPagination.pageIndex === ( 1+$index )}">{{ 1 + $index }}</a></li>
+    <li ng-if="zsPagination.pageIndex < zsPagination.pageTotal"><a href="#" ng-click="zsPagination.nextPage();">下一页 &gt;&gt;</a></li>
+</ul>
+
+<ul ng-if="zsPagination.pageTotal > 7 && zsPagination.pageIndex > 4 && zsPagination.pageIndex < zsPagination.pageTotal-3">
+    <li ng-if="zsPagination.pageIndex > 1"><a href="#" ng-click="zsPagination.prevPage();">&lt;&lt; 上一页</a></li>
+    <li><a href="#" ng-click="zsPagination.getPage( 1 );">1</a></li>
+    <li ng-if="zsPagination.pageIndex > 4">...</li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageIndex-2 );">{{ zsPagination.pageIndex - 2 }}</a></li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageIndex-1 );">{{ zsPagination.pageIndex - 1 }}</a></li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageIndex );" class="active">{{ zsPagination.pageIndex }}</a></li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageIndex+1 );">{{ zsPagination.pageIndex + 1 }}</a></li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageIndex+2 );">{{ zsPagination.pageIndex + 2 }}</a></li>
+    <li ng-if="zsPagination.pageIndex < ( zsPagination.pageTotal - 3 );">...</li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageTotal );">{{ zsPagination.pageTotal }}</a></li>
+    <li ng-if="zsPagination.pageIndex < zsPagination.pageTotal"><a href="#" ng-click="zsPagination.nextPage();">下一页 &gt;&gt;</a></li>
+</ul>
+
+<ul ng-if="zsPagination.pageTotal > 7 && zsPagination.pageIndex < 5">
+    <li ng-if="zsPagination.pageIndex > 1"><a href="#" ng-click="zsPagination.prevPage();">&lt;&lt; 上一页</a></li>
+    <li ng-repeat="n in zsPagination.range( 1, 6 ) track by $index"><a href="#" ng-click="zsPagination.getPage( $index+1 );" ng-class="{'active': zsPagination.pageIndex === ( 1 + $index ) }">{{ 1 + $index }}</a></li>
+    <li>...</li>
+    <li><a href="#" ng-click="zsPagination.getPage( zsPagination.pageTotal );">{{ zsPagination.pageTotal }}</a></li>
+    <li ng-if="zsPagination.pageIndex < zsPagination.pageTotal"><a href="#" ng-click="zsPagination.nextPage();">下一页 &gt;&gt;</a></li>
+</ul>
+
+<ul ng-if="zsPagination.pageTotal > 7 && zsPagination.pageIndex > zsPagination.pageTotal-4">
+    <li ng-if="zsPagination.pageIndex > 1"><a href="#" ng-click="zsPagination.prevPage();">&lt;&lt; 上一页</a></li>
+    <li><a href="#" ng-click="zsPagination.getPage( 1 );">1</a></li>
+    <li>...</li>
+    <li ng-repeat="n in zsPagination.range( zsPagination.pageTotal-5, zsPagination.pageTotal ) track by $index"><a href="#" ng-click="zsPagination.getPage( n );" ng-class="{'active': zsPagination.pageIndex === n }">{{ n }}</a></li>
+    <li ng-if="zsPagination.pageIndex < zsPagination.pageTotal"><a href="#" ng-click="zsPagination.nextPage();">下一页 &gt;&gt;</a></li>
+</ul>

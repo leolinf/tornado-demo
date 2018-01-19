@@ -1,0 +1,248 @@
+/**
+ * 设置主题
+ * 1. 背景颜色
+ * 2. 个人中心的主题设置
+ */
+@import "variables";
+/*=========================================背景开始==========================================================*/
+/* 黑色背景 */
+.bg-black{
+	background-color: @black;
+	.color-white;
+}
+
+/* 绿色背景 */
+.bg-green{
+	background-color: @green;
+	.color-white;
+}
+
+/* 橙色背景 */
+.bg-orange{
+	background-color: @orange;
+	.color-white;
+}
+
+/* 紫色背景 */
+.bg-purple{
+	background-color: @purple;
+	.color-white;
+}
+
+/* 青色背景 */
+.bg-cyan{
+	background-color: @cyan;
+	.color-white;
+}
+
+/* 藏青色背景 */
+.bg-navy{
+	background-color: @navy;
+	.color-white;
+}
+
+/* 蓝色背景 */
+.bg-blue{
+	background-color: @blue;
+	.color-white;
+}
+.bg-blue-deep{
+	background-color: @blue-deep;
+	.color-white;
+}
+/* 半透明蓝色背景 */
+.bg-blue-translucent{
+	background-color: rgba(23, 130, 237, 0.7);
+	.color-white;
+}
+
+/* 浅蓝色背景 */
+.bg-blue-shallow{
+	background-color: @bg-blue-shallow;	
+}
+/* 红色背景 */
+.bg-red-translucent{
+	background-color: @red-bg;
+	.color-white;
+}
+
+/* 白色背景 */
+.bg-white{
+	background-color: @white;
+	color: @black;
+}
+/* 渐变背景 */
+.bg-gradient{
+	color: @black !important;
+	// padding: 20px;
+	background-image:-webkit-linear-gradient(to right, rgb(240, 240, 240), @white);
+	background-image:-o-linear-gradient(to right, rgb(240, 240, 240), @white);
+	background-image:linear-gradient(to right, rgb(240, 240, 240), @white);
+}
+.bg-grid{
+	background-color: #f0f0f0;
+	background-image: url("/assets/images/01_index_08_01_bg_01.png");
+	background-position: center center;
+	background-repeat: repeat;
+}
+
+/*========================================背景结束===========================================================*/
+
+/* 字体为白色 */
+.color-white{
+	color: @white !important;
+	a{
+		color: @white !important;
+	}
+}
+
+
+/*=====================================个人中心主题设置开始=====================================================*/
+/**
+ * 个人中心主题设置
+ * @param  {[type]} @color1 [用于设置按钮颜色，th背景颜色，h3的border-left的颜色，字体的颜色]
+ * @param  {[type]} @color2 [鼠标移动上去后背景的颜色]
+ * @param  {[type]} @btn    [description]
+ * @return {[type]}         [description]
+ */
+.theme-personal(@color1,@color2,@btn){
+	.info-content{
+		.number{
+			color: @color1 !important;
+		}
+		.info-block{						
+			button{
+				background-color: @color1;
+				color: @white;
+			}
+			.table{
+				thead{
+					tr{
+						th{
+							background-color: @color1;
+						}
+					}
+				}
+				tbody{
+					tr{
+						&:hover{
+							cursor: pointer;
+							background-color: @color2;
+						}
+					}
+				}
+			}			
+			h3{
+				border-left: 2px @color1 solid;
+			}
+		}
+		.account-info{				
+			
+			div a{
+				color: @color1;
+			}
+		}
+		.statistics{
+			.number{
+				color: @color1;
+			}
+		}
+	}
+}
+/* 蓝色主题 */
+.theme-blue{
+	.theme-personal(@blue-deep,@blue,@blue-deep);
+}
+/* 绿色主题 */
+.theme-green{
+	.theme-personal(@green,rgba(75,214,140,0.4),@green);
+}
+/* 橙色主题 */
+.theme-orange{
+	.theme-personal(@orange,rgba(255,169,76,0.2),@orange);
+}
+/* 紫色主题 */
+.theme-purple{
+	.theme-personal(@purple,rgba(143,83,251,0.4),rgba(143,83,251,0.78));
+}
+/* 青色主题 */
+.theme-cyan{
+	.theme-personal(@cyan,rgba(23, 174, 237,0.4),rgba(23, 174, 237,0.78));
+}
+/* 藏青色主题 */
+.theme-navy{
+	.theme-personal(@navy,rgba(94,101,231,0.4),@navy);
+}
+/*=======================================个人中心主题设置结束===================================================*/
+
+.b-l-navy{
+	border-left-color: @navy;
+}
+
+
+/* =======================================下拉框的主题======================================================== */
+/* 绿色主题 */
+.theme-select-green{
+    .theme-select(@green);
+}
+/* 紫色主题 */
+.theme-select-purple{
+    .theme-select(@purple);
+}
+/* 蓝色主题 */
+.theme-select-blue{
+    .theme-select(@blue);
+}
+
+/* 藏青色主题 */
+.theme-select-navy{
+    .theme-select(@navy);
+}
+
+
+
+.theme-select(@color){
+    .zs-select-unit-sm{
+        background-color: @color;
+    }
+    .zs-select-unit{
+        // background-color: @color;
+    }
+    .zs-select-unit-div{
+        // background-color: @color;
+    }
+    .zs-select-unit-option-div{
+        &:hover{
+            background-color: @color !important;
+            color: @white;
+        }
+    }
+}
+
+
+/* =================================tags选项卡的主题================================== */
+
+
+/* 紫色主题 */
+.theme-tags-purple{
+	.theme-tags(rgb(221, 203, 254));
+}
+
+/* 蓝色主题 */
+.theme-tags-blue{
+	.theme-tags(#a2bff8);
+}
+
+.theme-tags(@color){
+	.includetags{
+		background-color: @color !important; 
+	}
+	.zs-tags-list{
+		.tagitems{
+			background-color: @color !important;
+			.triangle{
+				border-right:12px solid @color !important;
+			}
+		}
+	}
+}

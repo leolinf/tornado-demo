@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html ng-app="Datatao">
+{% include "import.html" %}
+<head>
+	<title>数据淘</title>
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="description" content="数据淘专注数据垂直搜索，是全国首个大数据垂直搜索平台，是大数据时代首选的数据搜索平台，数据来自独家分布式数据采集系统、第三方企业/平台/个人、政府机构等，涵盖社交、电商、金融、医疗、教育、科研等领域近50000个数据集、约20亿+条数据。">
+	<meta name="keywords" content="数据淘，淘数据，数据共享， 社交数据，电商数据，金融数据，医疗健康数据，生活日常数据，交通数据，旅游数据，教育数据，科研数据，5万数据集，20亿条数据，海量数据，大数据，垂直搜索">
+	<meta name="author" content="卧龙大数据">
+	<script type="text/css">
+        var isIE = function(ver){
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+            return b.getElementsByTagName('i').length === 1
+        }
+        if(isIE(6) || isIE(7) || isIE(8)){
+            alert('您的浏览器太古老，请下载新的浏览器获得更好的使用体验');
+            window.location = "http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html";
+        }
+       
+    </script>
+	<script type="text/javascript" src="/vendor/svgeverybody.js" ></script>
+	<script type="text/javascript" >svg4everybody();</script>
+	<link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/icon_svgs/sprite.css" rel="stylesheet" type="text/css" />
+	<base href="/"></head>
+<body>
+	<header autoscroll="true">
+		<div class="navbar">
+			<div class="header-navbar">				
+				<!-- 头部列表部分 -->
+				<div class="b-b-gray">
+					<div class="container">
+						<div class="row">
+							<div class="welcome">欢迎来到&nbsp;&nbsp;数据淘！</div>
+							<div class="f-r">
+								<ul class="navbar-nav nav">
+									<li><a href="/">数据淘首页</a></li>
+									<li><a href="/signup">注册</a></li>
+									<li><a href="/signin">登录</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-searchs">				
+				<div class="container p-b-xlg clearfix">					
+					<!-- logo区域 -->	
+	        		<div class="logo"><a href="/" style="display:block;width:100%;height:100%;"></a></div>
+
+					<div class="search">
+					    <!-- 搜索数据 -->
+					    <input type="text" placeholder="搜索您想要的数据">
+					    <button type="button" class="btn-search">搜全网</button>			    
+					</div>	
+
+					<!-- 二维码部分 -->
+					<div class="qr-cod">
+						<img src="/assets/images/erweimatop.png" alt="">
+						<div class="qr-cod-detail hide">
+							<div class="triangle"></div>
+							<div class="triangle-white"></div>
+							<div class="cod-detail-title">官方微信</div>
+							<img src="/assets/images/wx_code.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				
+				<div class="container main-nav" ng-if="!$state.includes( 'userCenter' )">
+					<div class="row">
+						<div class="navbar">
+							<ul class="nav-list">
+				                <li class="active"><a href="/">首页</a></li>
+								<li><a href="/search/list">数据市场</a></li>
+								<li><a href="/quality_data">精品数据</a></li>
+								<li><a href="/demand/list">数据定制</a></li>
+								<li><a href="/platformFeature">平台特色</a></li>
+								<li><a href="/help_center/1">帮助中心</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>		
+			</div>			
+		</div>
+	</header>
+
+
+	<!-- 首页中间内容部分 -->	
+	<div class="wrap p-t-lg bg-grid">
+		<div class="container">
+			<div class="row lists">
+				<aside class="sidebar">
+					<div class="widget">
+						<div class="title bg-black"><span>全部分类</span></div>
+						<div class="content" ng-controller="dataCategoryCtrl as vm">
+							<ul>
+								<li><a href="/search/list">所有数据（<span>{{datamain.get('total')}}</span>）</a></li>
+								<li class="active">
+									<a href="/search/list?category=1">社交网络（<span>{{cate.get('dataList')[0].get('total')}}</span>）</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=1&content=社交">社交</a></li>
+										<li class="li"><a href="/search/list?category=1&content=用户">用户</a></li>
+										<li class="li"><a href="/search/list?category=1&content=微信">微信</a></li>
+										<li class="li"><a href="/search/list?category=1&content=微博">微博</a></li>
+										<li class="li"><a href="/search/list?category=1&content=百度">百度</a></li>
+										<li class="li"><a href="/search/list?category=1&content=问答">问答</a></li>
+										<li class="li"><a href="/search/list?category=1&content=论坛">论坛</a></li>
+										<li class="li"><a href="/search/list?category=1&content=粉丝">粉丝</a></li>
+										<li class="li"><a href="/search/list?category=1&content=评论">评论</a></li>
+										<li class="li"><a href="/search/list?category=1&content=用户信息">用户信息</a></li>
+										<li class="li"><a href="/search/list?category=1&content=微博内容">微博内容</a></li>
+										<li class="li"><a href="/search/list?category=1&content=关注内容">关注内容</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=2">电子商务(<span>{{cate.get('dataList')[1].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=2&content=淘宝">淘宝</a></li>
+										<li class="li"><a href="/search/list?category=2&content=天猫">天猫</a></li>
+										<li class="li"><a href="/search/list?category=2&content=京东">京东</a></li>
+										<li class="li"><a href="/search/list?category=2&content=网站">网站</a></li>
+										<li class="li"><a href="/search/list?category=2&content=大众点评">大众点评</a></li>
+										<li class="li"><a href="/search/list?category=2&content=团购">团购</a></li>
+										<li class="li"><a href="/search/list?category=2&content=店铺">店铺</a></li>
+										<li class="li"><a href="/search/list?category=2&content=品牌">品牌</a></li>
+										<li class="li"><a href="/search/list?category=2&content=商品">商品</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=3">企业信息(<span>{{cate.get('dataList')[2].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=3&content=企业">企业</a></li>
+										<li class="li"><a href="/search/list?category=3&content=股东">股东</a></li>
+										<li class="li"><a href="/search/list?category=3&content=诉讼">诉讼</a></li>
+										<li class="li"><a href="/search/list?category=3&content=招聘信息">招聘信息</a></li>
+										<li class="li"><a href="/search/list?category=3&content=法人信息">法人信息</a></li>
+										<li class="li"><a href="/search/list?category=3&content=楼盘信息">楼盘信息</a></li>
+										<li class="li"><a href="/search/list?category=3&content=税务信息">税务数据</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=3">金融数据(<span>{{cate.get('dataList')[3].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=4&content=征信">征信</a></li>
+										<li class="li"><a href="/search/list?category=4&content=工商">工商</a></li>
+										<li class="li"><a href="/search/list?category=4&content=企业">企业</a></li>
+										<li class="li"><a href="/search/list?category=4&content=P2P">P2P</a></li>
+										<li class="li"><a href="/search/list?category=4&content=股票">股票</a></li>
+										<li class="li"><a href="/search/list?category=4&content=投资">投资</a></li>
+										<li class="li"><a href="/search/list?category=4&content=理财">理财</a></li>
+										<li class="li"><a href="/search/list?category=4&content=基金">基金</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=5">旅游交通(<span>{{cate.get('dataList')[4].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=5&content=POI">POI</a></li>
+										<li class="li"><a href="/search/list?category=5&content=景点">景点</a></li>
+										<li class="li"><a href="/search/list?category=5&content=门票">门票</a></li>
+										<li class="li"><a href="/search/list?category=5&content=机票">机票</a></li>
+										<li class="li"><a href="/search/list?category=5&content=出租车">出租车</a></li>
+										<li class="li"><a href="/search/list?category=5&content=">地铁</a></li>
+										<li class="li"><a href="/search/list?category=5&content=地铁">火车</a></li>
+										<li class="li"><a href="/search/list?category=5&content=公交">公交</a></li>
+										<li class="li"><a href="/search/list?category=5&content=违章">违章</a></li>
+										<li class="li"><a href="/search/list?category=5&content=空气质量">空气质量</a></li>
+										<li class="li"><a href="/search/list?category=5&content=城市">城市</a></li>
+										<li class="li"><a href="/search/list?category=5&content=地点">地点</a></li>
+										<li class="li"><a href="/search/list?category=5&content=地理信息">地理信息</a></li>
+										<li class="li"><a href="/search/list?category=5&content=交通路线">交通路线</a></li>
+										<li class="li"><a href="/search/list?category=5&content=查询">查询</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=6">生活服务(<span>{{cate.get('dataList')[5].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?content=汽车">汽车</a></li>
+										<li class="li"><a href="/search/list?category=6&content=楼盘房产">楼盘房产</a></li>
+										<li class="li"><a href="/search/list?category=6&content=医疗健康">医疗健康</a></li>
+										<li class="li"><a href="/search/list?category=6&content=新闻数据">新闻数据</a></li>
+										<li class="li"><a href="/search/list?category=6&content=美食">美食</a></li>
+										<li class="li"><a href="/search/list?category=6&content=电影">电影</a></li>
+										<li class="li"><a href="/search/list?category=6&content=休闲误乐">休闲娱乐</a></li>
+										<li class="li"><a href="/search/list?category=6&content=酒店">酒店</a></li>
+										<li class="li"><a href="/search/list?category=6&content=丽人">丽人</a></li>
+										<li class="li"><a href="/search/list?category=6&content=运动健身">运动健身</a></li>
+										<li class="li"><a href="/search/list?category=6&content=亲子">亲子</a></li>
+										<li class="li"><a href="/search/list?category=6&content=结婚">结婚</a></li>
+										<li class="li"><a href="/search/list?category=6&content=购物">购物</a></li>
+										<li class="li"><a href="/search/list?category=6&content=宠物">宠物</a></li>
+										<li class="li"><a href="/search/list?category=6&content=生活服务">生活服务</a></li>
+										<li class="li"><a href="/search/list?category=6&content=教育培训">教育培训</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=7">科研开发(<span>{{cate.get('dataList')[6].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=7&content=统计年鉴">统计年鉴</a></li>
+										<li class="li"><a href="/search/list?category=7&content=语音">语音</a></li>
+										<li class="li"><a href="/search/list?category=7&content=图像">图像</a></li>
+										<li class="li"><a href="/search/list?category=7&content=新闻语料">新闻语料</a></li>
+										<li class="li"><a href="/search/list?category=7&content=科研文献">科研文献</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/search/list?category=8">其他(<span>{{cate.get('dataList')[7].get('total')}}</span>)</a>
+									<ul class="sub-ul hide">
+										<li class="li"><a href="/search/list?category=8&content=歌曲">歌曲</a></li>
+										<li class="li"><a href="/search/list?category=8&content=图书">图书</a></li>
+										<li class="li"><a href="/search/list?category=8&content=娱乐">娱乐</a></li>
+										<li class="li"><a href="/search/list?category=8&content=菜谱">菜谱</a></li>
+										<li class="li"><a href="/search/list?category=8&content=电话">电话</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="widget m-t-lg" ng-controller="dataRankCtrl as vm">
+						<div class="title bg-blue-deep text-md"><span>热门数据排行</span></div>
+						<div class="content">
+
+							<ul class="rank-lis">
+								{% for i in hot1.get('dataList')%}
+
+	                            <li><span>1</span><a href="/search/detail">{{i.get('title')}}</a></li>
+
+								{% end %}
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="widget m-t-lg m-b-100" ng-controller="dataRankCtrl as vm">
+						<div class="title bg-green text-md"><span>最新下载排行</span></div>
+						<div class="content">
+
+							<ul class="rank-lis">
+								{% for i in hot2.get('dataList')%}
+
+	                            <li><span>1</span><a href="/search/detail">{{i.get('title')}}</a></li>
+								{% end %}
+							</ul>
+
+						</div>
+					</div>
+
+				</aside>
+				<div class="main-content main-content-right" ng-controller="dataListCtrl as vm">
+					<div class="classify data-type-block">
+						<div class="row types">
+							<div class="type-key">数据格式:</div>
+							<ul class="type-values">
+	                            <li class="active">全部</li>
+								<li>文本</li>
+								<li>语音</li>
+								<li>视频</li>
+								<li>图像</li>
+								<li>API</li>
+							</ul>
+						</div>
+						<div class="row types">
+							<div class="type-key">价格:</div>
+							<ul class="type-values">
+	                            <li class="active">全部</li>
+	                            <li>收费</li>
+	                            <li>免费</li>
+	                            <li>面议</li>
+							</ul>
+						</div>
+						<div class="row types">
+							<div class="type-key">提供下载:</div>
+							<ul class="type-values">
+	                            <li class="active">全部</li>
+	                            <li>可下载</li>
+	                            <li>无下载</li>
+							</ul>
+						</div>
+						<div class="row data-num-row">
+							<ul>
+								<li><a href="#" class="active">热度</a></li>
+								<li><a href="#">价格</a></li>
+								<li><a href="#">时间</a></li>
+							</ul>
+							<div class="data-num f-r">
+								为您筛选到&nbsp;<span>{{datamain.get('total')}}</span>&nbsp;条数据
+							</div>
+						</div>
+					</div>
+
+	                <!--
+					<div class="data-block m-t-sm">
+						<div class="row data-title">
+							<div class="title">全国企业信用系统网站全国企业信用系统网站全国企业信用系统网站<img src="/assets/images/medal-icon.png"></div>
+							<span>免费</span>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<div class="special-data">独家数据</div>
+							<div class="can-download">可下载</div>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+	                -->
+					{% for each_data in datamain.get('dataList') %}
+					<div class="row data-block m-t-sm">
+						<div class="row data-title">
+	                        <div class="title"><a href="/search/detail/{{each_data.get('id')}}">{{each_data.get('title')}}</a></div>
+							{% if each_data.get('priceType') == 0 %}
+							<span>收费</span>
+							{% end %}
+							{% if each_data.get('priceType') == 1 %}
+							<span>免费</span>
+							{% end %}
+							{% if each_data.get('priceType') == 3 %}
+							<span>面议</span>
+							{% end %}
+
+	                        <span class="hide">收费</span>
+	                        <span class="hide">面议</span>
+						</div>
+						<div class="row">
+							<div class="data-content">{{each_data.get('intro')}}</div>
+						</div>
+						<div class="row data-subtitle">
+							<div class="special-data">独家</div>
+							<div class="can-download">可下载</div>						
+							<div class="read-num">
+								浏览量<span>{{each_data.get('hits')}}</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>{{formattime(each_data.get("releaseTime"), '%Y-%m-%d')}}</span>
+							</div>
+	                        <a href="/search/detail" class="btn btn-green look-detail-btn f-r">查看详情</a>
+						</div>
+					</div>
+					{% end %}
+
+	                <!--
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+					<div class="data-block m-t-sm">
+						<div class="row">
+							<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+						</div>
+						<div class="row">
+							<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+						</div>
+						<div class="row data-subtitle">
+							<button type="button" class="btn btn-orange special-data">独家数据</button>
+							<button type="button" class="btn btn-blue can-download">可下载</button>
+							<div class="read-num">
+								浏览量<span>32451</span>
+							</div>
+							<div class="pub-data">
+								发布时间<span>2016-03-08</span>
+							</div>
+							<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+	                -->
+	                <!-- <div class="paginations m-t-md pagination-lg" ng-include="'/components/pagination/pagination.html'"></div> -->
+					<div class="pagination">
+				<ul>
+					{% if page > 1 %}
+			<li><a href="/search/list?page={{page-1}}&count=5">&lt;&lt; 上一页</a></li>
+					{% else %}
+
+					<li><a href="/search/list?page={{page}}&count=5">&lt;&lt; 上一页</a></li>
+					{% end %}
+			<li><a href="/search/list?page={{page}}&count=5">1</a></li>
+			<li><a href="/search/list?page={{page+1}}&count=5">2</a></li>
+			<li><a href="/search/list?page={{page+2}}&count=5">3</a></li>
+			<li><a href="/search/list?page={{page+3}}&count=5" >4</a></li>
+			<li><a href="/search/list?page={{page+4}}&count=5">5</a></li>
+
+			<li><a href="/search/list?page={{page+5}}&count=5">下一页 &gt;&gt;</a></li>
+		</ul>
+</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+{% include 'footer.html'%}
+</body>
+</html>

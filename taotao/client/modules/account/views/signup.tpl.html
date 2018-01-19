@@ -1,0 +1,69 @@
+<div class="login-body">
+	<div class="container">
+		<div class="register-content">
+			<p>
+				<div class="text-left f-l register-title">账号注册</div>
+				<div class="f-r gotoLogin"><a href="/signin">马上登录</a></div>
+			</p>
+			<div class="row m-t-xlg">
+				<form action="">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="icon">
+                                <!--<svg viewBox="65 25 17 35" width="40" height="38" fill="#ffffff"><use xlink:href="/assets/icon_svgs/sprite.svg#account"></use></svg> -->
+								<svg style="width:20px;height:20px;margin-top:10px;" fill="#ffffff"><use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#account"></use></svg>
+							</span>
+							<input type="text" placeholder="用户名(手机/邮箱)" ng-model="vm.info.username"></div>
+					</div>
+                    <p class="error"><span ng-if="vm.error.username.flag">用户名错误</span></p>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="icon">
+                                <!-- <svg viewBox="32 23 17 35" width="40" height="38" fill="#ffffff"><use xlink:href="/assets/icon_svgs/sprite.svg#password"></use></svg> -->
+								<svg fill="#ffffff" style="width:20px;height:20px;margin-top:10px;"><use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#password"></use></svg>
+							</span>
+							<input type="password" placeholder="密码" ng-model="vm.info.password"></div>
+					</div>
+
+                    <p class="error"><span ng-if="vm.error.password.flag">密码错误</span></p>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="icon">
+                                <!--<svg viewBox="32 23 17 35" width="40" height="38" fill="#ffffff"><use xlink:href="/assets/icon_svgs/sprite.svg#password"></use></svg> -->
+								<svg fill="#ffffff" style="width:20px;height:20px;margin-top:10px;"><use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#password"></use></svg>
+							</span>
+							<input type="password" placeholder="确认密码" ng-model="vm.info.passwordConfirm"></div>
+					</div>
+
+					<p class="error"><span ng-if="vm.error.passwordConfirm.flag">两次密码不一致</span></p>
+					<div class="form-group">
+						<div class="input-group verify-group del-clearfix">
+							<span class="icon">
+                                <!-- <svg viewBox="58 52 17 35" width="40" height="38" fill="#ffffff"><use xlink:href="/assets/icon_svgs/sprite.svg#verify"></use></svg> -->
+								<svg style="width:20px;height:20px;margin-top:10px;" fill="#ffffff"><use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#verify"></use></svg>
+							</span>
+							<input type="text" class="verify-input" placeholder="验证码" ng-model="vm.info.verifyCode">
+						</div>
+                        <!-- <button type="button" class="btn btn-green m-l-xs verify-btn">获取验证码</button> -->
+                        <button type="button" class="btn btn-disabled m-l-xs verify-btn" ng-if="!vm.validateUsername( vm.info.username )">获取验证码</button>
+                        <div zs-verifycode binddata="vm.verifyCodeParams" username="vm.info.username" ng-if="vm.validateUsername( vm.info.username )"></div>
+						<div class="verify-group">
+                            <p class="error"><span ng-if="vm.error.verifyCode.flag">验证码不正确</span></p>							
+						</div>
+					</div>
+
+					<div class="form-group agreeProtocol-form-group">
+                        <!-- <input type="checkbox" class="f-l"> -->
+                        <zs-checkbox selected="vm.info.agreeProtocol"></zs-checkbox>
+                        <label for=""><span class="f-l m-l-xs text-black">我已阅读并接受</span><a href="/useragreement" class="f-l">《数据淘用户协议》</a></label>
+                        <p class="error"><span></span></p>
+					</div>
+
+					<div class="form-group">
+						<button type="button" class="btn btn-green login-btn" ng-click="vm.signup()">注&nbsp;&nbsp;册</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

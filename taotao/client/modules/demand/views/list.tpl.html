@@ -1,0 +1,376 @@
+<div class="wrap p-t-lg bg-grid">
+	<div class="container">
+		<div class="row lists">
+			<div class="main-content">
+				<div class="classify data-type-block">
+					<div class="row types">
+						<div class="type-key">数据分类：</div>
+						<ul class="type-values col-10">
+                            <li ng-class="{'active-orange':vm.selectedDemandCategory === vm.demandCategoryObj.all.value }" ng-click="vm.setDemandCategory( vm.demandCategoryObj.all.value )">全部</li>
+                            <li ng-class="{'active-orange':vm.selectedDemandCategory === eachCategory.value}" ng-repeat="eachCategory in vm.demandCategoryArr" ng-bind="eachCategory.name" ng-click="vm.setDemandCategory( eachCategory.value )"></li>
+                            <!--
+							<li>电子商务</li>
+							<li>企业信息</li>
+							<li>进入</li>
+							<li>旅游交通</li>
+							<li>生活日常</li>
+							<li>科研开发</li>
+							<li>其他</li>
+                            -->
+						</ul>
+					</div>
+					
+					<div class="row data-num-row">
+						<ul>
+                            <!--
+							<li>
+								<a href="#" class="active-blue">最新</a>
+							</li>							
+							<li>
+								<a href="#">价格</a>
+							</li>							
+                            -->
+                            <li ng-repeat="eachDemandOrder in vm.demandOrderArr">
+                                <a ng-href="#"  ng-class="{'active-blue':vm.selectedDemandOrder === eachDemandOrder.value}" ng-bind="eachDemandOrder.name" ng-click="vm.setDemandOrder( eachDemandOrder.value )"></a>
+                            </li>
+						</ul>
+						<div class="data-num f-r">
+							为您筛选到
+							<span class="text-orange" ng-bind="vm.total"></span>
+							条数据
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm block" ng-repeat="eachDemand in vm.demandList">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title"><a href="/demand/detail/{{ eachDemand.id }}" ng-bind="eachDemand.title"></a></div>
+								<div class="left-info-content" ng-bind="eachDemand.intro">
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：
+								<span class="m-l-sm price" ng-if="eachDemand.priceType === vm.demandPriceTypeObj.charge.value" ng-bind="'￥' + eachDemand.cost"></span>
+								<span class="m-l-sm price" ng-if="eachDemand.priceType === vm.demandPriceTypeObj.discuss.value" ng-bind="vm.demandPriceTypeObj.discuss.name"></span>
+                                <span>发布时间：</span><span ng-bind="eachDemand.releaseTime*1000 | date : 'yyyy-MM-dd'"></span><span></span>
+								<span class="m-l-lg">截止日期：</span><span ng-bind="eachDemand.deadline*1000 | date : 'yyyy-MM-dd'" ng-if="eachDemand.deadline !== '' "></span><span ng-if="eachDemand.deadline === '' ">长期</span>
+								<span class="m-l-lg">分类：</span><span ng-bind="vm.demandCategoryReverseObj[eachDemand.category].name"></span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span ng-repeat="eachTag in eachDemand.tags" ng-bind="eachTag"></span>
+                                <!--
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+                                -->
+							</div>
+                            <a href="/demand/detail/{{ eachDemand.id }}" type="button" class="btn btn-orange look-detail-btn f-r">查看详情</a>
+						</div>
+					</div>
+				</div>
+
+                <!--
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>	
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="data-block m-t-sm p-t-sm">
+					<div class="row">
+						<div class="left-info">
+							<div class="row">
+								<div class="left-info-title">凯翼X3产品主创金电子征集</div>
+								<div class="left-info-content">
+									凯翼汽车本真的态度，致力官方打造年轻人喜爱的智能互联汽车。通过互联网思维。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。以客户需求为中心。整合全球优势资源。轻资产运营。2016年将有X3\V3等代表凯伊智能互联的全新铲平面向市场。
+								</div>
+							</div>
+							<div class="row data-subtitle">
+								价格：<span class="m-l-sm price">￥15000.00</span>
+								<span class="publish-time">发布时间：</span><span>2016-03-10</span>
+								<span class="m-l-lg">截止日期：</span><span>2016-03-28</span>
+								<span class="m-l-lg">分类：</span><span>社交网络</span>
+							</div>
+						</div>
+						<div class="right-operate">
+							<p>标签</p>
+							<div class="tags m-t-sm">
+								<span>微博</span>
+								<span>三个字</span>
+								<span>健身娱乐</span>
+								<span>健身娱乐</span>
+								<span>五个字标签</span>
+							</div>
+							<button type="button" class="btn btn-orange look-detail-btn f-r">查看详情</button>
+						</div>
+					</div>
+				</div>
+                -->
+				
+                <!-- div class="paginations pagination-lg m-t-md" ng-include="'/components/pagination/pagination.html'"></div> -->
+                <div class="pagination m-t-md pagination-lg" ng-if="vm.pageTotal > 1 ">
+                    <div class="pagination" pagination-directive page-index="vm.SearchDemandParams.page" page-total="vm.pageTotal"></div>
+                </div>
+			</div>
+            <!-- 			
+            <aside class="sidebar">
+                <div class="widget m-b-100 hide">
+                    <div class="title bg-blue">
+                        <span>广告位</span>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#">广告1</a></li>
+                            <li><a href="#">广告2</a></li>
+                            <li><a href="#">广告3</a></li>
+                            <li><a href="#">广告4</a></li>
+                            <li><a href="#">广告5</a></li>
+                            <li><a href="#">广告6</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside> 
+            -->
+		</div>
+	</div>
+</div>

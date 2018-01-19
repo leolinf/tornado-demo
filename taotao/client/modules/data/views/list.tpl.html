@@ -1,0 +1,316 @@
+<div class="wrap p-t-lg bg-grid">
+	<div class="container">
+		<div class="row lists">
+			<aside class="sidebar">
+				<div class="widget">
+					<div class="title bg-black"><span>全部分类</span></div>
+					<div class="content" ng-controller="dataCategoryCtrl as vm">
+						<ul>
+                            <li ng-class="{'active':vm.selectedDataCategory === vm.dataCategoryObj.all.value}"><a href="#" ng-click="vm.setDataCategory( vm.dataCategoryObj.all.value )">所有数据（<span ng-bind="vm.allDataCount"></span>）</a></li>
+                            <li ng-repeat="eachCategoryObj in vm.dataCategoryArr" ng-class="{'active':eachCategoryObj.value === vm.selectedDataCategory}">
+                                <a ng-href="#" ng-click="vm.setDataCategory( eachCategoryObj.value)"       >{{ eachCategoryObj.name }}（<span ng-bind="vm.dataCategoryCount[eachCategoryObj.value]"></span>）</a>
+                                <ul class="sub-ul" ng-class="{'hide':!(eachCategoryObj.value === vm.selectedDataCategory)}">
+                                    <li ng-repeat="eachTag in eachCategoryObj.defaultTags" class="li"><a href="#" ng-bind="eachTag" ng-click="vm.setTag( eachTag );" ng-class="{ 'text-orange' : vm.selectedTag === eachTag }"></a></li>
+                                </ul>
+                            </li>
+                            <!--
+							<li class="active">
+								<a href="#">社交网络（<span>33466</span>）</a>
+								<ul class="sub-ul">
+									<li><a href="#">全部</a></li>
+									<li class="split-line">|</li><li><a href="#">微信</a></li>
+									<li class="split-line">|</li><li><a href="#">知乎</a></li>
+									<li class="split-line">|</li><li><a href="#">百度</a></li>
+									<li class="split-line">|</li><li><a href="#">全部</a></li>
+									<li class="split-line">|</li><li><a href="#">微信</a></li>
+									<li class="split-line">|</li><li><a href="#">知乎</a></li>
+									<li class="split-line">|</li><li><a href="#">百度</a></li>
+									<li class="split-line">|</li><li><a href="#">全部</a></li>
+									<li class="split-line">|</li><li><a href="#">微信</a></li>
+									<li class="split-line">|</li><li><a href="#">知乎</a></li>
+									<li class="split-line">|</li><li><a href="#">百度</a></li>									
+								</ul>
+							</li>
+							<li>
+								<a href="#">电子商务(<span>2434</span>)</a>
+								<ul class="sub-ul hide">
+									<li><a href="#">全部</a></li>
+									<li class="split-line">|</li><li><a href="#">微信</a></li>
+									<li class="split-line">|</li><li><a href="#">知乎</a></li>
+									<li class="split-line">|</li><li><a href="#">百度</a></li>
+									<li class="split-line">|</li><li><a href="#">全部</a></li>
+									<li class="split-line">|</li><li><a href="#">微信</a></li>
+									<li class="split-line">|</li><li><a href="#">知乎</a></li>
+									<li class="split-line">|</li><li><a href="#">百度</a></li>
+									<li class="split-line">|</li><li><a href="#">全部</a></li>
+									<li class="split-line">|</li><li><a href="#">微信</a></li>
+									<li class="split-line">|</li><li><a href="#">知乎</a></li>
+									<li class="split-line">|</li><li><a href="#">百度</a></li>													
+								</ul>
+							</li>
+							<li><a href="#">企业信息(<span>331</span>)</a></li>
+							<li><a href="#">金融数据(<span>75</span>)</a></li>
+							<li><a href="#">旅游交通(<span>186</span>)</a></li>
+							<li><a href="#">企业信息(<span>331</span>)</a></li>
+							<li><a href="#">企业信息(<span>331</span>)</a></li>
+                            -->
+						</ul>
+					</div>
+				</div>
+
+				<div class="widget m-t-lg" ng-controller="dataRankCtrl as vm">
+					<div class="title bg-blue-deep text-md"><span>热门数据排行</span></div>
+					<div class="content">
+						<ul class="rank-lis">
+                            <li ng-repeat="eachHotData in vm.hotRankList"><span ng-bind="$index+1"></span><a href="/search/detail/{{ eachHotData.id }}" ng-bind="eachHotData.title"></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="widget m-t-lg m-b-100" ng-controller="dataRankCtrl as vm">
+					<div class="title bg-green text-md"><span>热门下载排行</span></div>
+					<div class="content">
+						<ul class="rank-lis">
+                            <li ng-repeat="eachDownloadData in vm.downloadRankList"><span ng-bind="$index+1"></span><a href="/search/detail/{{ eachDownloadData.id }}" ng-bind="eachDownloadData.title"></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</aside>
+			<div class="main-content main-content-right" ng-controller="dataListCtrl as vm">
+				<div class="classify data-type-block">
+					<div class="row types">
+						<div class="type-key">数据格式:</div>
+						<ul class="type-values">
+                            <li ng-class='{ "active" : vm.selectedDataFormat === vm.dataFormatObj.all.value}' ng-click="vm.setDataFormat( vm.dataFormatObj.all.value );">全部</li>
+                            <li ng-class='{ "active" : vm.selectedDataFormat === eachDataFormat.value }' ng-repeat="eachDataFormat in vm.dataFormatArr" ng-bind="eachDataFormat.name" ng-click="vm.setDataFormat( eachDataFormat.value );"></li>
+                            <!--
+							<li>文本</li>
+							<li>图像</li>
+							<li class="active">语音</li>
+							<li>视频</li>
+							<li>API</li>
+                            -->
+						</ul>
+					</div>
+					<div class="row types">
+						<div class="type-key">价格:</div>
+						<ul class="type-values">
+                            <li ng-class="{ 'active' : vm.selectedPriceType === vm.priceTypeObj.all.value }" ng-click="vm.setPriceType( vm.priceTypeObj.all.value )">全部</li>
+                            <li ng-class="{ 'active' : vm.selectedPriceType === eachPriceType.value }" ng-repeat="eachPriceType in vm.priceTypeArr" ng-bind="eachPriceType.name" ng-click="vm.setPriceType( eachPriceType.value )"></li>
+						</ul>
+					</div>
+					<div class="row types">
+						<div class="type-key">提供下载:</div>
+						<ul class="type-values">
+                            <li ng-class="{ 'active' : vm.selectedHasAttachment === vm.hasAttachmentObj.all.value }" ng-click="vm.setHasAttachment( vm.hasAttachmentObj.all.value );">全部</li>
+                            <li ng-class="{ 'active' : vm.selectedHasAttachment === eachHasAttachment.value }" ng-repeat="eachHasAttachment in vm.hasAttachmentArr" ng-bind="eachHasAttachment.name" ng-click="vm.setHasAttachment( eachHasAttachment.value );"></li>
+						</ul>
+					</div>
+					<div class="row data-num-row">
+						<ul>
+                            <!--
+							<li><a href="#" class="active">热度</a></li>
+							<li class="split-line">|</li><li><a href="#">价格</a></li>
+							<li class="split-line">|</li><li><a href="#">时间</a></li>
+                            -->
+                            <li ng-repeat="eachDataOrder in vm.dataOrderArr"><a href="#" ng-class="{ 'active' : vm.selectedDataOrder === eachDataOrder.value }" ng-bind="eachDataOrder.name" ng-click="vm.setDataOrder( eachDataOrder.value );"></a></li>
+						</ul>
+						<div class="data-num f-r">
+							为您筛选到&nbsp;<span ng-bind="vm.dataTotal"></span>&nbsp;条数据
+						</div>
+					</div>
+				</div>
+
+				<!-- 搜索列表为空时 -->
+				<div class="search-list-empty m-t-sm" ng-if="vm.dataTotal === 0"></div>
+
+				<div class="row data-block m-t-sm" style="width:100%;text-align:center;" ng-if="isLoading">
+                    <img src="/assets/images/loading.gif" style="height:230px;display:inline-block;"/>
+                </div>
+
+				<div class="row data-block m-t-sm" ng-repeat="eachData in vm.dataList" ng-if="!isLoading">
+					<div class="row data-title">
+                        <div class="title"><a href="/search/detail/{{ eachData.id }}" ng-bind-html="eachData.title"></a></div>
+                        <span ng-if="eachData.priceType === vm.priceTypeObj.free.value">免费</span>
+                        <span ng-if="eachData.priceType === vm.priceTypeObj.charge.value">收费</span>
+                        <span ng-if="eachData.priceType === vm.priceTypeObj.discuss.value">面议</span>
+					</div>
+					<div class="row">
+						<div class="data-content" ng-bind="eachData.intro"></div>						
+					</div>
+					<div class="row data-subtitle">
+						<div class="special-data"  ng-if="eachData.comeFrom === vm.dataComefromObj.exclusive.value">独家数据</div>
+						<div class="can-download" ng-if="eachData.hasAttachment">可下载</div>						
+						<div class="read-num">
+							浏览量&nbsp;<span ng-bind="eachData.hits"></span>
+						</div>
+						<div class="pub-data">
+							发布时间&nbsp;<span ng-bind="eachData.releaseTime*1000 | date : 'yyyy-MM-dd'"></span>
+						</div>
+                        <a href="/search/detail/{{ eachData.id }}" class="btn btn-green look-detail-btn f-r">查看详情</a>
+					</div>
+				</div>
+
+                <!--
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+				<div class="data-block m-t-sm">
+					<div class="row">
+						<div class="data-title">全国企业信用系统网站企业数据3000万<span>免费</span></div>
+					</div>
+					<div class="row">
+						<div class="data-content">数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业数据说明，数据简介。本数据抓取整理自全国企业</div>						
+					</div>
+					<div class="row data-subtitle">
+						<button type="button" class="btn btn-orange special-data">独家数据</button>
+						<button type="button" class="btn btn-blue can-download">可下载</button>
+						<div class="read-num">
+							浏览量<span>32451</span>
+						</div>
+						<div class="pub-data">
+							发布时间<span>2016-03-08</span>
+						</div>
+						<button type="button" class="btn btn-green look-detail-btn f-r">查看详情</button>
+					</div>
+				</div>
+                -->
+                <!-- <div class="paginations m-t-md pagination-lg" ng-include="'/components/pagination/pagination.html'"></div> -->
+                <div class="pagination m-t-md pagination-lg" ng-if="vm.pageTotal > 1 ">
+                    <div class="pagination" pagination-directive page-index="vm.SearchParams.page" page-total="vm.pageTotal"></div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

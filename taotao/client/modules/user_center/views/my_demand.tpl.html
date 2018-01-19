@@ -1,0 +1,131 @@
+<!-- 右边基本信息部分 -->
+<div class="info-content">
+    <!-- 账号信息 -->
+    <div class="info-block my-customization">
+        <h3>定制统计</h3>
+        <div class="m-t-md">
+            您已创建<span class="number" ng-bind="vm.totalCreate"></span>条定制
+        </div>
+        <div class="row add-data">
+        	<a href="/user_center/edit_demand" class="btn btn-lg btn-cyan">定制数据</a>
+        </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="info-block m-t-sm p-none">
+        <table class="table" cellspacing="0" cellpadding="0">
+        	<thead>
+	        	<tr>
+	        		<th>创建时间</th>
+	        		<th>数据标题</th>
+	        		<th>
+	        			<div class="zs-select-unit-list">
+                            <zs-select options="vm.reviewStatusArr" selectedvalue="vm.selectedReviewStatus" on-change="vm.onReviewStatusChange"></zs-select>	        				
+	        			</div>
+                    </th>
+	        	</tr>	
+        	</thead>
+        	<tbody>
+
+				<tr ng-if="vm.totalCreate === 0">
+                    <td colspan="3" class="usercenter-list-empty">
+                        <span>
+                            您还未发布过定制<br>
+                            赶快<a href="/user_center/edit_demand">去发布吧</a>，让更多的人为您解决数据需求！
+                        </span>
+                    </td>
+                </tr>
+
+	        	<tr ng-repeat="eachDemand in vm.demandList" ng-click="vm.viewDemandDetail( eachDemand.id )">
+	        		<td ng-bind="eachDemand.createTime*1000 | date : 'yyyy-MM-dd'"></td>
+	        		<td ng-bind="eachDemand.title"></td>
+	        		<td ng-bind="vm.reviewStatusReverseObj[eachDemand.reviewStatus].name"></td>
+	        	</tr>
+                <!--
+	        	<tr ng-repeat="eachDemand in vm.demandList" ng-if="vm.reviewStatus === vm.reviewStatusObj.offline.value" class="not-clickable">
+	        		<td ng-bind="eachDemand.createTime*1000 | date : 'yyyy-MM-dd'"></td>
+	        		<td ng-bind="eachDemand.title"></td>
+	        		<td ng-bind="vm.reviewStatusReverseObj[eachDemand.reviewStatus].name"></td>
+	        	</tr>
+                -->
+                <!--
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>待审核</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>待审核</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td class="text-red">未通过</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td class="text-red">未通过</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td class="text-red">未通过</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td class="text-red">未通过</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>
+	        	<tr>
+	        		<td>2016-03-09</td>
+	        		<td>5.5亿新浪微博基本用户信息</td>
+	        		<td>已发布</td>
+	        	</tr>	
+                -->
+        	</tbody>        	        	
+        </table>
+    </div>
+
+    <!-- <div class="row m-t-sm pagination-md" ng-include="'/components/pagination/pagination.html'" scope="" onload=""></div> -->
+    <div class="row m-t-sm pagination-md" ng-if="vm.pageTotal > 1">
+        <div class="pagination" pagination-directive page-index="vm.getMyDemandParams.page" page-total="vm.pageTotal"></div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="wrap bg-blue-shallow">
+    <div class="container personal-center">
+        <div class="row lists">
+            <!-- 左边导航部分 -->
+            <aside class="aside">
+                <div><h2>个人中心</h2></div>
+                <ul>
+                    <li ng-class="{ 'bg-blue-deep' : $state.is( 'userCenter.account_set' ) || $state.is( 'userCenter.change_password' ) }"><a href="/user_center/account_set">账号设置</a></li>
+                    <li ng-class="{ 'bg-green' : $state.is( 'userCenter.my_download' ) }"><a href="/user_center/my_download">我的下载</a></li>
+                    <li ng-class="{ 'bg-orange' : $state.is( 'userCenter.my_collection' ) }"><a href="/user_center/my_collection">我的收藏</a></li>
+                    <li ng-class="{ 'bg-purple' : $state.is( 'userCenter.my_data' ) || $state.is( 'userCenter.edit_data' ) }"><a href="/user_center/my_data">我的数据</a></li>
+                    <li ng-class="{ 'bg-cyan' : $state.is( 'userCenter.my_demand' ) || $state.is( 'userCenter.edit_demand' ) }"><a href="/user_center/my_demand">我的定制</a></li>
+                    <li ng-class="{ 'bg-navy' : $state.is( 'userCenter.message' ) }"><a href="/user_center/message">消息</a></li>
+                </ul>
+            </aside>
+
+            <!-- 下面的ui-view存放 -->
+            <div ui-view class="main-content" 
+                ng-class="{'theme-blue' : $state.is( 'userCenter.account_set' ) || $state.is( 'userCenter.change_password' ), 'theme-green' : $state.is( 'userCenter.my_download'),'theme-orange' : $state.is( 'userCenter.my_collection'), 'theme-purple' : $state.is( 'userCenter.my_data') || $state.is( 'userCenter.edit_data' ), 'theme-cyan' : $state.is( 'userCenter.my_demand') || $state.is( 'userCenter.edit_demand' ), 'theme-navy' : $state.is( 'userCenter.message')}"
+                ></div>
+        </div>
+    </div>
+</div>

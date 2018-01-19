@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html ng-app="Datatao">
+<head>
+	<title>数据淘</title>
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="description" content="数据淘专注数据垂直搜索，是全国首个大数据垂直搜索平台，是大数据时代首选的数据搜索平台，数据来自独家分布式数据采集系统、第三方企业/平台/个人、政府机构等，涵盖社交、电商、金融、医疗、教育、科研等领域近50000个数据集、约20亿+条数据。">
+	<meta name="keywords" content="数据淘，淘数据，数据共享， 社交数据，电商数据，金融数据，医疗健康数据，生活日常数据，交通数据，旅游数据，教育数据，科研数据，5万数据集，20亿条数据，海量数据，大数据，垂直搜索">
+	<meta name="author" content="卧龙大数据">
+	<script type="text/css">
+        var isIE = function(ver){
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+            return b.getElementsByTagName('i').length === 1
+        }
+        if(isIE(6) || isIE(7) || isIE(8)){
+            alert('您的浏览器太古老，请下载新的浏览器获得更好的使用体验');
+            window.location = "http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html";
+        }
+       
+    </script>
+	<script type="text/javascript" src="/vendor/svgeverybody.js" ></script>
+	<script type="text/javascript" >svg4everybody();</script>
+	<link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/icon_svgs/sprite.css" rel="stylesheet" type="text/css" />
+	<base href="/"></head>
+<body>
+	<header autoscroll="true">
+		<div class="navbar">
+			<div class="header-navbar">				
+				<!-- 头部列表部分 -->
+				<div class="b-b-gray">
+					<div class="container">
+						<div class="row">
+							<div class="welcome">欢迎来到&nbsp;&nbsp;数据淘！</div>
+							<div class="f-r">
+								<ul class="navbar-nav nav">
+									<li><a href="/">数据淘首页</a></li>
+									<li><a href="/signup">注册</a></li>
+									<li><a href="/signin">登录</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-searchs">				
+				<div class="container p-b-xlg clearfix">					
+					<!-- logo区域 -->	
+	        		<div class="logo"><a href="/" style="display:block;width:100%;height:100%;"></a></div>
+
+					<div class="search">
+					    <!-- 搜索数据 -->
+					    <input type="text" placeholder="搜索您想要的数据">
+					    <button type="button" class="btn-search">搜全网</button>			    
+					</div>	
+
+					<!-- 二维码部分 -->
+					<div class="qr-cod">
+						<img src="/assets/images/erweimatop.png" alt="">
+						<div class="qr-cod-detail hide">
+							<div class="triangle"></div>
+							<div class="triangle-white"></div>
+							<div class="cod-detail-title">官方微信</div>
+							<img src="/assets/images/wx_code.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				
+				<div class="container main-nav" ng-if="!$state.includes( 'userCenter' )">
+					<div class="row">
+						<div class="navbar">
+							<ul class="nav-list">
+				                <li class="active"><a href="/">首页</a></li>
+								<li><a href="/search/list">数据市场</a></li>
+								<li><a href="/quality_data">精品数据</a></li>
+								<li><a href="/demand/list">数据定制</a></li>
+								<li><a href="/platformFeature">平台特色</a></li>
+								<li><a href="/help_center/1">帮助中心</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>		
+			</div>			
+		</div>
+	</header>
+
+
+	<!-- 数据详情中间内容部分 -->	
+	<!-- 查看详细信息 -->
+	<div class="wrap bg-blue-shallow">
+		<div class="prompt-info bg-red-translucent" ng-if="$root.isLogin && vm.isFromMyDemand && vm.detail.reviewStatus === vm.reviewStatusObj.readyForReview.value">
+			定制正在审核中，请耐心等待！
+		</div>
+		<div class="container m-t-sm">
+			<div class="row details">			
+				<div class="main-content">
+					<div class="row">
+						<!-- 当前所在位置 -->
+						<div class="position">
+							<ul>
+								<li><a href="#">首页</a></li>
+								<li><a href="#">数据定制</a></li>
+								<li>额企鹅去</li>
+							</ul>
+						</div>					
+					</div>
+
+					<!-- 详情信息部分 -->
+					<div class="row detail-content m-t-sm">
+						<div class="row detail-title">
+							<h1>额企鹅去</h1>						
+						</div>
+						<div class="row detail-baseInfo m-t-sm">
+							<div class="col-8 baseInfo">
+								<div class="row tags">				
+									<div class="f-l m-r-sm">标签：</div>
+									<span>淘宝</span>
+									<span>天猫</span>
+									<span>京东</span>
+									<span>网站</span>
+									<span>大众点评</span>
+								</div>
+
+								<div class="row m-t-sm gradient p-sm">
+									<div class="row">
+										<span>价格：</span><span class="mark">￥3232432</span>									
+									</div>
+									<div class="row">
+										<span>发布时间：</span><span>2016-04-15</span>
+									</div>
+									<div class="row">
+										<span>截止日期：</span><span>2016-09-09</span>
+									</div>
+									<div class="row">
+										<span>分类：</span><span>电子商务</span>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						
+						<!-- 分割线 -->
+						<div class="row m-t-lg split-circle">
+							<span class="left-circle"></span><hr><span class="right-circle"></span>
+						</div>
+
+						<div class="row m-t-sm contact-ways">
+							<p><h4 class="bold-lg">发布者联系方式</h4></p>
+							<div class="row">
+								<span class="m-l-sm">联&nbsp;系&nbsp;人：</span><span>飞洒发</span>
+							</div>
+							<div class="row">
+								<span class="m-l-sm">联系方式：</span><span class="mark">1212121212</span>
+							</div>								
+						</div>
+
+						<div class="row contact-ways m-t-xlg">
+							<p><h4 class="bold-lg">详细描述</h4></p>
+							<div class="row">
+								<div class="article p-l-sm p-r-sm" ng-bind="vm.detail.intro">
+									凯翼汽车以“年轻，创新，本真”的态度，致力于打造年轻人喜爱的只能互联汽车。通过互联网思维，以客户需求为中心，整合全球优势资源，轻资产运营。2016年将有X3\v4等代表凯伊智能互联的全新产品面向市场。
+								</div>
+							</div>
+						</div>
+
+						<div class="row text-center m-t-xlg m-b-xs">
+							<button class="btn btn-green btn-lg m-r-lg">编辑</button>
+							<button class="btn btn-red btn-lg">删除</button>
+						</div>			
+					</div>	
+
+					<!-- 说明 -->
+					<div class="row explain m-t-sm hide">
+							本数据由用户上传或公开渠道发布，版权归发布者所有，如无意中侵犯了您的版权，请发送邮件至service@datatao.com，并提供相应证明，本站将在5个工作日内进行评估和解决。
+					</div>			
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<!-- 页面底部 -->
+	<footer>
+		<div class="footer bg-default">
+			<div class="content">
+				<div class="aboutus">
+					<h1>关于我们</h1>
+					<ul>
+						<li><a href="/about_us">数据淘简介</a></li>
+						<li><a href="/about_us#company">公司简介</a></li>
+					</ul>
+
+				</div>
+				<div class="operate-guide">
+					<h1>操作指引</h1>
+					<ul>
+						<li><a href="help_center/1">注册/登录</a></li>
+						<li><a href="help_center/2">发布数据</a></li>
+						<li><a href="help_center/3">数据定制</a></li>
+					</ul>
+				</div>
+				<div class="connect-us">
+					<h1>联系我们</h1>
+					<ul>
+						<li><a href="#">电话：028-61556366</a></li>
+						<li><a href="#">邮箱：service@datataotao.com</a></li>
+					</ul>
+				</div>
+				<div class="empty">&nbsp;</div>
+				<div class="microblog">
+					<h1>官方微博</h1>
+					<div class="pic">
+						<img src="/assets/images/wb_code.png" alt="">
+					</div>
+				</div>
+				<div class="wechat">
+					<h1>微信公众号</h1>
+					<div class="pic">
+						<img src="/assets/images/wx_code.jpg" alt="">
+					</div>
+				</div>
+				<div class="copyRight">
+                    <p>成都知数科技有限公司版权所有&nbsp;&nbsp;14028253号-4</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

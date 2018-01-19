@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>navbar</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../../css/contents.css">
+	<link rel="stylesheet" type="text/css" href="../../css/detail.css">
+	<link rel="stylesheet" type="text/css" href="../../css/margin.css">
+	<link rel="stylesheet" type="text/css" href="../../css/padding.css">
+	<script type="text/javascript" src="../../js/angular.js"></script>
+</head>
+<body>
+	<!-- 头部列表部分 -->
+	<div class="header-navbar" ng-include="'header-navbar.html'"></div>
+	<!-- 头部-搜索部分 -->
+	<div class="header-searchs" ng-include="'header-search.html'"></div>
+
+	<!-- 主要内容部分 -->
+	<div class="body-contents" ng-include="'contents.html'"></div>
+
+	<!-- 页面底部 -->
+	<div class="footer bg-reverse" ng-include="'footer.html'"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+{% include 'import.html' %}
+<head>
+    <title>{{ title }}</title>
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            {% block header %}<h1>Burt's Books</h1>{% end %}
+        </header>
+        <div id="main">
+            <div id="content">
+                {% block body %}{% end %}
+            </div>
+        </div>
+        <footer>
+            {% block footer %}
+                <p>this is the test conetent {{total}}</p>
+            {% end %}
+        </footer>
+        <div style="text-align:center">
+         {% if page > 1 %}
+         <a href="?{{ formatpage(query, page-1) }}">上一页</a>
+          {% end %}
+          {% if page > 2 %}
+          <a href="?{{ formatpage(query, page-2) }}">{{ page - 2 }}</a>
+          {% end %}
+          {% if page > 1 %}
+          <a href="?{{ formatpage(query, page-1) }}">{{ page - 1 }}</a>
+          {% end %}
+         <a href="?{{ formatpage(query, page) }}">{{ page }}</a>
+          {% if maxpage - page > 1 %}
+          <a href="?{{ formatpage(query, page+1) }}">{{ page + 1 }}</a>
+          {% end %}
+         {% if maxpage - page > 2 %}
+         <a href="?{{ formatpage(query, page+2) }}">{{ page + 2 }}</a>
+        {% end %}
+         {% if maxpage - page > 1 %}
+         <a href="?{{ formatpage(query, page+1) }}">下一页</a>
+         {% end %}
+     </div>
+
+    </div>
+    </body>
+</html>

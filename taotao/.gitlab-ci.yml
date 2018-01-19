@@ -1,0 +1,15 @@
+frontend_test:
+    script :
+        - source ~/.nvm/nvm.sh
+        - nvm use v4.4.0
+        - node --version
+        - npm --version
+        - cd client
+        - cp -r ~/all_node_modules/datatao_v3/node_modules .
+        - karma start --no-auto-watch --single-run
+
+backend_test:
+    script:
+        - source ~/.virtualenvs/datatao_v3/bin/activate
+        - export PYTHONIOENCODING=utf-8
+        - python -m tornado.testing discover

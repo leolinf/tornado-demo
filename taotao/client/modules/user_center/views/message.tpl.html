@@ -1,0 +1,52 @@
+<!-- 右边基本信息部分 -->
+<div class="info-content">
+    <!-- 账号信息 -->
+    <div class="info-block message">
+        <h3>消息统计</h3>
+        <div class="m-t-md">
+            您有<span class="number">0</span>条未读信息
+        </div>
+        <div class="row add-data">
+        	<a href="/user_center/feedback" class="btn btn-lg btn-navy">意见反馈</a>
+        </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="info-block m-t-sm p-none">
+        <table class="table" cellspacing="0" cellpadding="0">
+        	<thead>
+	        	<tr>
+	        		<th class="col-7">标题</th>
+	        		<th class="col-2">发布时间</th>
+	        		<th class="col-2">
+                        <!--
+                        <div class="zs-select-unit-list zs-select-unit-active">
+                            <zs-select options="vm.dataCategoryArr" selectedvalue="vm.selectedReviewStatus"></zs-select>
+                        </div>                    
+                        -->
+                    </th>
+	        		<th class="col-1">删除</th>
+	        	</tr>	
+        	</thead>
+        	<tbody>
+
+                <tr ng-if="vm.messageList.total === 0">
+                    <td colspan="3" class="usercenter-list-empty">
+                        <span>
+                            暂无消息
+                        </span>
+                    </td>
+                </tr>
+
+	        	<tr ng-repeat="msg in vm.messageList" ng-click="vm.viewDataDetail(msg.id)">
+	        		<td class="col-7"><div class="col-10 ellipsis" ng-bind="msg.content">5.5亿新浪微博基本用户信息5.5亿新浪微博基本用户信息5.5亿新浪微博基本用户信息5.5亿新浪微博基本用户信息</div></td>
+	        		<td class="col-2" ng-bind="msg.createTime">2016-03-09</td>
+	        		<td class="col-2" ng-bind="msg.msgType">系统消息</td>
+	        		<td class="col-1"><a href="#" class="hide" ng-click="deleteOne(msg.id)">删除</a></td>
+	        	</tr>
+        	</tbody>        	        	
+        </table>
+    </div>
+
+    <!-- <div class="row m-t-sm pagination-md" ng-include="'/components/pagination/pagination.html'" scope="" onload=""></div> -->
+</div>

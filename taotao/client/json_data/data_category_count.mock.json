@@ -1,0 +1,40 @@
+{
+    "data": {
+        "dataList": [
+            {
+                "category": 1,
+                "total": 32333
+            },
+            {
+                "category": 2,
+                "total": 38786
+            },
+            {
+                "category": 3,
+                "total": 56713
+            },
+            {
+                "category": 4,
+                "total": 38804
+            },
+            {
+                "category": 5,
+                "total": 93258
+            },
+            {
+                "category": 6,
+                "total": 98750
+            },
+            {
+                "category": 7,
+                "total": 46575
+            },
+            {
+                "category": 8,
+                "total": 25279
+            }
+        ]
+    },
+    "errorCode": 10000,
+    "errorMsg": "成功"
+}

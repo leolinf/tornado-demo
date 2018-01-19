@@ -1,0 +1,230 @@
+<!-- 图片轮播全部 -->
+<div class="carousels">
+	<div class="container">
+		<div class="row">
+			<!-- 左边导航部分 -->
+			<div class="normal-nav" ng-mouseenter="vm.showHotWordArea()" ng-mouseleave="vm.hideHotWordArea()">
+				<ul>
+					<li ng-repeat="eachCategory in vm.dataCategoryArr" ng-mouseenter="vm.setShowingCategory( eachCategory.value )">
+						<a href="/search/list?category={{ eachCategory.value }}">
+							{{eachCategory.name}}
+							<span class="f-r">&gt;</span>
+						</a>
+					</li>
+					<!--
+					<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.socialNetwork.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.socialNetwork.value )">
+						社交网络 <i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.eCommerce.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.eCommerce.value )">
+						电子商务 <i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.enterpriseInfo.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.enterpriseInfo.value )">
+						企业信息
+						<i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.financialData.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.financialData.value )">
+						金融数据
+						<i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.tourist.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.tourist.value )">
+						旅游交通
+						<i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.lifeService.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.lifeService.value )">
+						生活服务
+						<i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.research.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.research.value )">
+						科研开发
+						<i class="icon f-r">></i>
+					</a>
+				</li>
+				<li>
+					<a href="/search/list?category={{ vm.dataCategoryObj.others.value }}"  ng-mouseenter="vm.showHotWord( vm.dataCategoryObj.others.value )">其他</a>
+				</li>
+				-->
+			</ul>
+			<div class="hot-word-content" ng-if="vm.showHotArea === true">
+				<!-- <div class="hot-word-content">
+				-->
+				<div class="line-content">
+					<!-- <div class="line-content">
+					-->
+					<h3>热门标签</h3>
+					<div class="row m-t-xs hot-title">
+						<ul>
+							<li ng-repeat="eachHotTag in vm.dataCategoryReverseObj[vm.showingCategory].defaultTags">
+								<a href="/search/list?category={{ vm.showingCategory}}&content={{ eachHotTag }}" ng-bind="eachHotTag"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 图片轮播区域 -->
+		<div class="carousel">
+			<a href="/quality_data">
+				<div class="images">
+					<!-- <img src="/assets/images/banner_03.jpg" alt=""></div>
+				-->
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+</div>
+
+<!-- 统计 -->
+<div class="index-statis">
+<div class="container">
+	<div class="row">
+		<div class="data-set f-l">
+            <img src="/assets/images/ranking.png" alt="数据总量" style="position:relative;top:2px;">&nbsp;
+            <!-- <i class="icon"></i> -->
+			数据集：
+			<span ng-bind="vm.dataGather"></span>
+			，数据总量：约
+			<span>{{ vm.dataTotal | dataRowsFilter }}</span>
+			条
+		</div>
+		<div class="refresh-data f-r">
+            <img src="/assets/images/updata.png" alt="数据更新" style="position:relative;top:2px;">&nbsp;
+            <!-- <i class="icon"></i> -->
+			更新时间：
+			<span ng-bind="vm.lastUpdateTime*1000 | date : 'yyyy-MM-dd'"></span>
+			更新数据：
+			<span ng-bind="vm.lastUpdateDataNum"></span>
+			条
+		</div>
+	</div>
+</div>
+</div>
+
+<!-- 数据分类 -->
+<div class="data-type">
+<div class="container">
+	<div class="row">
+		<a href="/quality_data">
+			<div class="jingpin-data data-type-block">
+				<div class="row">
+                    <!--
+					<svg height="52" width="68" viewBox="40 -2 14 34" fill="#ffffff">
+						<use xlink:href="/assets/icon_svgs/sprite.svg#champion"></use>
+					</svg>
+                    -->
+					<svg fill="#ffffff" style="width:68px;height:52px;">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#champion"></use>
+					</svg>
+				</div>
+				<span class="text">精品数据</span>
+			</div>
+		</a>
+		<a href="/quality_data?category=2001">
+			<div class="tianmao-data data-type-block">
+				<div class="row">
+					<svg fill="#ff832c" style="width:68px;height:65px">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#shopping"></use>
+					</svg>
+				</div>
+				<span class="text">天猫数据</span>
+			</div>
+		</a>
+		<a href="/quality_data?category=3">
+			<div class="provice-data data-type-block">
+				<div class="row">
+					<svg fill="#00994f" style="width:68px;height:65px">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#briefcase"></use>
+					</svg>
+				</div>
+				<span class="text">企业数据</span>
+			</div>
+		</a>
+		<a href="/quality_data?category=1000">
+			<div class="weibo-data data-type-block">
+				<div class="row">
+					<svg fill="#0081e8" style="width:68px;height:65px;">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#weibo"></use>
+					</svg>
+				</div>
+				<span class="text">微博数据</span>
+			</div>
+		</a>
+		<a href="/quality_data?category=6005">
+			<div class="estate-data data-type-block">
+				<div class="row">
+					<svg fill="#8f52f9" style="width:68px;height:65px">
+						<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#building"></use>
+					</svg>
+				</div>
+				<span class="text">本地生活</span>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<!-- 数据排行 -->
+<div class="wrap bg-white">
+	<div class="container">
+		<div class="row data-ranking">
+			<div class="rank-info-block f-l rank-info-blue">
+				<div class="rank-head">
+					<div class="rank-title">
+						<img src="/assets/images/ranking_big.png" alt="ranking">
+						<span>热门数据排行</span>
+					</div>
+                    <a href="/search/list?order={{ vm.dataOrderObj.hot.value }}" class="more">更多&nbsp;&gt;&gt;</a>
+				</div>
+				<div class="rank-body">
+					<ul>
+						<li ng-repeat="eachHotData in vm.hotRank"  class="list-li">
+							<span ng-bind="$index+1">1</span>
+							<a href="/search/detail/{{ eachHotData.id }}" ng-bind="eachHotData.title"></a>
+							<div>
+								<span ng-bind="eachHotData.hits"></span>
+								浏览
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="rank-info-block f-r rank-info-green">
+				<div class="rank-head">
+					<div class="rank-title">
+						<img src="/assets/images/ranking_big.png" alt="ranking">
+						<span>免费下载排行</span>
+					</div>
+					<a href="/search/list?hasAttachment={{ vm.hasAttachmentObj.downloadAble.value }}" class="more">更多&nbsp;&gt;&gt;</a>
+				</div>
+				<div class="rank-body">
+					<ul>
+						<li ng-repeat="eachAttachmentData in vm.attachmentRank" class="list-li">
+							<span ng-bind="$index+1">1</span>
+	                        <a href="/search/detail/{{ eachAttachmentData.id }}" ng-bind="eachAttachmentData.title"></a>
+							<div>
+								<span ng-bind="eachAttachmentData.attachmentDown"></span>
+								下载
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

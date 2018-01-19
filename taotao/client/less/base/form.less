@@ -1,0 +1,106 @@
+/**
+ * 表单 form
+ */
+@import "../normalize";
+
+.form-group{
+	width: 100%;
+	.clearfix();
+	font-family: @songti;
+	.input-group{
+		.clearfix();
+		border: 1px @blue solid;
+		border-radius: @default-radius;
+		.icon{
+			float: left;
+			width: 40px;
+			height: 38px;
+			line-height: 38px;
+			text-align: center;
+			background-color: @blue-deep;
+			border: none;
+			background-repeat: no-repeat;
+		}
+		input{
+			float: left;
+			border: none;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			height: 38px;
+			padding-left: 10px;
+		}
+		input:- webkit-autofill { -webkit-box-shadow: 0 0 0 1000px #eaf6fe inset; } 
+	}
+	.control-label{
+		float: left;
+		text-align: left;
+		font-family: @songti;
+	}
+	.form-control{
+		float: left;
+	}
+}
+
+.input-b[type='text']{
+	border: none;
+	border-bottom: 1px solid rgb(200,200,200);
+	padding: 10px 10px;
+	line-height: 14px;
+	width: 100%;
+	&:focus{
+		outline:none;
+		border-bottom: 1px solid @blue;	
+	}
+}
+
+.form-border-bottom{
+	.form-group{
+		// height: 40px;
+		line-height: 40px;
+		margin-top: 10px;
+		font-size: 14px;
+		.clearfix;
+		overflow: hidden;
+		.control-label{
+			font-family: @songti;
+			font-size: 14px;
+			color: @black;
+			min-width: 130px;
+		}
+		input[type='text'],
+		input[type='password']{
+			border: none;
+			border-bottom: 1px solid rgb(200,200,200);
+			padding: 12px 10px;
+			width: 100%;
+			&:focus{
+				outline:none;
+				border-bottom: 1px solid @blue;	
+			}
+		}
+		textarea{
+			display: block;
+			width: 100%;
+			min-width: 200px;
+		}
+		select{
+			padding: 12px 10px;
+			width: 100%;
+			border: 0;
+			border-bottom: 1px solid rgb(200,200,200);
+		}
+	}
+}
+
+
+.icon-account{
+	background-size: 100px 85px;
+	background-position: 5px 0;
+}
+.icon-password{
+	background-image: url(/assets/icon_svgs/sprite.svg);
+}
+.icon-verify{
+	background-image: url(/assets/icon_svgs/sprite.svg);
+}
+

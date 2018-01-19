@@ -1,0 +1,9 @@
+<div class="zs-tags-init">
+    <div class="zs-tags-main">
+        <div class="includetags" ng-if="!maxtaglen || maxtaglen>=hastagsoptions.length" ng-repeat="tag in hastagsoptions">{{tag | zsCatString:tagwordlen}}<a ng-href="#" ng-click="cleanTag( $index )">x</a></div>
+        <input type="text" placeholder="添加标签，最多选择5个" ng-model="tagvalue" ng-keydown="keydownFn( $event )">
+    </div>
+    <div class="zs-tags-list">
+    	<div class="tagitems" ng-repeat="option in options" ng-click="setSelectOptions( $index )"><div class="triangle"></div><span class="point"></span>{{option | zsCatString:tagwordlen}}</div>
+    </div>
+</div>

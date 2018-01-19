@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html ng-app="Datatao">
+{% include "import.html" %}
+<head>
+	<title>数据淘</title>
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="description" content="数据淘专注数据垂直搜索，是全国首个大数据垂直搜索平台，是大数据时代首选的数据搜索平台，数据来自独家分布式数据采集系统、第三方企业/平台/个人、政府机构等，涵盖社交、电商、金融、医疗、教育、科研等领域近50000个数据集、约20亿+条数据。">
+	<meta name="keywords" content="数据淘，淘数据，数据共享， 社交数据，电商数据，金融数据，医疗健康数据，生活日常数据，交通数据，旅游数据，教育数据，科研数据，5万数据集，20亿条数据，海量数据，大数据，垂直搜索">
+	<meta name="author" content="卧龙大数据">
+	<script type="text/css">
+        var isIE = function(ver){
+            var b = document.createElement('b')
+            b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+            return b.getElementsByTagName('i').length === 1
+        }
+        if(isIE(6) || isIE(7) || isIE(8)){
+            alert('您的浏览器太古老，请下载新的浏览器获得更好的使用体验');
+            window.location = "http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html";
+        }
+       
+    </script>
+	<script type="text/javascript" src="/vendor/svgeverybody.js" ></script>
+	<script type="text/javascript" >svg4everybody();</script>
+	<link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/icon_svgs/sprite.css" rel="stylesheet" type="text/css" />
+	<base href="/"></head>
+<body>
+	<header autoscroll="true">
+		<div class="navbar">
+			<div class="header-navbar">				
+				<!-- 头部列表部分 -->
+				<div class="b-b-gray">
+					<div class="container">
+						<div class="row">
+							<div class="welcome">欢迎来到&nbsp;&nbsp;数据淘！</div>
+							<div class="f-r">
+								<ul class="navbar-nav nav">
+									<li><a href="/">数据淘首页</a></li>
+									<li><a href="/signup">注册</a></li>
+									<li><a href="/signin">登录</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-searchs">				
+				<div class="container p-b-xlg clearfix">					
+					<!-- logo区域 -->	
+	        		<div class="logo"><a href="/" style="display:block;width:100%;height:100%;"></a></div>
+
+					<form class="search">
+					    <!-- 搜索数据 -->
+					    <input type="text" placeholder="搜索您想要的数据">
+					    <button type="submit" class="btn-search">搜全网</button>			    
+					</form>	
+
+					<!-- 二维码部分 -->
+					<div class="qr-cod">
+						<img src="/assets/images/erweimatop.png" alt="">
+						<div class="qr-cod-detail hide">
+							<div class="triangle"></div>
+							<div class="triangle-white"></div>
+							<div class="cod-detail-title">官方微信</div>
+							<img src="/assets/images/wx_code.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				
+				<div class="container main-nav" ng-if="!$state.includes( 'userCenter' )">
+					<div class="row">
+						<div class="navbar">
+							<ul class="nav-list">
+				                <li class="active"><a href="/">首页</a></li>
+								<li><a href="/search/list">数据市场</a></li>
+								<li><a href="/quality_data">精品数据</a></li>
+								<li><a href="/demand/list">数据定制</a></li>
+								<li><a href="/platformFeature">平台特色</a></li>
+								<li><a href="/help_center/1">帮助中心</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>		
+			</div>			
+		</div>
+	</header>
+
+
+	<!-- 首页中间内容部分 -->	
+	<div class="wrap views-height">
+		<!-- 图片轮播全部 -->
+		<div class="carousels">
+			<div class="container">
+				<div class="row">
+					<!-- 左边导航部分 -->
+					<div class="normal-nav" ng-mouseenter="vm.showHotWordArea()" ng-mouseleave="vm.hideHotWordArea()">
+						<ul>
+							
+						<li>
+							<a href="/search/list">社交网络 <i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">电子商务 <i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">企业信息<i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">金融数据<i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">旅游交通<i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">生活服务<i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">科研开发<i class="icon f-r">&gt;</i></a>
+						</li>
+						<li>
+							<a href="/search/list">其他</a>
+						</li>						
+					</ul>
+					<div class="hot-word-content hide">
+						<!-- <div class="hot-word-content">
+						-->
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">社交</a></li>
+									<li><a href="/search/list">用户</a></li>
+									<li><a href="/search/list">微信</a></li>
+									<li><a href="/search/list">微博</a></li>
+									<li><a href="/search/list">百度</a></li>
+									<li><a href="/search/list">问答</a></li>
+									<li><a href="/search/list">论坛</a></li>
+									<li><a href="/search/list">粉丝</a></li>
+									<li><a href="/search/list">评论</a></li>
+									<li><a href="/search/list">用户信息</a></li>
+									<li><a href="/search/list">微博内容</a></li>
+									<li><a href="/search/list">关注列表</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">淘宝</a></li>
+									<li><a href="/search/list">天猫</a></li>
+									<li><a href="/search/list">京东</a></li>
+									<li><a href="/search/list">网站</a></li>
+									<li><a href="/search/list">大众点评</a></li>
+									<li><a href="/search/list">团购</a></li>
+									<li><a href="/search/list">店铺</a></li>
+									<li><a href="/search/list">品牌</a></li>
+									<li><a href="/search/list">商品</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">企业</a></li>
+									<li><a href="/search/list">股东</a></li>
+									<li><a href="/search/list">诉讼</a></li>
+									<li><a href="/search/list">招聘信息</a></li>
+									<li><a href="/search/list">法人信息</a></li>
+									<li><a href="/search/list">楼盘信息</a></li>
+									<li><a href="/search/list">税务数据</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">征信</a></li>
+									<li><a href="/search/list">工商</a></li>
+									<li><a href="/search/list">企业</a></li>
+									<li><a href="/search/list">P2P</a></li>
+									<li><a href="/search/list">股票</a></li>
+									<li><a href="/search/list">投资</a></li>
+									<li><a href="/search/list">理财</a></li>
+									<li><a href="/search/list">基金</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">POI</a></li>
+									<li><a href="/search/list">景点</a></li>
+									<li><a href="/search/list">门票</a></li>
+									<li><a href="/search/list">机票</a></li>
+									<li><a href="/search/list">出租车</a></li>
+									<li><a href="/search/list">地铁</a></li>
+									<li><a href="/search/list">火车</a></li>
+									<li><a href="/search/list">公交</a></li>
+									<li><a href="/search/list">违章</a></li>
+									<li><a href="/search/list">空气质量</a></li>
+									<li><a href="/search/list">城市</a></li>
+									<li><a href="/search/list">地点</a></li>
+									<li><a href="/search/list">地理信息</a></li>
+									<li><a href="/search/list">交通路线</a></li>
+									<li><a href="/search/list">查询</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">汽车</a></li>
+									<li><a href="/search/list">楼盘房产</a></li>
+									<li><a href="/search/list">医疗健康</a></li>
+									<li><a href="/search/list">新闻数据</a></li>
+									<li><a href="/search/list">美食</a></li>
+									<li><a href="/search/list">电影</a></li>
+									<li><a href="/search/list">休闲娱乐</a></li>
+									<li><a href="/search/list">酒店</a></li>
+									<li><a href="/search/list">丽人</a></li>
+									<li><a href="/search/list">运动健身</a></li>
+									<li><a href="/search/list">亲子</a></li>
+									<li><a href="/search/list">结婚</a></li>
+									<li><a href="/search/list">购物</a></li>
+									<li><a href="/search/list">宠物</a></li>
+									<li><a href="/search/list">生活服务</a></li>
+									<li><a href="/search/list">教育培训</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">统计年鉴</a></li>
+									<li><a href="/search/list">语音</a></li>
+									<li><a href="/search/list">图像</a></li>
+									<li><a href="/search/list">新闻预料</a></li>
+									<li><a href="/search/list">科研文献</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="line-content">
+							<h3>热门标签</h3>
+							<div class="row m-t-xs hot-title">
+								<ul>
+									<li><a href="/search/list">歌曲</a></li>
+									<li><a href="/search/list">图书</a></li>
+									<li><a href="/search/list">娱乐</a></li>
+									<li><a href="/search/list">菜谱</a></li>
+									<li><a href="/search/list">电话号码</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- 图片轮播区域 -->
+				<div class="carousel">
+					<a href="/quality_data">
+						<div class="images">
+							<!-- <img src="/assets/images/banner_03.jpg" alt=""></div> -->
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- 统计 -->
+		<div class="index-statis">
+		<div class="container">
+			<div class="row">
+				<div class="data-set f-l">
+					<i class="icon"></i>
+					数据集：
+					<span>{{res.get("dataGather")}}</span>
+					，数据总量：约
+					<span>{{res.get("dataTotal")}}</span>条
+				</div>
+				<div class="refresh-data f-r">
+					<i class="icon"></i>
+					更新时间：
+					<span>{{formattime(res.get("lastUpdateTime"), '%Y-%m-%d')}}</span>
+					更新数据：
+					<span ng-bind="vm.lastUpdateDataNum">{{res.get('lastUpdateDataNum')}}</span>条
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- 数据分类 -->
+		<div class="data-type">
+		<div class="container">
+			<div class="row">
+				<a href="/quality_data">
+					<div class="jingpin-data data-type-block">
+						<div class="row">
+							<svg fill="#ffffff" style="width:68px;height:52px;">
+								<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#champion"></use>
+							</svg>
+						</div>
+						<span class="text">精品数据</span>
+					</div>
+				</a>
+				<a href="/quality_data?tag=1000">
+					<div class="weibo-data data-type-block">
+						<div class="row">
+							<svg fill="#8f52f9" style="width:68px;height:65px;">
+								<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#weibo"></use>
+							</svg>
+						</div>
+						<span class="text">微博数据</span>
+					</div>
+				</a>
+				<a href="/quality_data?tag=2001">
+					<div class="tianmao-data data-type-block">
+						<div class="row">
+							<svg fill="#ff832c" style="width:68px;height:65px">
+								<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#shopping"></use>
+							</svg>
+						</div>
+						<span class="text">天猫数据</span>
+					</div>
+				</a>
+				<a href="/quality_data?tag=6005">
+					<div class="estate-data data-type-block">
+						<div class="row">
+							<svg fill="#00994f" style="width:68px;height:65px">
+								<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#building"></use>
+							</svg>
+						</div>
+						<span class="text">本地生活</span>
+					</div>
+				</a>
+				<a href="/quality_data?tag=3">
+					<div class="provice-data data-type-block">
+						<div class="row">
+							<svg fill="#0081e8" style="width:68px;height:65px">
+								<use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#briefcase"></use>
+							</svg>
+						</div>
+						<span class="text">企业数据</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		</div>
+
+		<!-- 数据排行 -->
+		<div class="wrap bg-white">
+			<div class="container">
+				<div class="row data-ranking">
+					<div class="rank-info-block f-l rank-info-blue">
+						<div class="rank-head">
+							<div class="rank-title">
+								<span>热门数据排行</span>
+							</div>
+		                    <a href="/search/list" class="more">更多&gt;&gt;</a>
+						</div>
+						<div class="rank-body">
+							<ul>
+								{% for i in res.get("hotRank") %}
+								<li class="list-li">
+									<span>1</span>
+									<a href="/search/detail">{{i.get("title")}}</a>
+									<div><span>{{i.get("hits")}}</span>浏览</div>
+								</li>
+								{% end %}
+
+
+							</ul>
+						</div>
+					</div>
+					<div class="rank-info-block f-r rank-info-green">
+						<div class="rank-head">
+							<div class="rank-title">
+								<span>免费下载排行</span>
+							</div>
+							<a href="/search/list" class="more">更多&gt;&gt;</a>
+						</div>
+						<div class="rank-body">
+							<ul>
+								{% for i in res.get('attachmentRank') %}
+								<li class="list-li">
+									<span>1</span>
+			                        <a href="/search/detail">{{i.get('title')}}</a>
+									<div><span>{{i.get('attachmentDown')}}</span>下载</div>
+								</li>
+								{% end %}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 页面底部 -->
+	<footer>
+		<div class="footer bg-default">
+			<div class="content">
+				<div class="aboutus">
+					<h1>关于我们</h1>
+					<ul>
+						<li><a href="/about_us">数据淘简介</a></li>
+						<li><a href="/about_us#company">公司简介</a></li>
+					</ul>
+
+				</div>
+				<div class="operate-guide">
+					<h1>操作指引</h1>
+					<ul>
+						<li><a href="help_center/1">注册/登录</a></li>
+						<li><a href="help_center/2">发布数据</a></li>
+						<li><a href="help_center/3">数据定制</a></li>
+					</ul>
+				</div>
+				<div class="connect-us">
+					<h1>联系我们</h1>
+					<ul>
+						<li><a href="#">电话：028-61556366</a></li>
+						<li><a href="#">邮箱：service@datataotao.com</a></li>
+					</ul>
+				</div>
+				<div class="empty">&nbsp;</div>
+				<div class="microblog">
+					<h1>官方微博</h1>
+					<div class="pic">
+						<img src="/assets/images/wb_code.png" alt="">
+					</div>
+				</div>
+				<div class="wechat">
+					<h1>微信公众号</h1>
+					<div class="pic">
+						<img src="/assets/images/wx_code.jpg" alt="">
+					</div>
+				</div>
+				<div class="copyRight">
+                    <p>成都知数科技有限公司版权所有&nbsp;&nbsp;14028253号-4</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+	<header>
+		<div class="navbar">			
+			<!-- 头部列表部分 -->
+			<!-- <div class="header-navbar" ng-include="'header/header-navbar.html'"></div> -->
+			<!-- 头部-搜索部分 -->
+			<div class="header-searchs" ng-include="'header/header-search.html'"></div>	
+		</div>
+	</header>
+	
+	<div class="wrap">
+		<!-- <div ng-include="'body/index-body.html'"></div> -->
+		<!-- <div ng-include="'body/detail.html'"></div> -->
+		<div ng-include="'body/signin.html'"></div>
+		<!-- <div ng-include="'body/register.html'"></div> -->
+		<!-- <div ng-include="'body/data-diy-list.html'"></div> -->
+		<!-- <div ng-include="'body/detail2.html'"></div> -->
+		<!-- <div ng-include="'body/list.html'"></div> -->
+	</div>
+
+<!-- 	<div class="wrap">	
+		主要内容部分
+		<div class="" ng-include="'contents.html'"></div>
+	</div>
+	 -->
+	<!-- 页面底部 -->
+	<footer>
+		<div class="footer bg-default" ng-include="'footer/footer.html'"></div>
+	</footer>
+</body>
+</html>

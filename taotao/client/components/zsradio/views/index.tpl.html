@@ -1,0 +1,8 @@
+<ul class="zs-radio-div-ul">
+    <li class="zs-radio-div-li" ng-repeat="option in options">
+        <div class="zs-radio-circle-blank" ng-click="select( $index )">
+            <div class="zs-radio-circle-bg" ng-class="{ 'zs-radio-bg' : ( selectedIndex === $index ) }"></div>
+        </div>
+        <span ng-bind="option.name"></span>
+    </li>
+</ul>

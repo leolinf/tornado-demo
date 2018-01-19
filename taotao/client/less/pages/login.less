@@ -1,0 +1,220 @@
+	@import "../base/variables";
+@import "../base/font";
+.login-body{
+	position: relative;
+	width: 100%;
+	background-image: url(/assets/images/login_bg.png);
+	// background-size: 100% 100%;
+	
+	height: 618px;
+
+	background-position: center center;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	
+	/* 登录内容部分 */
+	.login-content{
+		position: relative;
+		float: right;
+		margin: 158px 80px 158px 0;
+		padding: 30px;
+		width: 360px;
+		background-color: @white;
+		box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.3);
+		.title{
+			font-family: @songti;
+			font-weight: 600;
+			width: 100%;
+			text-align: center;
+		}
+	}
+	a{
+		text-decoration: none;
+		color: @blue;
+	}
+	input[type='text'],input[type='password']{
+		width: 258px;
+		background-color: #eaf6fe !important;
+	}
+	.verify-group{
+		float: left;
+		width: 190px;
+	}
+	input.verify-input{
+		width: 148px !important;
+		background-color: #eaf6fe !important;
+	}
+	/* 验证码按钮 */
+	.verify-btn{
+		width: 100px;
+		height: 40px;
+		border-radius: 4px;
+		line-height: 40px;
+		text-align: center;
+		float: right;
+	}
+	.forget-psw{
+		float: left;
+		font-size: 12px;
+		color: @blue-deep !important;
+	}
+	.register{
+		float: right;
+		font-size: 12px;
+		color: @blue-deep !important;
+	}
+	.login-btn{
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		border-radius: 4px;
+		.songti;
+	}
+
+	/* 注册内容部分 */
+	.register-content{
+		position: relative;
+		float: right;
+		margin: 94px 80px 94px 0;
+		padding: 30px;
+		width: 360px;
+		background-color: @white;
+		.title{
+			width: 100%;
+			// text-align: center;
+		}
+	}
+}
+.register-title{
+	.songti;
+	font-size: 16px;
+	font-weight: 600;
+}
+.gotoLogin{
+	font-size: 12px;
+}
+
+//用户协议
+.user-agreement{
+	margin-bottom: 100px;
+}
+.agreeProtocol-form-group{
+	line-height: 20px;
+}
+.forget-password{
+	padding: 30px;
+}
+.user-agreement{
+	padding: 40px;
+}
+.user-agreement,.forget-password{
+	font-family: @songti;
+	line-height: 24px;
+	font-size: 14px;
+	color: @black;
+	margin-top: 40px;
+	
+	background-color: @white;
+	.ruleContent-title{
+		color: rgb(0, 146, 255);
+		font-size: 14px;
+		font-family: @songti;
+		font-weight: 600;
+	}
+}
+
+.forget-password{
+	margin-bottom: 40px;
+}
+/* 忘记密码 */
+.forget-password{
+	.step-all{
+		position: relative;
+		width: 800px;
+		height: 75px;
+		margin: 0 auto;
+		.line-all{
+			position: absolute;
+			height: 4px;
+			width: 100%;
+			background-color: @gray;
+			color: @gray;
+		}
+		.check-step{
+			position: absolute;
+			text-align: center;
+			top: -7px;
+			span{
+				position: relative;
+				display: inline-block;
+				z-index: 5;
+			}
+			.circle{
+				width: 20px;
+				height: 20px;
+				background-color: @gray;
+			}
+		}
+		.step-1{
+			left: 0;
+			width: 288px;
+			span,p{
+				margin-left: 50px;				
+			}
+		}
+		.step-2{
+			left: 288px;
+			width: 224px;
+		}
+		.step-3{
+			left: 512px;
+			width: 288px;
+			span,p{
+				margin-right: 50px;
+			}
+		}
+		.success{
+			.line{
+				position: absolute;
+				top: 7px;
+				width: 100%;
+				height: 4px;
+				background-color: @green;
+				z-index: 1;				
+			}
+			span{
+				background-color: @green !important;
+			}
+			p{
+				color: @green;
+			}
+		}
+	}
+
+	/* 编辑区域 */
+	.edit-block{
+		margin: 100px auto 0;
+		width:400px;
+		text-align: center;
+		.verify-group{
+			float: left;
+			width: 222px;
+		}
+		input.verify-input{
+			width: 180px !important;
+		}
+		/* 验证码按钮 */
+		.verify-btn{
+			width: 160px;
+			height: 40px;
+			float: right;
+		}
+		.login-btn{
+			margin: 40px auto 170px;
+		}
+	}
+	.next-step{
+		margin: 60px 0 70px;
+	}
+}

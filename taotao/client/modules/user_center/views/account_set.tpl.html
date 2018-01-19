@@ -1,0 +1,78 @@
+<!-- 右边基本信息部分 -->
+<div class="info-content">
+    <!-- 账号信息 -->
+    <div class="info-block account-info">
+        <h3>账号信息</h3>
+        <div class="m-t-sm">
+            <span class="name">账号</span>
+            <span class="value" ng-bind="vm.accountInfo.username"></span>
+        </div>
+        <div class="m-t-sm">
+            <span class="name">登录密码</span>
+            <span class="value text-gray">安全性高的密码可以使账号更安全，建议您定期更换密码</span>
+            <a href="/user_center/change_password" class="m-l-lg">修改</a>
+        </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="info-block base-info-set m-t-sm">
+        <div class="row"><h3>基本信息</h3></div>
+        <div class="row careful">
+            为保证他人能够联系到您，请务必填写真实信息
+        </div>
+        <div class="row m-t-sm">
+            <form action="">
+                <div class="form-group m-t-xs">
+                    <label for="" class="control-label col-2">单位</label>
+                    <div class="col-5">
+                        <!--
+                        <input class="" type="radio" name="" checked="">个人
+                        <input class="m-l-xlg" type="radio" name="">公司                        
+                        -->
+                        <div zs-radio options="vm.customerTypeArr" selectedvalue="vm.selectedCustomerType"></div>
+                    </div>
+                </div>
+                <div class="form-group m-t-xs" ng-if="vm.selectedCustomerType === vm.customerTypeObj.company.value">
+                    <label for="" class="control-label col-2">公司名称</label>
+                    <div class="col-5">
+                        <input type="text" class="form-control" placeholder="请输入公司名称" ng-model="vm.accountInfo.company">                                                
+                    </div>
+                </div>
+                <div class="form-group m-t-xs" ng-if="vm.selectedCustomerType === vm.customerTypeObj.personal.value">
+                    <label for="" class="control-label col-2">个人姓名</label>
+                    <div class="col-5">
+                        <input type="text" class="form-control" placeholder="请输入个人姓名" ng-model="vm.accountInfo.nickname">
+                    </div>
+                </div>
+                <div class="form-group m-t-xs">
+                    <label for="" class="control-label col-2">联系方式</label>
+                    <div>
+                        <!--
+                        <input class="" type="radio" name="contact-way">手机
+                        <input class="m-l-xlg" type="radio" name="contact-way" checked="">座机
+                        <input class="m-l-xlg" type="radio" name="contact-way">邮箱
+                        <input class="m-l-xlg" type="radio" name="contact-way">QQ
+                        -->
+                        <div zs-radio options="vm.contactTypeArr" selectedvalue="vm.selectedContactType"></div>
+                    </div>
+                </div>
+                <div class="form-group m-t-xs">
+                    <label for="" class="control-label col-2" ng-if="vm.selectedContactType === vm.contactTypeObj.phone.value">座机号</label>
+                    <label for="" class="control-label col-2" ng-if="vm.selectedContactType === vm.contactTypeObj.mobilePhone.value">手机号</label>
+                    <label for="" class="control-label col-2" ng-if="vm.selectedContactType === vm.contactTypeObj.email.value">邮箱</label>
+                    <label for="" class="control-label col-2" ng-if="vm.selectedContactType === vm.contactTypeObj.qq.value">QQ</label>
+                    <div class="col-5">                        
+                        <input type="text" class="form-control" placeholder="请输入正确的联系方式" ng-model="vm.accountInfo.contact">
+                        <p class="error"><span ng-bind="vm.error.contact"></span></p>
+                    </div>
+                </div>
+                <div class="form-group m-t-sm m-b-xs">
+                    <label for="" class="control-label col-2">&nbsp;</label>
+                    <div class="col-5">
+                        <button type="button" class="btn btn-save btn-blue" ng-click="vm.setAccount();">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

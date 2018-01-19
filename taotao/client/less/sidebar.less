@@ -1,0 +1,152 @@
+@import "base/variables";
+@import "base/font";
+@import "base/theme";
+@import "base/padding";
+@import "base/margin";
+@import "normalize";
+@import "base/theme";
+
+
+//列表左边部分
+.sidebar{
+	display: table-cell;
+	vertical-align: top;
+	width: 254px;
+	margin: 0 10px;	
+	.widget{
+		background-color: @white;
+		.title{
+			height: 56px;
+			line-height: 56px;
+			padding-left: 20px;
+			.microyahei;
+			font-size: 20px;
+			span{
+				margin-left: 30px;
+			}
+		}
+		.li{
+			color: @gray !important;
+			>a{
+				font-size: 14px;
+				color: @gray !important;
+				&:hover{
+					color: @orange !important;
+					text-decoration: underline;
+				}
+			}			
+		}
+		.content{
+			>ul{
+				>li{
+					width: 100%;
+					line-height: 56px;					
+					border-bottom: 1px solid rgb(220, 220, 220);
+					a{
+						padding-left: 30px;
+						text-decoration: none;
+						font-size: 16px;
+						color: @black;
+					}
+					ul{
+						a{
+							font-size: 14px;
+						}
+					}
+				}
+				.active{
+					background-color: rgba(23, 130, 237, 0.9);
+					>a{
+						color: @white !important;
+					}
+				}
+			}
+		}
+		.sub-ul{
+			width: 100%;
+			.clearfix;
+			background-color: @white;
+			padding: 20px;
+			line-height: 30px !important;
+			li{
+				line-height: 30px !important;
+				&:after{
+					content: "|"
+				}
+				.split-line{
+					font-size: 14px;
+					color: @gray;
+					.songti;
+				}
+				display: inline-block;
+				padding: 0 3px;		
+				margin-top: 5px;	
+				a{
+					display: inline-block !important;
+					padding: 0 5px !important;
+					margin: 0;
+					color: @gray;
+					.songti;
+					font-size: 14px;
+					text-align: center;
+					// border-right: 1px @gray solid;
+				}
+			}
+		}
+
+		.rank-lis{
+			padding: 20px;
+			li{
+				display: block;
+				width: 200px !important;
+				line-height: 40px !important;
+				.ellipsis;
+				.clearfix;
+				&:nth-child(1){
+					// margin-top: 20px;
+					span{						
+						background-color: @orange;
+					}
+				}
+
+				&:nth-child(2){
+					span{						
+						background-color: @green;
+					}
+				}
+				&:nth-child(3){
+					span{						
+						background-color: @blue;
+					}
+				}
+				border: none !important;
+				span{
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					background-color: rgb(200, 200, 200);
+					color: @white;
+					line-height: 20px;
+					text-align: center;
+					border-radius: 2px;					
+				}
+				a{
+					display: inline;
+					text-decoration: none;
+					color: @black;
+					.songti;
+					line-height: 32px;
+					padding: 0 !important;
+					margin-left: 10px;
+					width: 180px;
+					.ellipsis;
+					font-size: 14px !important;
+				}
+			}
+		}
+	}
+}
+
+
+
+

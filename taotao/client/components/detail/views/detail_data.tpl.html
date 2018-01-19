@@ -1,0 +1,148 @@
+<!-- 查看详细信息 -->
+<!-- <div class="wrap p-t-lg bg-blue-shallow"> -->
+<div class="wrap bg-grid">
+	<div class="prompt-info bg-blue-translucent" ng-if="$root.isLogin && vm.isFromMyData && vm.detail.reviewStatus === vm.reviewStatusObj.readForReview.value ">
+		定制正在审核中，请耐心等待！
+	</div>
+	<div class="container m-t-sm">
+		<div class="row details">			
+			<div class="main-content">
+				<div class="row">
+					<!-- 当前所在位置 -->
+					<div class="position">
+						<ul>
+							<li><a href="/">首页</a></li>
+							<li><a href="/search/list" ng-bind="vm.categoryName"></a></li>
+							<li ng-bind="vm.detail.title"></li>
+						</ul>
+					</div> </div>
+
+				<!-- 详情信息部分 -->
+				<div class="row detail-content m-t-sm">
+					<div class="row">
+						<div class="detail-title" ng-bind="vm.detail.title"></div>						
+					</div>
+					<div class="row detail-baseInfo m-t-sm">
+						<div class="col-9 baseInfo">
+							<div class="row text-gray">
+								<span class="special-data" ng-if="vm.detail.comeFrom === vm.dataComefromObj.exclusive.value">独家数据</span>
+								<span class="can-download" ng-if="vm.detail.hasAttachment">可下载</span>
+                                <span>分类：{{ vm.categoryName }}</span><span>|</span>
+                                <span>格式：{{ vm.dataFormatName }}</span><span>|</span>
+                                <span>浏览：{{ vm.detail.hits }}</span><span>|</span>
+                                <span ng-if="vm.detail.releaseTime !== ''">发布：{{ vm.detail.releaseTime*1000 | date : 'yyyy-MM-dd' }}</span><span ng-if="vm.detail.releaseTime === ''">发布：</span><span ng-if="vm.detail.dataFormat !== vm.dataFormatObj.api.value">|</span>
+                                <span ng-bind="vm.dataSizeOrRows" ng-if="vm.detail.dataFormat !== vm.dataFormatObj.api.value"></span>
+							</div>
+							<div class="row m-t-sm">
+								<span>价格：</span>
+                                <!--
+                                <span class="price" ng-bind="vm.detail.cost" ng-if="vm.detail.cost && vm.detail.cost !== '' && vm.detail.comeFrom !== vm.dataComefromObj.exclusive.value"></span>
+                                <span class="price" ng-bind="vm.detail.cost + '元'" ng-if="vm.detail.comeFrom === vm.dataComefromObj.exclusive.value && vm.detail.priceType === vm.priceTypeObj.charge.value"></span>
+                                <span class="price" ng-bind="'免费'" ng-if="vm.detail.cost !== '' && vm.detail.comeFrom === vm.dataComefromObj.exclusive.value && vm.detail.priceType === vm.priceTypeObj.free.value"></span>
+                                <span class="price" ng-bind="'面议'" ng-if="vm.detail.cost !== '' && vm.detail.comeFrom === vm.dataComefromObj.exclusive.value && vm.detail.priceType === vm.priceTypeObj.discuss.value"></span>
+                                <span class="price" ng-if="vm.detail.priceType === vm.priceTypeObj.charge.value && vm.detail.cost === ''">未知</span>
+                                -->
+                                <span class="price" ng-bind="vm.detail.cost"></span>
+							</div>
+							<div class="row m-t-sm" ng-if="vm.detail.comeFrom !== vm.dataComefromObj.thirdParty.value">
+								<span>联&nbsp;系&nbsp;人：</span>
+                                <span class="contact-person" ng-bind="vm.detail.linkman"></span>
+							</div>
+							<div class="row m-t-sm"  ng-if="vm.detail.comeFrom !== vm.dataComefromObj.thirdParty.value">
+								<span>联系方式：</span><span class="contact-way" ng-bind="vm.detail.contact"></span>
+							</div>
+
+							<div class="row m-t-sm"  ng-if="vm.detail.comeFrom === vm.dataComefromObj.thirdParty.value">
+								<span>数据来源：</span>
+                                <span class="contact-person" ng-bind="vm.detail.linkman"></span>
+							</div>
+							<div class="row m-t-sm"  ng-if="vm.detail.comeFrom === vm.dataComefromObj.thirdParty.value">
+								<span>数据链接：</span><span class="contact-way"><a href='{{vm.detail.sourceUrl}}' target="_blank" ng-bind="vm.detail.sourceUrl"></a></span>
+							</div>
+						</div>
+						<!-- 右边按钮组 -->
+						<div class="col-3 buttons">
+							<div class="row" ng-if="!vm.isFromMyData">
+								<button type="button" class="btn btn-orange" ng-if="!$root.isLogin || ($root.isLogin && !vm.detail.isFavored )" ng-click="vm.favorData( vm.favorObj.favor.value );">收藏数据</button>								
+								<button type="button" class="btn btn-orange" ng-if="$root.isLogin && vm.detail.isFavored" ng-click="vm.favorData( vm.favorObj.notFavor.value );">取消收藏</button>								
+							</div>						
+							<div class="row" ng-if="$root.isLogin && vm.isFromMyData">
+								<button type="button" class="btn btn-orange">收藏数据</button>								
+							</div>						
+							</p>
+							<div class="row m-t-sm">
+								<button type="button" class="btn btn-green" ng-if="vm.detail.hasAttachment" ng-click="vm.downloadData()">下载数据</button>								
+							</div>
+                            <p ng-if="vm.detail.attachmentDown > 0"><span>（已下载{{ vm.detail.attachmentDown }}次）</span></p>
+						</div>
+					</div>
+					<!-- 数据简介 -->
+					<div class="row m-t-lg"><h3>数据简介</h3></div>
+					<div class="row m-t-sm data-info" ng-bind="vm.detail.intro">
+						数据说明数据简介本数据抓取整个自全国企业信用网站数据说明数据简介本数据抓取整个自全国企业信用网站数据说明数据简介本数据抓取整个自全国企业信用网站数据说明数据简介本数据抓取整个自全国企业信用网站数据说明数据简介本数据抓取整个自全国企业信用网站数据说明数据简介本数据抓取整个自全国企业信用网站
+					</div>
+					<!-- 分割线 -->
+					<div class="row m-t-lg split-circle">
+						<span class="left-circle"></span><hr><span class="right-circle"></span>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="info-block">
+							<div class="info-block-head">
+								<div class="tabs">
+									<div class="tab" ng-if="vm.detail.dataFormat === vm.dataFormatObj.api.value" ng-class="{'active':vm.tabActive !== vm.reback.value}" ng-click="vm.changeTab(vm.dataDetailType.apiInfo.value)">接口信息</div>
+									<!-- <div class="tab" ng-if="vm.detail.dataFormat !== vm.dataFormatObj.api.value,vm.detail.displayType !== vm.displayTypeObj.noApi.value" ng-class="{'active':vm.tabActive === vm.dataDetailType.dataDetail.value}" ng-click="vm.changeTab(vm.dataDetailType.dataDetail.value)">数据详情</div> -->
+									<!-- <div class="tab" ng-if="vm.detail.dataFormat !== vm.dataFormatObj.api.value,vm.detail.displayType !== vm.displayTypeObj.noApi.value" ng-class="{'active':vm.tabActive === vm.dataDetailType.rebackExample.value}" ng-click="vm.changeTab(vm.dataDetailType.rebackExample.value)">返回样例</div> -->
+									<div class="tab active" ng-if="vm.detail.dataFormat !== vm.dataFormatObj.api.value" ng-class="{'active':vm.tabActive === vm.dataDetailType.apiInfo.value}" ng-click="vm.changeTab(vm.dataDetailType.apiInfo.value)">数据样例</div>
+									<div class="tab" ng-if="vm.detail.dataFormat === vm.dataFormatObj.api.value" ng-class="{'active':vm.tabActive === vm.reback.value}" ng-click="vm.changeTab(vm.reback.value)">返回样例</div>
+								</div>
+							</div>
+							<div class="info-block-body" ng-if="vm.detail.intro !== '' && vm.displayTypeObj.dataMore.value !== vm.detail.displayType" ng-class="{'display-baidu-api':vm.displayTypeObj.baiduApi.value === vm.detail.displayType,
+																	'display-data-tang-api':vm.displayTypeObj.dataTangApi.value === vm.detail.displayType,
+																	'display-data-tang':vm.displayTypeObj.datatang.value === vm.detail.displayType,
+																	'display-jdwx':vm.displayTypeObj.jdwx.value === vm.detail.displayType,
+																	'display-weibo':vm.displayTypeObj.weibo.value === vm.detail.displayType,
+																	'display-juhe':vm.displayTypeObj.juhe.value === vm.detail.displayType,
+																	'display-gxyy':vm.displayTypeObj.gxyy.value === vm.detail.displayType,
+																	'display-datataotao':vm.displayTypeObj.noApi.value === vm.detail.displayType}" style="width:1140px;overflow-x:scroll;">
+							<!-- <div class="info-block-body"> -->
+								<p ng-bind-html="vm.detail.interface" ng-if="vm.detail.dataFormat === vm.dataFormatObj.api.value && vm.tabActive !== vm.reback.value"></p>
+								<p ng-bind-html="vm.detail.sample" ng-if="vm.detail.dataFormat === vm.dataFormatObj.api.value && vm.tabActive === vm.reback.value"></p>
+								<p ng-bind-html="vm.detail.sample" ng-if="vm.detail.dataFormat !== vm.dataFormatObj.api.value"></p>
+							</div>
+                            <div class="info-block-body display-data-more" ng-if="vm.detail.intro !== '' && vm.displayTypeObj.dataMore.value === vm.detail.displayType">
+                                <div class='text-left' style="overflow-x:auto">
+                                    <div class='jsontable'>
+                                        <table>
+                                            <tr >
+                                                <th ng-repeat="(key,value) in vm.detail.sample[0]">{{key}}</th>
+                                            </tr>
+                                            <tr ng-repeat="sample in vm.detail.sample track by $index">
+                                                <td ng-repeat="(key, value) in sample" ng-bind="value" title="{{ value }}"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="info-block-body" ng-if="vm.detail.intro === ''">
+							<!-- <div class="info-block-body"> -->
+								<p>暂无数据样例，请点击链接地址查看或联系</p>
+							</div>
+						</div>
+					</div>	
+					<div class="row text-center m-t-xlg m-b-xs" ng-if="$root.isLogin && vm.isFromMyData">
+						<button class="btn btn-green btn-lg m-r-lg" ng-click="vm.toEditData();">编辑</button>
+						<button class="btn btn-red btn-lg" ng-click="vm.deleteData();">删除</button>
+					</div>			
+				</div>	
+
+				<!-- 说明 -->
+				<div class="row explain m-t-sm hide">
+						本数据由用户上传或公开渠道发布，版权归发布者所有，如无意中侵犯了您的版权，请发送邮件至service@datatao.com，并提供相应证明，本站将在5个工作日内进行评估和解决。
+				</div>			
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<div class="popver">
+    <div class="poplayertitle">
+        <div class="title">请验证图片</div>
+        <div class="cancle" ng-click="vm.cancel();">x</div>
+    </div>
+    <div class="pop-content">
+        <div class="row m-t-lg ">请输入图中的字母与数字,以获取验证码</div>
+        <div class="row m-t-lg vercode-img-change">
+            <img class="vercode-img" src="{{vm.verifycodeImg}}" alt="" >
+            <span ng-click="vm.refreshVerifycodeImg()" class="m-l-md vercode-change">看不清?<br>换一张</span>
+        </div>
+
+        <div class="row m-t-lg">
+            <div class="vercode-input-group">
+                <span class="icon">
+                    <!-- <svg viewBox="64 25 17 35" width="40" height="38" fill="#ffffff"><use xlink:href="/assets/icon_svgs/sprite.svg#account"></use></svg> -->
+                    <svg style="width:20px;height:20px;margin-top:10px;" fill="#ffffff"><use xlink:href="/assets/icon_svgs/symbol/svg/sprite.symbol.svg#verify"></use></svg>
+                </span>
+                <input ng-model="vm.imgVerifycode" type="text" class="ver-input" ng-class="{'border-error' : vm.showError }" placeholder="请输入字母与数字">
+            </div>
+            <p class="error animated infinite flash text-center"><span ng-if="vm.showError" ng-bind="vm.errMsg"></span></p>
+        </div>
+
+        <div class="row m-t-md m-b-lg">
+            <button ng-click="vm.ok();" class="btn btn-green btn-lg">确定</button>
+            <!-- <input ng-click="vm.cancel();" type="button" class="pop-button-no" value="取消"> -->
+        </div>
+    </div>
+</div>
